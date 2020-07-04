@@ -9,5 +9,6 @@ target 'Sunday Morning 2' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'GoogleSignIn'
 
 end

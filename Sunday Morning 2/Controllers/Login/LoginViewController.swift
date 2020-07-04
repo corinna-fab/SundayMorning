@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
 
@@ -66,9 +67,21 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     
+    private let googleLoginButton = GIDSignInButton()
+    
+    private var loginObserver: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLoginNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
 
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         // Do any additional setup after loading the view.
         view.backgroundColor = #colorLiteral(red: 0, green: 0.2304866314, blue: 0, alpha: 1)
         title = "Log In"
@@ -84,6 +97,13 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(passworldField)
         scrollView.addSubview(loginButton)
+        scrollView.addSubview(googleLoginButton)
+    }
+    
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -106,6 +126,11 @@ class LoginViewController: UIViewController {
                                    y: passworldField.bottom + 10,
                                    width: scrollView.width - 60,
                                    height: 52)
+        googleLoginButton.frame = CGRect(x: 30,
+                                         y: loginButton.bottom + 10,
+                                         width: scrollView.width - 60,
+                                         height: 52)
+        
     }
     
     @objc private func loginButtonTapped(){

@@ -186,6 +186,7 @@
 				07307E6224B0DD770033D645 /* Frameworks */,
 				07307E6324B0DD770033D645 /* Resources */,
 				5DB846D862DBE5D659E27A6D /* [CP] Embed Pods Frameworks */,
+				CA09788DCFF74266A330EAC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,6 +282,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA09788DCFF74266A330EAC1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
