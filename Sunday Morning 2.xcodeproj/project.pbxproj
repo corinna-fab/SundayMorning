@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */; };
 		07307E8D24B0DFD00033D645 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8C24B0DFD00033D645 /* ProfileViewController.swift */; };
 		07307E9024B0E5C20033D645 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8F24B0E5C20033D645 /* Extensions.swift */; };
+		07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07307E9124B106500033D645 /* GoogleService-Info.plist */; };
+		07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E9324B1183E0033D645 /* DatabaseManager.swift */; };
+		3EBF058B49513DA8F6555303 /* Pods_Sunday_Morning_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,11 @@
 		07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		07307E8C24B0DFD00033D645 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		07307E8F24B0E5C20033D645 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		07307E9124B106500033D645 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07307E9324B1183E0033D645 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.debug.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.debug.xcconfig"; sourceTree = "<group>"; };
+		5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunday_Morning_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.release.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EBF058B49513DA8F6555303 /* Pods_Sunday_Morning_2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +65,8 @@
 			children = (
 				07307E6724B0DD770033D645 /* Sunday Morning 2 */,
 				07307E6624B0DD770033D645 /* Products */,
+				99BA84F954BB971C850C25C6 /* Pods */,
+				57A7272DD3E5CC8EE084041C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +81,7 @@
 		07307E6724B0DD770033D645 /* Sunday Morning 2 */ = {
 			isa = PBXGroup;
 			children = (
+				07307E9124B106500033D645 /* GoogleService-Info.plist */,
 				07307E8024B0DE830033D645 /* ViewModels */,
 				07307E7F24B0DE6B0033D645 /* Resources */,
 				07307E7E24B0DE600033D645 /* Models */,
@@ -115,6 +127,7 @@
 				07307E6824B0DD770033D645 /* AppDelegate.swift */,
 				07307E6A24B0DD770033D645 /* SceneDelegate.swift */,
 				07307E8F24B0E5C20033D645 /* Extensions.swift */,
+				07307E9324B1183E0033D645 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -144,6 +157,23 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		57A7272DD3E5CC8EE084041C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99BA84F954BB971C850C25C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */,
+				A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07307E7924B0DD790033D645 /* Build configuration list for PBXNativeTarget "Sunday Morning 2" */;
 			buildPhases = (
+				4627D6AA5FE3C6D76E13EB54 /* [CP] Check Pods Manifest.lock */,
 				07307E6124B0DD770033D645 /* Sources */,
 				07307E6224B0DD770033D645 /* Frameworks */,
 				07307E6324B0DD770033D645 /* Resources */,
+				5DB846D862DBE5D659E27A6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,10 +237,53 @@
 				07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */,
 				07307E7224B0DD790033D645 /* Assets.xcassets in Resources */,
 				07307E7024B0DD770033D645 /* Main.storyboard in Resources */,
+				07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4627D6AA5FE3C6D76E13EB54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sunday Morning 2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DB846D862DBE5D659E27A6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07307E6124B0DD770033D645 /* Sources */ = {
@@ -216,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */,
+				07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */,
 				07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */,
 				07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */,
 				07307E6D24B0DD770033D645 /* ConversationsViewController.swift in Sources */,
@@ -366,6 +442,7 @@
 		};
 		07307E7A24B0DD790033D645 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +461,7 @@
 		};
 		07307E7B24B0DD790033D645 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

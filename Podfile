@@ -6,5 +6,8 @@ target 'Sunday Morning 2' do
   use_frameworks!
 
   # Pods for Sunday Morning 2
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
 
 end

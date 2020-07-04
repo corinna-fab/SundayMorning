@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -183,10 +184,33 @@ class RegisterViewController: UIViewController {
             return
         }
         // Firebase login
+        
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            guard !exists else {
+                //User already exists
+                strongSelf.alertUserLoginError(message: "Looks like a user has already been created with that email address")
+                return
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResults, error in
+                guard authResults != nil, error == nil else {
+                    print("Error creating user")
+                    return
+                }
+                //This is the database entry
+                DatabaseManager.shared.insertUser(with: BookAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+        })
     }
     
-    func alertUserLoginError(){
-        let alert = UIAlertController(title: "Whoops", message: "Please enter all information to create a new account", preferredStyle: .alert)
+    func alertUserLoginError(message: String = "Please enter all information to create a new account"){
+        let alert = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
