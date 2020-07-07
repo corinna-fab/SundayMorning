@@ -10,18 +10,76 @@
         <!--Books-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ConversationsViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AllSavedBooksViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-Ug-oye">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bookListCell" rowHeight="139" id="un7-7R-0eC" customClass="CustomBookListTableViewCell" customModule="Sunday_Morning_2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="139"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="un7-7R-0eC" id="h9c-ng-j6N">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kK1-db-Wm6">
+                                                    <rect key="frame" x="132" y="11" width="88.5" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkX-Fe-zVg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="52.5" height="31.5"/>
+                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by The Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mef-ul-teF">
+                                                            <rect key="frame" x="0.0" y="31.5" width="88.5" height="18.5"/>
+                                                            <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-f8-gsc" userLabel="BookCover">
+                                                    <rect key="frame" x="20" y="19" width="92" height="101"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kK1-db-Wm6" firstAttribute="leading" secondItem="O5y-f8-gsc" secondAttribute="trailing" constant="20" id="GKn-a0-UxS"/>
+                                                <constraint firstItem="O5y-f8-gsc" firstAttribute="leading" secondItem="h9c-ng-j6N" secondAttribute="leadingMargin" id="Q5r-o3-gDo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kK1-db-Wm6" secondAttribute="trailing" constant="173.5" id="Xqp-sb-g2M"/>
+                                                <constraint firstItem="O5y-f8-gsc" firstAttribute="top" secondItem="h9c-ng-j6N" secondAttribute="topMargin" constant="8" id="h4A-HX-OXE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="O5y-f8-gsc" secondAttribute="bottom" constant="8" id="xIN-Kl-Mjq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bookAuthor" destination="mef-ul-teF" id="VHy-R9-oVq"/>
+                                            <outlet property="bookImageView" destination="O5y-f8-gsc" id="xiB-cu-oxO"/>
+                                            <outlet property="bookTitle" destination="ZkX-Fe-zVg" id="qmx-Op-sg8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="o5l-On-F0V"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fId-gH-5qE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Books" id="nLw-8t-zqJ"/>
+                    <connections>
+                        <outlet property="mainTableView" destination="YhX-Ug-oye" id="5c4-ct-PML"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="871"/>
+            <point key="canvasLocation" x="137.68115942028987" y="870.53571428571422"/>
         </scene>
         <!--Profile-->
         <scene sceneID="HP6-x5-ZvZ">
@@ -61,22 +119,24 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Om-LF-hgm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.45529659610000001" green="0.58708466680000004" blue="0.4456742729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.050480276349999999" green="0.22606712579999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="ohq-gD-5YW" kind="relationship" relationship="viewControllers" id="j4H-La-OQg"/>
                         <segue destination="56P-Ez-JEJ" kind="relationship" relationship="viewControllers" id="gvW-3d-Zrt"/>
+                        <segue destination="VXI-ba-HBE" kind="relationship" relationship="viewControllers" id="fSm-el-Zm3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1k8-y2-A7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="-781"/>
+            <point key="canvasLocation" x="138" y="-786"/>
         </scene>
         <!--Books-->
         <scene sceneID="9Sk-m9-30D">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ohq-gD-5YW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Books" id="Tdf-rd-LkT"/>
+                    <tabBarItem key="tabBarItem" title="Books" image="book.circle" catalog="system" selectedImage="book.circle" id="Tdf-rd-LkT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dfa-T9-S9p">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -95,7 +155,7 @@
         <scene sceneID="jAK-sP-G1r">
             <objects>
                 <navigationController id="56P-Ez-JEJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="xAG-j0-bnD"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" selectedImage="person.fill" id="xAG-j0-bnD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="KDH-1g-BJm">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -108,5 +168,156 @@
             </objects>
             <point key="canvasLocation" x="986" y="111"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="b0g-ly-deX">
+            <objects>
+                <viewController id="6OD-Kd-8IA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sEt-pj-cYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mg6-Lg-hYS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.45529659610000001" green="0.58708466680000004" blue="0.4456742729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4eR-Dh-8Gf" firstAttribute="bottom" secondItem="mg6-Lg-hYS" secondAttribute="bottom" id="2xb-aq-AR7"/>
+                            <constraint firstItem="mg6-Lg-hYS" firstAttribute="leading" secondItem="4eR-Dh-8Gf" secondAttribute="leading" id="7ZT-Fe-NNd"/>
+                            <constraint firstItem="4eR-Dh-8Gf" firstAttribute="trailing" secondItem="mg6-Lg-hYS" secondAttribute="trailing" id="GRd-j6-ENY"/>
+                            <constraint firstItem="mg6-Lg-hYS" firstAttribute="top" secondItem="4eR-Dh-8Gf" secondAttribute="top" id="KcJ-fj-vub"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4eR-Dh-8Gf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2uM-eT-iJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="1607"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="RHT-4t-2x8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VXI-ba-HBE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="uRq-Vr-n4T"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Syd-ho-fFB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IdR-d8-Ngi" kind="relationship" relationship="rootViewController" id="aR1-Is-6hS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x27-a4-bVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-674" y="110"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="tUe-P7-Ti0">
+            <objects>
+                <viewController id="IdR-d8-Ngi" customClass="SearchViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LVL-MR-AXC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Here" textAlignment="natural" minimumFontSize="17" id="AeX-nv-VfN">
+                                <rect key="frame" x="0.0" y="146" width="366" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eq8-g7-nXH">
+                                <rect key="frame" x="0.0" y="257" width="414" height="556"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bookSearchCell" rowHeight="120" id="oRN-hr-79r" customClass="CustomBookListTableViewCell" customModule="Sunday_Morning_2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oRN-hr-79r" id="1ye-rg-fWG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnt-cJ-VLr" userLabel="BookCover">
+                                                    <rect key="frame" x="20" y="6" width="92" height="109"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBo-p3-rPG">
+                                                    <rect key="frame" x="132" y="11" width="53" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by The Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-Xf-JQP">
+                                                    <rect key="frame" x="134" y="41" width="89" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2or-1N-MCo" userLabel="AddToListButton">
+                                                    <rect key="frame" x="356" y="48" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" red="0.45529659610000001" green="0.58708466680000004" blue="0.4456742729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="plus.app.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="addFavWithSender:" destination="IdR-d8-Ngi" eventType="touchUpInside" id="MhS-ti-8xB"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AddBooktoList" destination="2or-1N-MCo" id="rOo-vc-6bI"/>
+                                            <outlet property="bookAuthor" destination="dv3-Xf-JQP" id="MUG-HW-tkQ"/>
+                                            <outlet property="bookImageView" destination="xnt-cJ-VLr" id="C9U-cM-S5S"/>
+                                            <outlet property="bookTitle" destination="lBo-p3-rPG" id="XjA-5q-JXR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IdR-d8-Ngi" id="gIa-1p-qng"/>
+                                    <outlet property="delegate" destination="IdR-d8-Ngi" id="o5J-ac-bZf"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJT-uh-dhy">
+                                <rect key="frame" x="377" y="149" width="31" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.050480276349999999" green="0.22606712579999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchWithSender:" destination="IdR-d8-Ngi" eventType="touchUpInside" id="tp5-0T-EHh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agl-gS-aT5">
+                                <rect key="frame" x="20" y="204" width="289" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HK1-3f-Pd0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="FwN-gx-5Ip"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="AeX-nv-VfN" id="dFT-Fj-CXE"/>
+                        <outlet property="tableView" destination="Eq8-g7-nXH" id="nfr-Wc-rzi"/>
+                        <outlet property="totalResults" destination="Agl-gS-aT5" id="XPV-7l-aNC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8bu-HW-OfC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-675.36231884057975" y="870.53571428571422"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="book.circle" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+    </resources>
 </document>

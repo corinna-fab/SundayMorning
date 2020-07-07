@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		07307E6924B0DD770033D645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6824B0DD770033D645 /* AppDelegate.swift */; };
 		07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6A24B0DD770033D645 /* SceneDelegate.swift */; };
-		07307E6D24B0DD770033D645 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6C24B0DD770033D645 /* ConversationsViewController.swift */; };
+		07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */; };
 		07307E7024B0DD770033D645 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07307E6E24B0DD770033D645 /* Main.storyboard */; };
 		07307E7224B0DD790033D645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07307E7124B0DD790033D645 /* Assets.xcassets */; };
 		07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07307E7324B0DD790033D645 /* LaunchScreen.storyboard */; };
@@ -22,6 +22,16 @@
 		07307E9024B0E5C20033D645 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8F24B0E5C20033D645 /* Extensions.swift */; };
 		07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07307E9124B106500033D645 /* GoogleService-Info.plist */; };
 		07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E9324B1183E0033D645 /* DatabaseManager.swift */; };
+		07307E9624B153C20033D645 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E9524B153C20033D645 /* SearchViewController.swift */; };
+		07307E9824B154D90033D645 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E9724B154D90033D645 /* BookManager.swift */; };
+		07307E9A24B154F40033D645 /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E9924B154F40033D645 /* BookData.swift */; };
+		07307E9C24B155130033D645 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E9B24B155130033D645 /* BookModel.swift */; };
+		07307EA224B378BD0033D645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA124B378BD0033D645 /* Constants.swift */; };
+		07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */; };
+		07307EA624B3B9D40033D645 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA524B3B9D40033D645 /* Book.swift */; };
+		07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */; };
+		07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */; };
+		07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */; };
 		3EBF058B49513DA8F6555303 /* Pods_Sunday_Morning_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +39,7 @@
 		07307E6524B0DD770033D645 /* Sunday Morning 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunday Morning 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07307E6824B0DD770033D645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07307E6A24B0DD770033D645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		07307E6C24B0DD770033D645 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
+		07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSavedBooksViewController.swift; sourceTree = "<group>"; };
 		07307E6F24B0DD770033D645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07307E7124B0DD790033D645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07307E7424B0DD790033D645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +53,16 @@
 		07307E8F24B0E5C20033D645 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		07307E9124B106500033D645 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07307E9324B1183E0033D645 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		07307E9524B153C20033D645 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		07307E9724B154D90033D645 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
+		07307E9924B154F40033D645 /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
+		07307E9B24B155130033D645 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		07307EA124B378BD0033D645 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookListCellTableViewCell.swift; sourceTree = "<group>"; };
+		07307EA524B3B9D40033D645 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
+		07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataProcesser.swift; sourceTree = "<group>"; };
 		2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.debug.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.debug.xcconfig"; sourceTree = "<group>"; };
 		5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunday_Morning_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.release.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +108,7 @@
 				07307E7D24B0DE580033D645 /* Views */,
 				07307E7C24B0DE4B0033D645 /* Controllers */,
 				07307E7624B0DD790033D645 /* Info.plist */,
+				07307EA124B378BD0033D645 /* Constants.swift */,
 			);
 			path = "Sunday Morning 2";
 			sourceTree = "<group>";
@@ -95,12 +116,13 @@
 		07307E7C24B0DE4B0033D645 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				07307E6C24B0DD770033D645 /* ConversationsViewController.swift */,
+				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
 				07307E8E24B0E0910033D645 /* Login */,
 				07307E8624B0DF9B0033D645 /* PhotoViewerViewController.swift */,
 				07307E8824B0DFA40033D645 /* VideoPlayerViewController.swift */,
 				07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */,
 				07307E8C24B0DFD00033D645 /* ProfileViewController.swift */,
+				07307E9524B153C20033D645 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +139,10 @@
 		07307E7E24B0DE600033D645 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				07307E9724B154D90033D645 /* BookManager.swift */,
+				07307E9924B154F40033D645 /* BookData.swift */,
+				07307E9B24B155130033D645 /* BookModel.swift */,
+				07307EA524B3B9D40033D645 /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +154,10 @@
 				07307E6A24B0DD770033D645 /* SceneDelegate.swift */,
 				07307E8F24B0E5C20033D645 /* Extensions.swift */,
 				07307E9324B1183E0033D645 /* DatabaseManager.swift */,
+				07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */,
+				07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */,
+				07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */,
+				07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -308,14 +338,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07307E9C24B155130033D645 /* BookModel.swift in Sources */,
+				07307E9824B154D90033D645 /* BookManager.swift in Sources */,
 				07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */,
 				07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */,
 				07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */,
 				07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */,
-				07307E6D24B0DD770033D645 /* ConversationsViewController.swift in Sources */,
+				07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */,
+				07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */,
+				07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */,
+				07307EA224B378BD0033D645 /* Constants.swift in Sources */,
 				07307E8924B0DFA40033D645 /* VideoPlayerViewController.swift in Sources */,
+				07307E9624B153C20033D645 /* SearchViewController.swift in Sources */,
+				07307E9A24B154F40033D645 /* BookData.swift in Sources */,
 				07307E9024B0E5C20033D645 /* Extensions.swift in Sources */,
+				07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */,
 				07307E6924B0DD770033D645 /* AppDelegate.swift in Sources */,
+				07307EA624B3B9D40033D645 /* Book.swift in Sources */,
+				07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */,
 				07307E8D24B0DFD00033D645 /* ProfileViewController.swift in Sources */,
 				07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */,
 				07307E8724B0DF9B0033D645 /* PhotoViewerViewController.swift in Sources */,
