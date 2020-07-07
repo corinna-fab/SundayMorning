@@ -20,9 +20,12 @@ class BookDataProcessor {
 //            print(movie)
             guard let id = movie["id"] as? String,
                 let name = movie["volumeInfo"]!["title"] as? String,
-                let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/41yudIp+dmL._SX348_BO1,204,203,200_.jpg" as? String else { continue }
+                let authorArray = movie["volumeInfo"]!["authors"] as? [String],
+                let author = authorArray[0] as? String,
+                let imageArray = movie["volumeInfo"]!["imageLinks"] as? AnyObject,
+                let imageUrl = imageArray["thumbnail"] as? String else { continue }
 
-            let movieClass = Book(id: id, title: name, imageUrl: imageUrl)
+            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author)
             mappedMovies.append(movieClass)
         }
         print("This is all of them.")

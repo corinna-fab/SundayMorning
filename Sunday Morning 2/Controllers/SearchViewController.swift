@@ -169,6 +169,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return searchResults.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       // Make the first row larger to accommodate a custom cell.
+      if indexPath.row !=  nil {
+          return 125
+       }
+
+       // Use the default size for all other rows.
+       return UITableView.automaticDimension
+    }
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return "Search Results"
 //    }
@@ -192,7 +201,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //title
         moviecell.bookTitle?.text = searchResults[idx].title
         //year
-//        moviecell.bookAuthor?.text = searchResults[idx].year
+        moviecell.bookAuthor?.text = searchResults[idx].author
         // image
         displayMovieImage(idx, moviecell: moviecell)
         

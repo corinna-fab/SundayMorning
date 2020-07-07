@@ -49,9 +49,10 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
         if allBooks.count  == 0 {
             allBooks.append(Book(id: "123456",
                                  title: "Men Explain Things to Me",
-//                                 author: "Rebecca Solnit",
+                                 
 //                                 year: "2007",
-                                 imageUrl: "https://images-na.ssl-images-amazon.com/images/I/41yudIp+dmL._SX348_BO1,204,203,200_.jpg"))
+                                 imageUrl: "https://images-na.ssl-images-amazon.com/images/I/41yudIp+dmL._SX348_BO1,204,203,200_.jpg",
+                                 author: "Rebecca Solnit"))
         }
         super.viewWillAppear(animated)
     }
