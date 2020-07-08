@@ -22,3 +22,11 @@ struct VolumeInfo: Decodable {
     let authors: [String]
     let publishedDate: String
 }
+
+struct ReviewInfo: Decodable {
+    let criticReviews: CriticReviews
+}
+
+struct CriticReviews: Decodable {
+    let posneg: String
+}

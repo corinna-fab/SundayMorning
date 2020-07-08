@@ -14,8 +14,19 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
     var allBooks: [Book] = []
     @IBOutlet weak var mainTableView: UITableView!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "searchBooksSegue" {
+            let controller = segue.destination as! SearchViewController
+            controller.delegate = self
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allBooks.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 125
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,15 +57,18 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         mainTableView.reloadData()
+        super.viewWillAppear(animated)
         if allBooks.count  == 0 {
             allBooks.append(Book(id: "123456",
                                  title: "Men Explain Things to Me",
                                  
 //                                 year: "2007",
                                  imageUrl: "https://images-na.ssl-images-amazon.com/images/I/41yudIp+dmL._SX348_BO1,204,203,200_.jpg",
-                                 author: "Rebecca Solnit"))
+                                 author: "Rebecca Solnit",
+                                 description: "Men try to tell Rebecca Solnit things and it doesn't end well.",
+                                 isbn: "9876543211231"))
         }
-        super.viewWillAppear(animated)
+        
     }
     
     override func viewDidLoad() {

@@ -10,6 +10,8 @@ import Foundation
 
 class HTTPHandler {
     static func getJSON(urlString: String, completionHandler: @escaping (Data?) -> (Void)) {
+        //Check cache before downloading data
+        
         let urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlString!)
         

@@ -168,17 +168,70 @@
             </objects>
             <point key="canvasLocation" x="986" y="111"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Details Page View Controller-->
         <scene sceneID="b0g-ly-deX">
             <objects>
-                <viewController id="6OD-Kd-8IA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="details" id="6OD-Kd-8IA" customClass="BookDetailsPageViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sEt-pj-cYQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mg6-Lg-hYS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U4f-7f-zwc">
+                                        <rect key="frame" x="20" y="50" width="374" height="477"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4D-L4-fhC" userLabel="Add to Collection">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                                <color key="backgroundColor" red="0.050480276349999999" green="0.22606712579999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="19"/>
+                                                <state key="normal" title="Add to Collection">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNC-dG-XFG" userLabel="NYTReview">
+                                                <rect key="frame" x="0.0" y="46" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ykr-dW-aCO">
+                                                <rect key="frame" x="0.0" y="76.5" width="374" height="259"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLg-0v-GSs" userLabel="Title">
+                                                <rect key="frame" x="0.0" y="345.5" width="374" height="38"/>
+                                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ6-Dr-GKS" userLabel="Author">
+                                                <rect key="frame" x="0.0" y="393.5" width="374" height="25"/>
+                                                <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nB-8K-eNY" userLabel="ISBN">
+                                                <rect key="frame" x="0.0" y="428.5" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZD-Py-6lW" userLabel="BookDescription">
+                                                <rect key="frame" x="0.0" y="459" width="374" height="18"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.45529659610000001" green="0.58708466680000004" blue="0.4456742729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="U4f-7f-zwc" firstAttribute="top" secondItem="mg6-Lg-hYS" secondAttribute="top" constant="50" id="4Ny-ou-3wg"/>
+                                    <constraint firstAttribute="trailing" secondItem="U4f-7f-zwc" secondAttribute="trailing" constant="20" id="d2E-Ul-rHy"/>
+                                    <constraint firstItem="U4f-7f-zwc" firstAttribute="leading" secondItem="mg6-Lg-hYS" secondAttribute="leading" constant="20" id="qUB-mg-o1w"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -190,10 +243,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4eR-Dh-8Gf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cJr-YN-Mwm"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="vZ6-Dr-GKS" id="CHM-qS-87i"/>
+                        <outlet property="bookCoverImage" destination="Ykr-dW-aCO" id="siH-1s-iqk"/>
+                        <outlet property="bookDescription" destination="jZD-Py-6lW" id="qQx-C6-C3H"/>
+                        <outlet property="isbn" destination="2nB-8K-eNY" id="TuY-Cg-Ngz"/>
+                        <outlet property="review" destination="nNC-dG-XFG" id="Zl5-ff-j1B"/>
+                        <outlet property="titleLabel" destination="RLg-0v-GSs" id="Wf8-a8-hmA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uM-eT-iJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="1607"/>
+            <point key="canvasLocation" x="137.68115942028987" y="1606.4732142857142"/>
         </scene>
         <!--Search-->
         <scene sceneID="RHT-4t-2x8">
@@ -259,21 +321,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2or-1N-MCo" userLabel="AddToListButton">
-                                                    <rect key="frame" x="356" y="48" width="30" height="30"/>
+                                                    <rect key="frame" x="358" y="47" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" red="0.45529659610000001" green="0.58708466680000004" blue="0.4456742729" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <state key="normal" image="plus.app.fill" catalog="system"/>
+                                                    <color key="tintColor" red="0.050480276349999999" green="0.22606712579999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="chevron.right.square.fill" catalog="system"/>
                                                     <connections>
-                                                        <action selector="addFavWithSender:" destination="IdR-d8-Ngi" eventType="touchUpInside" id="MhS-ti-8xB"/>
+                                                        <action selector="addFavWithSender:" destination="IdR-d8-Ngi" eventType="touchUpInside" id="oPB-EX-EoV"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="AddBooktoList" destination="2or-1N-MCo" id="rOo-vc-6bI"/>
                                             <outlet property="bookAuthor" destination="dv3-Xf-JQP" id="MUG-HW-tkQ"/>
                                             <outlet property="bookImageView" destination="xnt-cJ-VLr" id="C9U-cM-S5S"/>
                                             <outlet property="bookTitle" destination="lBo-p3-rPG" id="XjA-5q-JXR"/>
+                                            <outlet property="favButton" destination="2or-1N-MCo" id="rOo-vc-6bI"/>
+                                            <segue destination="6OD-Kd-8IA" kind="show" id="w9j-Lw-mMC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -291,7 +354,7 @@
                                     <action selector="searchWithSender:" destination="IdR-d8-Ngi" eventType="touchUpInside" id="tp5-0T-EHh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agl-gS-aT5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agl-gS-aT5">
                                 <rect key="frame" x="20" y="204" width="337" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="20"/>
@@ -316,8 +379,8 @@
     </scenes>
     <resources>
         <image name="book.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>

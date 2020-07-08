@@ -143,7 +143,7 @@
 import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    //This is weak to keep memory from leaking 
     weak var delegate: AllSavedBooksViewController!
     var searchResults: [Book] = []
     
@@ -154,7 +154,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func search(sender: UIButton) {
         print("Searching for \(self.searchTextField.text!)")
         
-        var searchTerm = searchTextField.text!
+        let searchTerm = searchTextField.text!
         if searchTerm.count > 2 {
             retrieveMoviesByTerm(searchTerm: searchTerm)
         }
@@ -162,15 +162,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func addFav (sender: UIButton) {
         print("Item #\(sender.tag) was selected as a favorite")
-//        self.delegate.favoriteMovies.append(searchResults[sender.tag])
+        print(searchResults[sender.tag].title)
+        print(searchResults[sender.tag].author)
+        print(searchResults[sender.tag].id)
+        print(searchResults[sender.tag].imageUrl)
+//        print(self.delegate.allBooks.count)
+//        self.delegate.allBooks.append(searchResults[sender.tag])
+//        print(self.delegate.allBooks.last)
     }
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       // Make the first row larger to accommodate a custom cell.
       if indexPath.row !=  nil {
           return 125
        }
@@ -228,6 +233,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Confirm that a book was selected
+        guard tableView.indexPathForSelectedRow != nil else {
+            return
+        }
+        //Get a reference to the video tapped on
+        let selectedBook = searchResults[tableView.indexPathForSelectedRow!.row]
+        //get a reference to the detail view controller
+        let destinationVC = segue.destination as! BookDetailsPageViewController
+        //Set the property of the detail view controller
+        destinationVC.book = selectedBook
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -248,7 +266,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             if let object = object {
                 print("This is an object")
-                print(object["items"])
+//                print(object["items"])
                 self.searchResults = BookDataProcessor.mapJsonToMovies(object: object)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

@@ -13,7 +13,7 @@ class CustomBookListTableViewCell: UITableViewCell {
     @IBOutlet var bookImageView: UIImageView!
     @IBOutlet var bookTitle: UILabel!
     @IBOutlet var bookAuthor: UILabel!
-    @IBOutlet var AddBooktoList: UIButton!
+    @IBOutlet var favButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
