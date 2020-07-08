@@ -126,6 +126,7 @@
                         <segue destination="ohq-gD-5YW" kind="relationship" relationship="viewControllers" id="j4H-La-OQg"/>
                         <segue destination="56P-Ez-JEJ" kind="relationship" relationship="viewControllers" id="gvW-3d-Zrt"/>
                         <segue destination="VXI-ba-HBE" kind="relationship" relationship="viewControllers" id="fSm-el-Zm3"/>
+                        <segue destination="p8f-EC-LWb" kind="relationship" relationship="viewControllers" id="4xm-dZ-laf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1k8-y2-A7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -376,10 +377,56 @@
             </objects>
             <point key="canvasLocation" x="-675.36231884057975" y="870.53571428571422"/>
         </scene>
+        <!--Chats-->
+        <scene sceneID="fOM-Qr-DwO">
+            <objects>
+                <navigationController id="p8f-EC-LWb" userLabel="Chats" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chats" image="ellipses.bubble.fill" catalog="system" id="Akt-y9-CPm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zX7-HM-MFa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1cM-gT-NrQ" kind="relationship" relationship="rootViewController" id="IO9-v1-Khp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nW6-4C-o8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="110"/>
+        </scene>
+        <!--Conversations-->
+        <scene sceneID="VM0-aN-1KQ">
+            <objects>
+                <viewController id="1cM-gT-NrQ" customClass="ConversationsViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ip-VB-KxU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-jr-9Yi">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AaZ-PM-aO0" firstAttribute="bottom" secondItem="w5y-jr-9Yi" secondAttribute="bottom" id="Fsl-3G-KDf"/>
+                            <constraint firstItem="AaZ-PM-aO0" firstAttribute="trailing" secondItem="w5y-jr-9Yi" secondAttribute="trailing" id="MsR-zJ-3Rk"/>
+                            <constraint firstItem="w5y-jr-9Yi" firstAttribute="top" secondItem="AaZ-PM-aO0" secondAttribute="top" id="RkF-5K-XNH"/>
+                            <constraint firstItem="w5y-jr-9Yi" firstAttribute="leading" secondItem="AaZ-PM-aO0" secondAttribute="leading" id="sDe-oU-1cu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AaZ-PM-aO0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Conversations" id="hDj-5k-RrO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUS-Ra-aiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="871"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.right.square.fill" catalog="system" width="128" height="114"/>
+        <image name="ellipses.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>

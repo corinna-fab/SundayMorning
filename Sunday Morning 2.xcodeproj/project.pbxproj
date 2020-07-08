@@ -34,6 +34,8 @@
 		07D5ACE724B4D91C0062DD1D /* BookDetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */; };
 		07D5ACE924B4FD6A0062DD1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACE824B4FD6A0062DD1D /* Main.storyboard */; };
 		07D5ACEB24B4FFF50062DD1D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEA24B4FFF50062DD1D /* CacheManager.swift */; };
+		07D5ACED24B646C50062DD1D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */; };
+		07D5ACEF24B64D4E0062DD1D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */; };
 		3EBF058B49513DA8F6555303 /* Pods_Sunday_Morning_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsPageViewController.swift; sourceTree = "<group>"; };
 		07D5ACE824B4FD6A0062DD1D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		07D5ACEA24B4FFF50062DD1D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
+		07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.debug.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.debug.xcconfig"; sourceTree = "<group>"; };
 		5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunday_Morning_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.release.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				07307E8C24B0DFD00033D645 /* ProfileViewController.swift */,
 				07307E9524B153C20033D645 /* SearchViewController.swift */,
 				07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */,
+				07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */,
+				07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */,
 				07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */,
 				07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */,
+				07D5ACED24B646C50062DD1D /* ConversationsViewController.swift in Sources */,
 				07307EA224B378BD0033D645 /* Constants.swift in Sources */,
 				07307E8924B0DFA40033D645 /* VideoPlayerViewController.swift in Sources */,
 				07307E9624B153C20033D645 /* SearchViewController.swift in Sources */,
@@ -369,6 +376,7 @@
 				07307E9024B0E5C20033D645 /* Extensions.swift in Sources */,
 				07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */,
 				07D5ACE724B4D91C0062DD1D /* BookDetailsPageViewController.swift in Sources */,
+				07D5ACEF24B64D4E0062DD1D /* ChatViewController.swift in Sources */,
 				07307E6924B0DD770033D645 /* AppDelegate.swift in Sources */,
 				07307EA624B3B9D40033D645 /* Book.swift in Sources */,
 				07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */,
