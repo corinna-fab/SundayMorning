@@ -184,3 +184,11 @@ class BookDetailsPageViewController: UIViewController {
 //    @objc dynamic var date: Date = Date()
 //    dynamic var email: String = (FirebaseAuth.Auth.auth().currentUser?.email!)
 //}
+
+//Mark: - Check if book is already in collection
+extension BookDetailsPageViewController {
+    //Custom alert (iOS Academy video)
+    private func checkList() {
+        
+    }
+}
