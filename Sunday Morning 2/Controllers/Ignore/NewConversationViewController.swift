@@ -22,6 +22,7 @@ class NewConversationViewController: UIViewController {
     private let tableView: UITableView = {
        let table = UITableView()
         table.isHidden = true
+        table.separatorColor = #colorLiteral(red: 0, green: 0.2304866314, blue: 0, alpha: 1)
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
@@ -39,7 +40,7 @@ class NewConversationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.418171227, green: 0.5918633938, blue: 0.431758821, alpha: 1)
         navigationController?.navigationBar.topItem?.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissSelf))
         searchBar.becomeFirstResponder()

@@ -8,6 +8,8 @@
 
 import UIKit
 import WebKit
+import RealmSwift
+import FirebaseAuth
 
 class BookDetailsPageViewController: UIViewController {
     
@@ -26,9 +28,12 @@ class BookDetailsPageViewController: UIViewController {
     
     var book:Book?
     
+    private let realm = try! Realm()
+    public var completionHandler: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
 //        bookCoverImage.image = #imageLiteral(resourceName: "book_cover")
 //        bookCoverImage.layer.borderColor = #colorLiteral(red: 0.9973656535, green: 0.9274361134, blue: 0.6675162315, alpha: 1)
 //        bookCoverImage.layer.borderWidth = 10
@@ -150,4 +155,32 @@ class BookDetailsPageViewController: UIViewController {
 //                }
 //            }
 //        }
+    
+    @IBAction func didTapAddToCollection() {
+        print("ADD!")
+        print(book?.title as Any)
+        
+        realm.beginWrite()
+        let newItem = BookItem()
+        newItem.author = book?.author as! String
+        newItem.title = book?.title as! String
+        newItem.bookDescription = book?.description as! String
+        newItem.id = book?.id as! String
+        newItem.imageUrl = book?.imageUrl as! String
+        newItem.email = FirebaseAuth.Auth.auth().currentUser?.email as! String
+        newItem.dateAdded = Date()
+        
+        realm.add(newItem)
+        
+        try! realm.commitWrite()
+        
+        completionHandler?()
+        navigationController?.popToRootViewController(animated: true)
+        }
 }
+
+//class BookList: Object {
+//    dynamic var book: Book = Book(id: "", title: "", imageUrl: "", author: "", description: "", isbn: "")
+//    @objc dynamic var date: Date = Date()
+//    dynamic var email: String = (FirebaseAuth.Auth.auth().currentUser?.email!)
+//}

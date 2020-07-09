@@ -14,6 +14,18 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    var currentUser = FirebaseAuth.Auth.auth().currentUser
+    
+    private let currentUserLabel: UILabel = {
+        let label = UILabel()
+        label.text = FirebaseAuth.Auth.auth().currentUser?.displayName
+        label.textAlignment = .center
+        label.textColor = .gray
+        label.font = .systemFont(ofSize: 21, weight: .medium)
+        label.isHidden = true
+        return label
+    }()
+    
     let data = ["Log Out"]
     
     override func viewDidLoad() {
@@ -23,6 +35,7 @@ class ProfileViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        view.addSubview(currentUserLabel)
     }
     
 }
@@ -30,6 +43,10 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Current User: \(String(describing: FirebaseAuth.Auth.auth().currentUser!.displayName!))"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
