@@ -23,6 +23,7 @@ class TESTViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         bookData = realm.objects(BookItem.self).map({$0})
         refreshControl.addTarget(self, action: #selector(refreshBookData(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Book List ...")
@@ -95,5 +96,5 @@ class BookItem: Object {
     @objc dynamic var bookDescription: String = ""
     @objc dynamic var isbn: String = ""
     @objc dynamic var dateAdded: Date = Date()
-    @objc dynamic var email: String = (FirebaseAuth.Auth.auth().currentUser?.email!) as! String
+//    @objc dynamic var email: String = (FirebaseAuth.Auth.auth().currentUser?.email!)!
 }

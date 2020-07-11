@@ -15,12 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunday_morning_background" translatesAutoresizingMaskIntoConstraints="NO" id="TXp-9Y-Q45">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunrise_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-nz-Gw9">
                                 <rect key="frame" x="44" y="290" width="327" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TXp-9Y-Q45" secondAttribute="bottom" id="O6Y-u2-cST"/>
+                            <constraint firstItem="TXp-9Y-Q45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UU8-CZ-NrS"/>
+                            <constraint firstItem="TXp-9Y-Q45" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fYC-TS-Qb4"/>
+                            <constraint firstItem="TXp-9Y-Q45" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ioU-LC-218"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -30,6 +39,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="sunday_morning_background" width="768" height="960"/>
         <image name="sunrise_logo" width="1200" height="1200"/>
     </resources>
 </document>

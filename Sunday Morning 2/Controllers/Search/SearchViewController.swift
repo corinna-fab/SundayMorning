@@ -209,7 +209,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         moviecell.bookAuthor?.text = searchResults[idx].author
         // image
         displayMovieImage(idx, moviecell: moviecell)
-        
+        //TO DO check to see if different logins display their own list
         return moviecell
     }
     

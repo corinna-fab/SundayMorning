@@ -452,8 +452,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-Mf-Utu">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bookListCell" rowHeight="139" id="gK3-m5-Lpz" customClass="CustomBookListTableViewCell" customModule="Sunday_Morning_2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="139"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gK3-m5-Lpz" id="oiU-pS-cjy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ggZ-ss-Ktj">
+                                                    <rect key="frame" x="132" y="11" width="88.5" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyJ-yP-34d">
+                                                            <rect key="frame" x="0.0" y="0.0" width="52.5" height="31.5"/>
+                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by The Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVX-fh-M8L">
+                                                            <rect key="frame" x="0.0" y="31.5" width="88.5" height="18.5"/>
+                                                            <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOI-dE-Zkr" userLabel="BookCover">
+                                                    <rect key="frame" x="20" y="19" width="92" height="101"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ggZ-ss-Ktj" secondAttribute="trailing" constant="173.5" id="EgD-J9-SRq"/>
+                                                <constraint firstItem="aOI-dE-Zkr" firstAttribute="top" secondItem="oiU-pS-cjy" secondAttribute="topMargin" constant="8" id="YDx-eS-8al"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aOI-dE-Zkr" secondAttribute="bottom" constant="8" id="bEn-ml-cgP"/>
+                                                <constraint firstItem="aOI-dE-Zkr" firstAttribute="leading" secondItem="oiU-pS-cjy" secondAttribute="leadingMargin" id="l1B-vf-5Kl"/>
+                                                <constraint firstItem="ggZ-ss-Ktj" firstAttribute="leading" secondItem="aOI-dE-Zkr" secondAttribute="trailing" constant="20" id="reV-Qj-1y7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bookAuthor" destination="GVX-fh-M8L" id="Uot-ko-9j0"/>
+                                            <outlet property="bookImageView" destination="aOI-dE-Zkr" id="lCj-xg-Fnd"/>
+                                            <outlet property="bookTitle" destination="IyJ-yP-34d" id="hAH-KL-BM7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

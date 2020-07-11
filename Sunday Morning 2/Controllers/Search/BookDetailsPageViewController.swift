@@ -8,10 +8,15 @@
 
 import UIKit
 import WebKit
-import RealmSwift
+//import RealmSwift
 import FirebaseAuth
+import FirebaseDatabase
 
 class BookDetailsPageViewController: UIViewController {
+    var database = Database.database().reference()
+    private var bookCollection = [Book]()
+    
+    var isNewBook = false
     
     var author: String = ""
     var bookTitle: String = ""
@@ -28,7 +33,7 @@ class BookDetailsPageViewController: UIViewController {
     
     var book:Book?
     
-    private let realm = try! Realm()
+//    private let realm = try! Realm()
     public var completionHandler: (() -> Void)?
     
     override func viewDidLoad() {
@@ -158,25 +163,108 @@ class BookDetailsPageViewController: UIViewController {
     
     @IBAction func didTapAddToCollection() {
         print("ADD!")
-        print(book?.title as Any)
         
-        realm.beginWrite()
-        let newItem = BookItem()
-        newItem.author = book?.author as! String
-        newItem.title = book?.title as! String
-        newItem.bookDescription = book?.description as! String
-        newItem.id = book?.id as! String
-        newItem.imageUrl = book?.imageUrl as! String
-        newItem.email = FirebaseAuth.Auth.auth().currentUser?.email as! String
-        newItem.dateAdded = Date()
-        
-        realm.add(newItem)
-        
-        try! realm.commitWrite()
-        
-        completionHandler?()
-        navigationController?.popToRootViewController(animated: true)
+        if isNewBook {
+            //create convo in database
+            print("I'm creating")
+            DatabaseManager.shared.addNewBook(with: book!, completion: { success in
+            if success {
+                    print("Message sent")
+                    self.isNewBook = false
+                } else {
+                    print("Failed to send")
+                }
+            })
+        } else {
+            
+            //append to existing data
+            print("I'm DUMB")
+            DatabaseManager.shared.addNewBook(with: book!, completion: { success in
+                if success {
+                    print("Message sent. WOO")
+                } else {
+                    print("Failed to send")
+                    
+                }
+            })
         }
+        
+//        let bookToAdd: [String: String] = [
+//            "id": book?.id as! String,
+//            "author": book?.author as! String,
+//            "title": book?.title as! String,
+//            "description": book?.description as! String,
+//            "isbn": book?.isbn as! String,
+//            "imageUrl": book?.imageUrl as! String
+//        ]
+//
+//        let user = UserDefaults.standard.value(forKey: "email")
+//////        print("\(user)")
+//        let safeUser = DatabaseManager.safeEmail(emailAddress: user as! String)
+//        database.child("\(safeUser)/allBooks/").append(bookToAdd)
+
+        
+        ///print("\(safeUser)")
+////        print("\(self.ref.child("users"))")
+//        guard let book = book else {
+//            return
+//        }
+//        print("\(book.title)")
+//        print("\(database.child("\(safeUser)/toBeRead"))")
+        
+
+//
+//
+//
+//            if isNewConversation {
+//                //create convo in database
+//
+//                DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: message, completion: { [weak self] success in
+//                    if success {
+//                        print("Message sent")
+//                        self?.isNewConversation = false
+//                    } else {
+//                        print("Failed to send")
+//                    }
+//                })
+//            } else {
+//                guard let conversationId = conversationId, let name = self.title else {
+//                    return
+//                }
+//                //append to existing data
+//                DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail, name: name, newMessage: message, completion: { success in
+//                    if success {
+//                        print("Message sent. WOO")
+//                    } else {
+//                        print("Failed to send")
+//                    }
+//                })
+//            }
+        }
+        
+//        print(book?.title as Any)
+//
+//        realm.beginWrite()
+//        let newItem = BookItem()
+//        newItem.author = book?.author as! String
+//        newItem.title = book?.title as! String
+//        newItem.bookDescription = book?.description as! String
+//        newItem.id = book?.id as! String
+//        newItem.imageUrl = book?.imageUrl as! String
+////        newItem.email = FirebaseAuth.Auth.auth().currentUser?.email as! String
+//        newItem.dateAdded = Date()
+//
+//        realm.add(newItem)
+//
+//        try! realm.commitWrite()
+//
+//        completionHandler?()
+        
+        //Post the data to firebase
+        
+        
+//        navigationController?.popToRootViewController(animated: true)
+//        }
 }
 
 //class BookList: Object {

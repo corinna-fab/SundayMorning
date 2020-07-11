@@ -10,7 +10,6 @@
 		07307E6924B0DD770033D645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6824B0DD770033D645 /* AppDelegate.swift */; };
 		07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6A24B0DD770033D645 /* SceneDelegate.swift */; };
 		07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */; };
-		07307E7224B0DD790033D645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07307E7124B0DD790033D645 /* Assets.xcassets */; };
 		07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07307E7324B0DD790033D645 /* LaunchScreen.storyboard */; };
 		07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8224B0DF6D0033D645 /* LoginViewController.swift */; };
 		07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8424B0DF790033D645 /* RegisterViewController.swift */; };
@@ -38,6 +37,8 @@
 		07D5ACEF24B64D4E0062DD1D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */; };
 		07D5ACF124B65EAB0062DD1D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF024B65EAB0062DD1D /* StorageManager.swift */; };
 		07D5ACF324B686F70062DD1D /* TESTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF224B686F70062DD1D /* TESTViewController.swift */; };
+		07D5ACF724B7E88E0062DD1D /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */; };
+		07D5ACF924B8BB540062DD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACF824B8BB540062DD1D /* Assets.xcassets */; };
 		3EBF058B49513DA8F6555303 /* Pods_Sunday_Morning_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +47,6 @@
 		07307E6824B0DD770033D645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07307E6A24B0DD770033D645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSavedBooksViewController.swift; sourceTree = "<group>"; };
-		07307E7124B0DD790033D645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07307E7424B0DD790033D645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07307E7624B0DD790033D645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07307E8224B0DF6D0033D645 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +75,8 @@
 		07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		07D5ACF024B65EAB0062DD1D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		07D5ACF224B686F70062DD1D /* TESTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTViewController.swift; sourceTree = "<group>"; };
+		07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		07D5ACF824B8BB540062DD1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.debug.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.debug.xcconfig"; sourceTree = "<group>"; };
 		5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunday_Morning_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.release.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,15 +130,10 @@
 		07307E7C24B0DE4B0033D645 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
-				07D5ACE524B4D6700062DD1D /* Ignore */,
+				07D5ACF524B7AFDE0062DD1D /* BookLists */,
+				07D5ACF424B7AFC90062DD1D /* Search */,
+				07D5ACE524B4D6700062DD1D /* Conversations */,
 				07307E8E24B0E0910033D645 /* Login */,
-				07307E8C24B0DFD00033D645 /* ProfileViewController.swift */,
-				07307E9524B153C20033D645 /* SearchViewController.swift */,
-				07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */,
-				07D5ACF224B686F70062DD1D /* TESTViewController.swift */,
-				07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */,
-				07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				07307E8124B0DE980033D645 /* Storyboards */,
-				07307E7124B0DD790033D645 /* Assets.xcassets */,
+				07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +185,7 @@
 		07307E8124B0DE980033D645 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				07D5ACF824B8BB540062DD1D /* Assets.xcassets */,
 				07D5ACE824B4FD6A0062DD1D /* Main.storyboard */,
 				07307E7324B0DD790033D645 /* LaunchScreen.storyboard */,
 			);
@@ -198,19 +196,40 @@
 			isa = PBXGroup;
 			children = (
 				07307E8224B0DF6D0033D645 /* LoginViewController.swift */,
+				07307E8C24B0DFD00033D645 /* ProfileViewController.swift */,
 				07307E8424B0DF790033D645 /* RegisterViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		07D5ACE524B4D6700062DD1D /* Ignore */ = {
+		07D5ACE524B4D6700062DD1D /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
+				07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */,
+				07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */,
 				07307E8624B0DF9B0033D645 /* PhotoViewerViewController.swift */,
 				07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */,
 				07307E8824B0DFA40033D645 /* VideoPlayerViewController.swift */,
 			);
-			path = Ignore;
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		07D5ACF424B7AFC90062DD1D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				07307E9524B153C20033D645 /* SearchViewController.swift */,
+				07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		07D5ACF524B7AFDE0062DD1D /* BookLists */ = {
+			isa = PBXGroup;
+			children = (
+				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
+				07D5ACF224B686F70062DD1D /* TESTViewController.swift */,
+			);
+			path = BookLists;
 			sourceTree = "<group>";
 		};
 		57A7272DD3E5CC8EE084041C /* Frameworks */ = {
@@ -292,8 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */,
-				07307E7224B0DD790033D645 /* Assets.xcassets in Resources */,
 				07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */,
+				07D5ACF924B8BB540062DD1D /* Assets.xcassets in Resources */,
 				07D5ACE924B4FD6A0062DD1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +407,7 @@
 				07307EA624B3B9D40033D645 /* Book.swift in Sources */,
 				07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */,
 				07307E8D24B0DFD00033D645 /* ProfileViewController.swift in Sources */,
+				07D5ACF724B7E88E0062DD1D /* ConversationTableViewCell.swift in Sources */,
 				07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */,
 				07307E8724B0DF9B0033D645 /* PhotoViewerViewController.swift in Sources */,
 				07D5ACF124B65EAB0062DD1D /* StorageManager.swift in Sources */,
