@@ -30,6 +30,7 @@ class BookDetailsPageViewController: UIViewController {
     @IBOutlet weak var bookDescription: UILabel!
     @IBOutlet weak var isbn: UILabel!
     @IBOutlet weak var review: UILabel!
+    @IBOutlet weak var readSwitch: UISwitch!
     
     var book:Book?
     
@@ -68,6 +69,7 @@ class BookDetailsPageViewController: UIViewController {
         }
         
         isbn.text = book?.isbn
+        print("\(book?.read)")
         fetchReview(isbn: book!.isbn)
     }
 
@@ -160,7 +162,7 @@ class BookDetailsPageViewController: UIViewController {
 //                }
 //            }
 //        }
-    
+    // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
     @IBAction func didTapAddToCollection() {
         print("ADD!")
         

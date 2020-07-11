@@ -36,9 +36,12 @@
 		07D5ACED24B646C50062DD1D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */; };
 		07D5ACEF24B64D4E0062DD1D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */; };
 		07D5ACF124B65EAB0062DD1D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF024B65EAB0062DD1D /* StorageManager.swift */; };
-		07D5ACF324B686F70062DD1D /* TESTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF224B686F70062DD1D /* TESTViewController.swift */; };
+		07D5ACF324B686F70062DD1D /* AllUserBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */; };
 		07D5ACF724B7E88E0062DD1D /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */; };
 		07D5ACF924B8BB540062DD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACF824B8BB540062DD1D /* Assets.xcassets */; };
+		07D5AD0024BA532F0062DD1D /* SavedBooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACFE24BA532F0062DD1D /* SavedBooksTableViewCell.swift */; };
+		07D5AD0124BA532F0062DD1D /* SavedBooksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACFF24BA532F0062DD1D /* SavedBooksTableViewCell.xib */; };
+		07D5AD0324BA61E80062DD1D /* SavedBookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5AD0224BA61E80062DD1D /* SavedBookDetailsViewController.swift */; };
 		3EBF058B49513DA8F6555303 /* Pods_Sunday_Morning_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,9 +77,12 @@
 		07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		07D5ACF024B65EAB0062DD1D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		07D5ACF224B686F70062DD1D /* TESTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTViewController.swift; sourceTree = "<group>"; };
+		07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserBooksViewController.swift; sourceTree = "<group>"; };
 		07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		07D5ACF824B8BB540062DD1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07D5ACFE24BA532F0062DD1D /* SavedBooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBooksTableViewCell.swift; sourceTree = "<group>"; };
+		07D5ACFF24BA532F0062DD1D /* SavedBooksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedBooksTableViewCell.xib; sourceTree = "<group>"; };
+		07D5AD0224BA61E80062DD1D /* SavedBookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBookDetailsViewController.swift; sourceTree = "<group>"; };
 		2986CA07FF0A37AA22848016 /* Pods-Sunday Morning 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.debug.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.debug.xcconfig"; sourceTree = "<group>"; };
 		5B985E031566FF16B4312CF1 /* Pods_Sunday_Morning_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunday_Morning_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A922ABE7F777C33AB3D11EE0 /* Pods-Sunday Morning 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunday Morning 2.release.xcconfig"; path = "Target Support Files/Pods-Sunday Morning 2/Pods-Sunday Morning 2.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 				07D5ACF824B8BB540062DD1D /* Assets.xcassets */,
 				07D5ACE824B4FD6A0062DD1D /* Main.storyboard */,
 				07307E7324B0DD790033D645 /* LaunchScreen.storyboard */,
+				07D5ACFE24BA532F0062DD1D /* SavedBooksTableViewCell.swift */,
+				07D5ACFF24BA532F0062DD1D /* SavedBooksTableViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -227,7 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
-				07D5ACF224B686F70062DD1D /* TESTViewController.swift */,
+				07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */,
+				07D5AD0224BA61E80062DD1D /* SavedBookDetailsViewController.swift */,
 			);
 			path = BookLists;
 			sourceTree = "<group>";
@@ -312,6 +321,7 @@
 			files = (
 				07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */,
 				07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */,
+				07D5AD0124BA532F0062DD1D /* SavedBooksTableViewCell.xib in Resources */,
 				07D5ACF924B8BB540062DD1D /* Assets.xcassets in Resources */,
 				07D5ACE924B4FD6A0062DD1D /* Main.storyboard in Resources */,
 			);
@@ -384,9 +394,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				07307E9C24B155130033D645 /* BookModel.swift in Sources */,
-				07D5ACF324B686F70062DD1D /* TESTViewController.swift in Sources */,
+				07D5ACF324B686F70062DD1D /* AllUserBooksViewController.swift in Sources */,
 				07307E9824B154D90033D645 /* BookManager.swift in Sources */,
 				07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */,
+				07D5AD0324BA61E80062DD1D /* SavedBookDetailsViewController.swift in Sources */,
 				07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */,
 				07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */,
 				07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */,
@@ -410,6 +421,7 @@
 				07D5ACF724B7E88E0062DD1D /* ConversationTableViewCell.swift in Sources */,
 				07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */,
 				07307E8724B0DF9B0033D645 /* PhotoViewerViewController.swift in Sources */,
+				07D5AD0024BA532F0062DD1D /* SavedBooksTableViewCell.swift in Sources */,
 				07D5ACF124B65EAB0062DD1D /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

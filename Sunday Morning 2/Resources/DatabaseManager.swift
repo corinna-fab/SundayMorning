@@ -479,7 +479,7 @@ extension DatabaseManager {
         //update sender latest message
         //update recipient latest message
     }
-    
+    ///Adds a book to the user's "allBooks" folder
     public func addNewBook(with newBook: Book, completion: @escaping (Bool) -> Void){
         //add new message to messages
         guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
@@ -511,10 +511,6 @@ extension DatabaseManager {
 //                print("Bad boys bad boys")
 //                return
 //            }
-
-            
-            
-            
             guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
                 completion(false)
                 return
@@ -544,7 +540,43 @@ extension DatabaseManager {
                 completion(true)
             })
         })
-    }}
+    }
+    
+    ///Get all books for a given user
+    public func getAllBooks(with email: String, completion: @escaping (Result<[Book], Error>) -> Void){
+        print("USER ID: \(email)")
+        database.child("\(email)/allBooks").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedtoFetch))
+                return
+            }
+            
+            print("PRINTING: \(value)")
+            
+            print("So far so good")
+            
+            for book in value {
+                print("\(book.keys)")
+                //                print("\(message.lat)")
+            }
+            
+            let books: [Book] = value.compactMap({dictionary in
+                guard let id = dictionary["id"] as? String,
+                    let title = dictionary["title"] as? String,
+                    let imageUrl = dictionary["imageUrl"] as? String,
+                    let author = dictionary["author"] as? String,
+                    let descripton = dictionary["description"] as? String,
+                    let isbn = dictionary["isbn"] as? String  else {
+                        return nil
+                }
+                
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn)
+            })
+            completion(.success(books))
+            print("PLEASE FOR THE LOVE OF GOD")
+        })
+    }
+}
     
     struct BookAppUser {
         let firstName: String

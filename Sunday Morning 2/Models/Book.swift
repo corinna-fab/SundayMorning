@@ -16,6 +16,7 @@ class Book {
     var author: String = ""
     var description: String = ""
     var isbn: String = ""
+    var read: Bool = false
     
     init(id: String, title: String, imageUrl: String, author: String, description: String, isbn: String) {
         self.id = id
@@ -24,5 +25,6 @@ class Book {
         self.author = author
         self.description = description
         self.isbn = isbn
+        self.read = false
     }
 }

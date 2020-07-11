@@ -160,16 +160,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @IBAction func addFav (sender: UIButton) {
-        print("Item #\(sender.tag) was selected as a favorite")
-        print(searchResults[sender.tag].title)
-        print(searchResults[sender.tag].author)
-        print(searchResults[sender.tag].id)
-        print(searchResults[sender.tag].imageUrl)
-//        print(self.delegate.allBooks.count)
-//        self.delegate.allBooks.append(searchResults[sender.tag])
-//        print(self.delegate.allBooks.last)
-    }
+//    @IBAction func addFav (sender: UIButton) {
+//        print("Item #\(sender.tag) was selected as a favorite")
+//        print(searchResults[sender.tag].title)
+//        print(searchResults[sender.tag].author)
+//        print(searchResults[sender.tag].id)
+//        print(searchResults[sender.tag].imageUrl)
+////        print(self.delegate.allBooks.count)
+////        self.delegate.allBooks.append(searchResults[sender.tag])
+////        print(self.delegate.allBooks.last)
+//    }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
@@ -202,7 +202,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let idx: Int = indexPath.row
 //        moviecell.favButton.tag = idx
-        
+        moviecell.accessoryType = .disclosureIndicator
         //title
         moviecell.bookTitle?.text = searchResults[idx].title
         //year

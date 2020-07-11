@@ -1,18 +1,19 @@
 //
-//  CustomSearchCellTableViewCell.swift
+//  SavedBooksTableViewCell.swift
 //  Sunday Morning 2
 //
-//  Created by Corinna Fabre on 7/6/20.
+//  Created by Corinna Fabre on 7/11/20.
 //  Copyright © 2020 Corinna Fabre. All rights reserved.
 //
 
 import UIKit
 
-class CustomBookListTableViewCell: UITableViewCell {
+class SavedBooksTableViewCell: UITableViewCell {
 
-    @IBOutlet var bookImageView: UIImageView!
-    @IBOutlet var bookTitle: UILabel!
-    @IBOutlet var bookAuthor: UILabel!
+    @IBOutlet weak var bookCover: UIImageView!
+    @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +25,5 @@ class CustomBookListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
