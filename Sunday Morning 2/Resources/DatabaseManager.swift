@@ -497,7 +497,7 @@ extension DatabaseManager {
             
             var currentBooks: [[String: Any]]
 //            var currentBooks = [[String: Any]]()
-            
+            // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
             print("\(snapshot.value)")
             if snapshot.value is NSNull {
                 print("NULL")
@@ -524,7 +524,8 @@ extension DatabaseManager {
                 "title": newBook.title as! String,
                 "description": newBook.description as! String,
                 "isbn": newBook.isbn as! String,
-                "imageUrl": newBook.imageUrl as! String
+                "imageUrl": newBook.imageUrl as! String,
+                "read": false
             ]
             print("BOOK TO ADD: \(bookToAdd)")
             currentBooks.append(bookToAdd)
@@ -566,16 +567,39 @@ extension DatabaseManager {
                     let imageUrl = dictionary["imageUrl"] as? String,
                     let author = dictionary["author"] as? String,
                     let descripton = dictionary["description"] as? String,
-                    let isbn = dictionary["isbn"] as? String  else {
+                    let isbn = dictionary["isbn"] as? String,
+                    let read = false as? Bool else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read)
             })
             completion(.success(books))
             print("PLEASE FOR THE LOVE OF GOD")
         })
     }
+    
+    ///Adds marks a book in the user's folder as read
+    public func markRead(with readBook: Book, completion: @escaping (Bool) -> Void){
+        //add new message to messages
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        
+        let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+        
+        database.child("\(currentEmail)/allBooks").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(false)
+                return
+            }
+            let i = value.firstIndex(where: { $0["isbn"] as! String == readBook.isbn })
+            self.database.child("\(currentEmail)/allBooks/\(i!)/read").setValue(true)
+            completion(true)
+        })
+    }
+        
 }
     
     struct BookAppUser {

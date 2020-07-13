@@ -28,7 +28,7 @@ class BookDataProcessor {
                 let isbnArray = movie["volumeInfo"]!["industryIdentifiers"] as? [AnyObject],
                 let isbn = isbnArray[0]["identifier"] as? String else { continue }
 
-            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn)
+            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false)
             mappedMovies.append(movieClass)
             print(isbnArray)
         }

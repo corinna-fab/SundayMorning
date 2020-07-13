@@ -55,14 +55,14 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
-        print("Starting conversation fetch")
+        print("Starting to fetch books")
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
         DatabaseManager.shared.getAllBooks(with: safeEmail, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
-                print("successfully got conversation models")
+                print("successfully got book models")
                 print("\(conversations)")
                 guard !conversations.isEmpty else {
                     print("nothing to see here")
@@ -78,7 +78,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             case .failure(let error):
 //                self?.tableView.isHidden = true
 //                self?.noConversationsLabel.isHidden = false
-                print("failed to get convos: \(error)")
+                print("failed to get books: \(error)")
             }
         })
     }

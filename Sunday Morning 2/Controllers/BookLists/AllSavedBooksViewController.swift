@@ -58,6 +58,7 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         mainTableView.reloadData()
+        print("This page appeared")
         super.viewWillAppear(animated)
         if allBooks.count  == 0 {
             allBooks.append(Book(id: "123456",
@@ -67,7 +68,8 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
                                  imageUrl: "https://images-na.ssl-images-amazon.com/images/I/41yudIp+dmL._SX348_BO1,204,203,200_.jpg",
                                  author: "Rebecca Solnit",
                                  description: "Men try to tell Rebecca Solnit things and it doesn't end well.",
-                                 isbn: "9876543211231"))
+                                 isbn: "9876543211231",
+                                 read: false))
         }
         
     }

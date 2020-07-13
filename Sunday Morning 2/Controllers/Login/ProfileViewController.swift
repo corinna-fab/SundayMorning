@@ -50,13 +50,13 @@ class ProfileViewController: UIViewController {
         let path = "images/"+filename
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 300))
-        headerView.backgroundColor = UIColor(red: 0.85, green: 0.75, blue: 0.47, alpha: 0.60)
+        headerView.backgroundColor = #colorLiteral(red: 0.2394149899, green: 0.2597329915, blue: 0.2461255491, alpha: 1)
         
         let imageView = UIImageView(frame: CGRect(x: (headerView.width-150) / 2, y: 75, width: 150, height: 150))
         
         
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.borderColor = #colorLiteral(red: 0.1659241021, green: 0.344669342, blue: 0.04897017032, alpha: 1)
+        imageView.layer.borderColor = #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1)
         imageView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         imageView.layer.borderWidth = 6
         imageView.layer.cornerRadius = imageView.width / 2

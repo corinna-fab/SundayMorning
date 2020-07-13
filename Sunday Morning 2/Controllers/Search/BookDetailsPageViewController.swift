@@ -51,7 +51,6 @@ class BookDetailsPageViewController: UIViewController {
         titleLabel.text = ""
         authorLabel.text = ""
         bookDescription.text = ""
-        isbn.text = ""
         //Check book
         guard book != nil else {
             return
@@ -68,12 +67,26 @@ class BookDetailsPageViewController: UIViewController {
             bookDescription.text = "No description available."
         }
         
-        isbn.text = book?.isbn
+//        isbn.text = book?.isbn
         print("\(book?.read)")
+        displayMovieImage(bookCover: book as! Book)
         fetchReview(isbn: book!.isbn)
     }
 
-
+    func displayMovieImage(bookCover: Book) {
+        let url: String = (URL(string: bookCover.imageUrl)?.absoluteString)!
+        URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            DispatchQueue.main.async(execute: {
+                let image = UIImage(data: data!)
+                self.bookCoverImage?.image = image
+            })
+        }).resume()
+    }
     /*
     // MARK: - Navigation
 
@@ -162,7 +175,7 @@ class BookDetailsPageViewController: UIViewController {
 //                }
 //            }
 //        }
-    // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
+
     @IBAction func didTapAddToCollection() {
         print("ADD!")
         

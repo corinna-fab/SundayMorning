@@ -9,7 +9,8 @@
 import UIKit
 
 class SavedBookDetailsViewController: UIViewController {
-
+    var scrollView: UIScrollView!
+    
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
@@ -20,31 +21,52 @@ class SavedBookDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         bookTitle.text = book?.title
         bookAuthor.text = book?.author
         
         bookDescription.text = book?.description
-        bookDescription.layer.borderColor = #colorLiteral(red: 0.7993473411, green: 0.9317976832, blue: 0.7041511536, alpha: 1)
-        bookDescription.layer.borderWidth = 5
         // Do any additional setup after loading the view.
         
+        //FIX LOGIC HERE ABOUT WHAT THIS SHOWS
         if book?.read == false {
-            readStatus.text = "Not read"
+            readStatus.text = "To Be Read"
         } else {
             readStatus.text = "Read!"
         }
         
+        readStatus.layer.masksToBounds = true
+        readStatus.layer.cornerRadius = 25
+        
+        displayMovieImage(bookCover: book as! Book)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func displayMovieImage(bookCover: Book) {
+        let url: String = (URL(string: bookCover.imageUrl)?.absoluteString)!
+        URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            DispatchQueue.main.async(execute: {
+                let image = UIImage(data: data!)
+                self.bookCover?.image = image
+            })
+        }).resume()
     }
-    */
-
+    
+    @IBAction func markRead(_ sender: UIButton) {
+        DatabaseManager.shared.markRead(with: book!, completion: { success in
+        if success {
+                print("Yay! You read this book.")
+            } else {
+                print("Failed to mark book as read.")
+            }
+        })
+        
+        DispatchQueue.main.async {
+            self.readStatus.text = "Read!"
+        }
+    }
 }
