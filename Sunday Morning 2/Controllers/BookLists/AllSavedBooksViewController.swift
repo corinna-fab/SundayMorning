@@ -69,7 +69,8 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
                                  author: "Rebecca Solnit",
                                  description: "Men try to tell Rebecca Solnit things and it doesn't end well.",
                                  isbn: "9876543211231",
-                                 read: false))
+                                 read: false,
+                                 dateRead: "July 15, 2020"))
         }
         
     }

@@ -17,6 +17,7 @@ class SavedBookDetailsViewController: UIViewController {
     @IBOutlet weak var bookDescription: UILabel!
     @IBOutlet weak var readStatus: UILabel!
     @IBOutlet weak var markReadButton: UIButton!
+    @IBOutlet weak var dateRead: UILabel!
     
     var book:Book?
     
@@ -38,6 +39,8 @@ class SavedBookDetailsViewController: UIViewController {
 //            markReadButton.isHidden = true
 //            print("Please just work already")
 //        }
+        
+        dateRead.isHidden = true
         
         markReadButton.layer.cornerRadius = 15
         
@@ -67,13 +70,16 @@ class SavedBookDetailsViewController: UIViewController {
             if success {
                 print("Yay! You read this book already.")
                 DispatchQueue.main.async {
+                    self.dateRead.isHidden = false
                     self.readStatus.text = "Read!"
                     self.markReadButton.isHidden = true
-                    self.readStatus.text = "Read"
+                    self.dateRead.text = "Date Read: \(self.book?.dateRead as! String)"
                 }
             } else {
                 print("Failed to mark book as read.")
-                self.readStatus.text = "Unread"
+//
+//                self.dateRead.isHidden = true
+//                self.readStatus.text = "Unread"
             }
         })
         self.readStatus.text = "Unread"
@@ -91,6 +97,8 @@ class SavedBookDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             self.readStatus.text = "Read!"
             self.markReadButton.isHidden = true
+            self.dateRead.isHidden = false
+            self.dateRead.text = "Date   Read: \(self.book?.dateRead as! String))"
         }
     }
 }

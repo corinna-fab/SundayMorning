@@ -278,7 +278,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pux-ph-CJq">
                                                 <rect key="frame" x="60" y="565" width="294" height="163"/>
                                                 <viewLayoutGuide key="safeArea" id="TRD-VH-fU5"/>
-                                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -305,6 +305,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPb-h6-Arn">
+                                                <rect key="frame" x="87" y="259" width="240" height="298"/>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nk-QN-mdJ">
                                                 <rect key="frame" x="150" y="736" width="114" height="49"/>
                                                 <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -317,15 +320,24 @@
                                                     <action selector="markRead:" destination="fQu-sM-ffv" eventType="touchUpInside" id="EuR-2J-Ol8"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPb-h6-Arn">
-                                                <rect key="frame" x="87" y="259" width="240" height="298"/>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Date Read: 7/14/20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6h-yf-sFO" userLabel="Date Read">
+                                                <rect key="frame" x="0.0" y="736" width="414" height="42"/>
+                                                <color key="backgroundColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="0.7674711044520548" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="ZP9-1w-xX8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="21"/>
+                                                <color key="textColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="p6h-yf-sFO" secondAttribute="trailing" id="1i7-sF-rWd"/>
                                             <constraint firstItem="fPb-h6-Arn" firstAttribute="leading" secondItem="861-UP-GNY" secondAttribute="leading" constant="87" id="2rh-u3-Pfe"/>
                                             <constraint firstItem="9Nk-QN-mdJ" firstAttribute="leading" secondItem="861-UP-GNY" secondAttribute="leading" constant="150" id="4QR-IS-say"/>
                                             <constraint firstAttribute="trailing" secondItem="pux-ph-CJq" secondAttribute="trailing" constant="60" id="ATW-ng-cdu"/>
+                                            <constraint firstItem="p6h-yf-sFO" firstAttribute="leading" secondItem="861-UP-GNY" secondAttribute="leading" id="Asq-U2-cQC"/>
                                             <constraint firstItem="zwe-Mi-Nob" firstAttribute="leading" secondItem="861-UP-GNY" secondAttribute="leading" id="B5j-3n-zow"/>
                                             <constraint firstItem="fPb-h6-Arn" firstAttribute="top" secondItem="zwe-Mi-Nob" secondAttribute="bottom" constant="20" id="KYK-Ny-hTy"/>
                                             <constraint firstItem="pux-ph-CJq" firstAttribute="top" secondItem="fPb-h6-Arn" secondAttribute="bottom" constant="20" id="NeS-Rc-1jq"/>
@@ -335,6 +347,7 @@
                                             <constraint firstAttribute="trailing" secondItem="jES-i6-vWv" secondAttribute="trailing" constant="20" id="ULL-9h-9Ad"/>
                                             <constraint firstAttribute="trailing" secondItem="zwe-Mi-Nob" secondAttribute="trailing" id="Uyn-v1-Wez"/>
                                             <constraint firstItem="jES-i6-vWv" firstAttribute="top" secondItem="fXW-SF-Loq" secondAttribute="bottom" constant="20" id="Xcc-cg-ELA"/>
+                                            <constraint firstAttribute="bottom" secondItem="p6h-yf-sFO" secondAttribute="bottom" constant="150" id="YoI-LE-djs"/>
                                             <constraint firstAttribute="trailing" secondItem="fXW-SF-Loq" secondAttribute="trailing" constant="20" id="h2j-YF-RFL"/>
                                             <constraint firstItem="jES-i6-vWv" firstAttribute="leading" secondItem="861-UP-GNY" secondAttribute="leading" constant="20" id="iph-Ej-2C2"/>
                                             <constraint firstItem="fXW-SF-Loq" firstAttribute="top" secondItem="861-UP-GNY" secondAttribute="top" constant="100" id="lEd-Uc-8Sv"/>
@@ -369,6 +382,7 @@
                         <outlet property="bookCover" destination="fPb-h6-Arn" id="AqE-iu-j5s"/>
                         <outlet property="bookDescription" destination="pux-ph-CJq" id="tcL-5o-h2l"/>
                         <outlet property="bookTitle" destination="fXW-SF-Loq" id="Fh8-T4-nHu"/>
+                        <outlet property="dateRead" destination="p6h-yf-sFO" id="Xek-s7-kUA"/>
                         <outlet property="markReadButton" destination="9Nk-QN-mdJ" id="FzZ-ec-A28"/>
                         <outlet property="readStatus" destination="zwe-Mi-Nob" id="35a-an-3Qa"/>
                     </connections>

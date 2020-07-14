@@ -525,7 +525,8 @@ extension DatabaseManager {
                 "description": newBook.description as! String,
                 "isbn": newBook.isbn as! String,
                 "imageUrl": newBook.imageUrl as! String,
-                "read": false
+                "read": false,
+                "dateRead": newBook.dateRead as! String
             ]
             print("BOOK TO ADD: \(bookToAdd)")
             currentBooks.append(bookToAdd)
@@ -568,11 +569,12 @@ extension DatabaseManager {
                     let author = dictionary["author"] as? String,
                     let descripton = dictionary["description"] as? String,
                     let isbn = dictionary["isbn"] as? String,
-                    let read = false as? Bool else {
+                    let read = false as? Bool,
+                    let dateRead = dictionary["dateRead"] as? String else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead)
             })
             completion(.success(books))
             print("PLEASE FOR THE LOVE OF GOD")
@@ -599,11 +601,12 @@ extension DatabaseManager {
                     let author = dictionary["author"] as? String,
                     let descripton = dictionary["description"] as? String,
                     let isbn = dictionary["isbn"] as? String,
-                    let read = dictionary["read"] as? Bool else {
+                    let read = dictionary["read"] as? Bool,
+                    let dateRead = dictionary["dateRead"] as? String else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead)
             })
         
             
@@ -631,6 +634,13 @@ extension DatabaseManager {
             }
             let i = value.firstIndex(where: { $0["isbn"] as! String == readBook.isbn })
             self.database.child("\(currentEmail)/allBooks/\(i!)/read").setValue(true)
+            
+            
+            let today = Date()
+            let formatter1 = DateFormatter()
+            formatter1.dateStyle = .short
+//            print(formatter1.string(from: today))
+            self.database.child("\(currentEmail)/allBooks/\(i!)/dateRead").setValue(formatter1.string(from: today))
             completion(true)
         })
     }
