@@ -635,6 +635,38 @@ extension DatabaseManager {
         })
     }
     
+    ///Checks to see if the user has read the book or not
+    public func checkBook(with readBook: Book, completion: @escaping (Bool) -> Void){
+        //add new message to messages
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        
+        let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+        
+        database.child("\(currentEmail)/allBooks").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(false)
+                return
+            }
+            let i = value.firstIndex(where: { $0["isbn"] as! String == readBook.isbn })
+            
+            self.database.child("\(currentEmail)/allBooks/\(i!)/read").observe(.value, with: {snapshot in
+                print("SNAP: \(snapshot.value)")
+                
+                if snapshot.value as! Int == 1 {
+                    print("We did it!")
+                    completion(true)
+                }
+                
+            })
+            
+//            print("This book is a book: \(book)")
+            
+        })
+    }
+    
     ///Count of current books saved by user
     public func bookCount(with email: String, completion: @escaping (Result<[Book], Error>) -> Void){
         

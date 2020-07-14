@@ -1,5 +1,4 @@
 PODS:
-  - AMTabView (0.1.2)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -117,7 +116,6 @@ PODS:
   - SDWebImage/Core (5.8.3)
 
 DEPENDENCIES:
-  - AMTabView
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -130,7 +128,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AMTabView
     - AppAuth
     - Firebase
     - FirebaseAnalytics
@@ -158,7 +155,6 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
-  AMTabView: b8a74f5ea27ec367d8f6fa614ebc77be9af38064
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   Firebase: fc4cbf6f1592636431821ef9a3c557e4dfd9f268
   FirebaseAnalytics: 0ea640473474f036cabbc2576e20c2d63671c92f
@@ -185,6 +181,6 @@ SPEC CHECKSUMS:
   RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
 
-PODFILE CHECKSUM: 2bcd6e13104e3352904fe174edef11f5c24fe28b
+PODFILE CHECKSUM: 850ab193607a5687bd3862a0e0f78138a95d4706
 
 COCOAPODS: 1.9.3

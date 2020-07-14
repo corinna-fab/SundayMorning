@@ -16,6 +16,7 @@ class SavedBookDetailsViewController: UIViewController {
     @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var bookDescription: UILabel!
     @IBOutlet weak var readStatus: UILabel!
+    @IBOutlet weak var markReadButton: UIButton!
     
     var book:Book?
     
@@ -27,18 +28,23 @@ class SavedBookDetailsViewController: UIViewController {
         
         bookDescription.text = book?.description
         // Do any additional setup after loading the view.
-        
         //FIX LOGIC HERE ABOUT WHAT THIS SHOWS
-        if book?.read == false {
-            readStatus.text = "To Be Read"
-        } else {
-            readStatus.text = "Read!"
-        }
+        
+//        if isRead == false {
+//            readStatus.text = "To Be Read"
+//            print("This book has doubly been: \(isRead)")
+//        } else {
+//            readStatus.text = "Read!"
+//            markReadButton.isHidden = true
+//            print("Please just work already")
+//        }
+        
+        markReadButton.layer.cornerRadius = 15
         
         readStatus.layer.masksToBounds = true
-        readStatus.layer.cornerRadius = 25
         
         displayMovieImage(bookCover: book as! Book)
+        checkBook(book: book as! Book)
     }
     
     func displayMovieImage(bookCover: Book) {
@@ -56,6 +62,22 @@ class SavedBookDetailsViewController: UIViewController {
         }).resume()
     }
     
+    func checkBook(book: Book){
+        DatabaseManager.shared.checkBook(with: book, completion: { success in
+            if success {
+                print("Yay! You read this book already.")
+                DispatchQueue.main.async {
+                    self.readStatus.text = "Read!"
+                    self.markReadButton.isHidden = true
+                }
+            } else {
+                print("Failed to mark book as read.")
+            }
+        })
+        
+        
+    }
+    
     @IBAction func markRead(_ sender: UIButton) {
         DatabaseManager.shared.markRead(with: book!, completion: { success in
         if success {
@@ -67,6 +89,7 @@ class SavedBookDetailsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.readStatus.text = "Read!"
+            self.markReadButton.isHidden = true
         }
     }
 }

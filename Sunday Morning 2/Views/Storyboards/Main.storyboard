@@ -253,6 +253,7 @@
                         <outlet property="authorLabel" destination="vZ6-Dr-GKS" id="CHM-qS-87i"/>
                         <outlet property="bookCoverImage" destination="Ykr-dW-aCO" id="siH-1s-iqk"/>
                         <outlet property="bookDescription" destination="jZD-Py-6lW" id="qQx-C6-C3H"/>
+                        <outlet property="fromReview" destination="cpD-Zb-7gF" id="AgJ-FA-XFp"/>
                         <outlet property="titleLabel" destination="RLg-0v-GSs" id="Wf8-a8-hmA"/>
                     </connections>
                 </viewController>
@@ -264,14 +265,14 @@
         <scene sceneID="W5F-pG-cd4">
             <objects>
                 <viewController storyboardIdentifier="savedBook" id="fQu-sM-ffv" customClass="SavedBookDetailsViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kb2-uS-t1j">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="kb2-uS-t1j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aX7-s1-eYC">
                                 <rect key="frame" x="0.0" y="-11" width="414" height="907"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="861-UP-GNY">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="861-UP-GNY">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pux-ph-CJq">
@@ -306,7 +307,12 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nk-QN-mdJ">
                                                 <rect key="frame" x="150" y="736" width="114" height="49"/>
-                                                <state key="normal" title="Button"/>
+                                                <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="19"/>
+                                                <color key="tintColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Mark Read">
+                                                    <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="markRead:" destination="fQu-sM-ffv" eventType="touchUpInside" id="EuR-2J-Ol8"/>
                                                 </connections>
@@ -363,6 +369,7 @@
                         <outlet property="bookCover" destination="fPb-h6-Arn" id="AqE-iu-j5s"/>
                         <outlet property="bookDescription" destination="pux-ph-CJq" id="tcL-5o-h2l"/>
                         <outlet property="bookTitle" destination="fXW-SF-Loq" id="Fh8-T4-nHu"/>
+                        <outlet property="markReadButton" destination="9Nk-QN-mdJ" id="FzZ-ec-A28"/>
                         <outlet property="readStatus" destination="zwe-Mi-Nob" id="35a-an-3Qa"/>
                     </connections>
                 </viewController>

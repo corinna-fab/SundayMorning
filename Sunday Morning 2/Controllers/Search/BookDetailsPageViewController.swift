@@ -18,6 +18,8 @@ class BookDetailsPageViewController: UIViewController {
     
     var isNewBook = false
     
+    @IBOutlet weak var fromReview: UILabel!
+    
     var author: String = ""
     var bookTitle: String = ""
     var imageUrl: String = ""
@@ -30,7 +32,6 @@ class BookDetailsPageViewController: UIViewController {
     @IBOutlet weak var bookDescription: UILabel!
     @IBOutlet weak var isbn: UILabel!
     @IBOutlet weak var review: UILabel!
-    @IBOutlet weak var readSwitch: UISwitch!
     
     var book:Book?
     
@@ -39,11 +40,6 @@ class BookDetailsPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        bookCoverImage.image = #imageLiteral(resourceName: "book_cover")
-//        bookCoverImage.layer.borderColor = #colorLiteral(red: 0.9973656535, green: 0.9274361134, blue: 0.6675162315, alpha: 1)
-//        bookCoverImage.layer.borderWidth = 10
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,8 +129,8 @@ class BookDetailsPageViewController: UIViewController {
                                 
                                 if let object = object {
 //                                    print("This is an object")
-                    //                print(object["items"])
-                                    BookDataProcessor.mapJsonToReview(object: object)
+                                    print(object)
+//                                    BookDataProcessor.mapJsonToReview(object: object)
                                 }
                 }
             }
