@@ -657,6 +657,7 @@ extension DatabaseManager {
                 
                 if snapshot.value as! Int == 1 {
                     print("We did it!")
+                    
                     completion(true)
                 }
                 

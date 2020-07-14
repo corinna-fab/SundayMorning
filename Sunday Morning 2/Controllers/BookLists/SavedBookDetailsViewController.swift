@@ -69,13 +69,14 @@ class SavedBookDetailsViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.readStatus.text = "Read!"
                     self.markReadButton.isHidden = true
+                    self.readStatus.text = "Read"
                 }
             } else {
                 print("Failed to mark book as read.")
+                self.readStatus.text = "Unread"
             }
         })
-        
-        
+        self.readStatus.text = "Unread"
     }
     
     @IBAction func markRead(_ sender: UIButton) {
