@@ -28,6 +28,7 @@
 		07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */; };
 		07307EA624B3B9D40033D645 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA524B3B9D40033D645 /* Book.swift */; };
 		079A687324BCF41900C1D70C /* UnreadBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */; };
+		079A687724BE326200C1D70C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687624BE326200C1D70C /* UserDataViewController.swift */; };
 		07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */; };
 		07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */; };
 		07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */; };
@@ -70,6 +71,7 @@
 		07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookListCellTableViewCell.swift; sourceTree = "<group>"; };
 		07307EA524B3B9D40033D645 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadBooksViewController.swift; sourceTree = "<group>"; };
+		079A687624BE326200C1D70C /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataProcesser.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				07D5ACF424B7AFC90062DD1D /* Search */,
 				07D5ACE524B4D6700062DD1D /* Conversations */,
 				07307E8E24B0E0910033D645 /* Login */,
+				079A687624BE326200C1D70C /* UserDataViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				07D5ACED24B646C50062DD1D /* ConversationsViewController.swift in Sources */,
 				07307EA224B378BD0033D645 /* Constants.swift in Sources */,
 				07307E8924B0DFA40033D645 /* VideoPlayerViewController.swift in Sources */,
+				079A687724BE326200C1D70C /* UserDataViewController.swift in Sources */,
 				07307E9624B153C20033D645 /* SearchViewController.swift in Sources */,
 				07307E9A24B154F40033D645 /* BookData.swift in Sources */,
 				07307E9024B0E5C20033D645 /* Extensions.swift in Sources */,

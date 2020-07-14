@@ -545,10 +545,10 @@ extension DatabaseManager {
     }
     
     ///Get all books for a given user
-    public func getAllBooks(with email: String, completion: @escaping (Result<[Book], Error>) -> Void){
+    public func getAllBooks(with email: String, unreadOnly: Bool, completion: @escaping (Result<[Book], Error>) -> Void){
         print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
-            guard let value = snapshot.value as? [[String: Any]] else {
+            guard var value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(DatabaseError.failedtoFetch))
                 return
             }
@@ -560,6 +560,10 @@ extension DatabaseManager {
             for book in value {
                 print("\(book["read"]!)")
                 //                print("\(message.lat)")
+            }
+            
+            if unreadOnly == true {
+                value.removeAll { $0["read"] as! Int == 1 }
             }
             
             let books: [Book] = value.compactMap({dictionary in
@@ -663,7 +667,7 @@ extension DatabaseManager {
             let i = value.firstIndex(where: { $0["isbn"] as! String == readBook.isbn })
             
             self.database.child("\(currentEmail)/allBooks/\(i!)/read").observe(.value, with: {snapshot in
-                print("SNAP: \(snapshot.value)")
+//                print("SNAP: \(String(snapshot.value))")
                 
                 if snapshot.value as! Int == 1 {
                     print("We did it!")
@@ -672,15 +676,15 @@ extension DatabaseManager {
                 }
                 
             })
-            
-//            print("This book is a book: \(book)")
-            
         })
     }
-    
-    ///Count of current books saved by user
-    public func bookCount(with email: String, completion: @escaping (Result<[Book], Error>) -> Void){
-        
+}
+
+//Handles data analytics
+extension DatabaseManager {
+    ///Get all books for a given user
+    public func getBookCount(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
+        print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(DatabaseError.failedtoFetch))
@@ -688,29 +692,24 @@ extension DatabaseManager {
             }
             
             print("LIBRARY COUNT: \(value.count)")
-            
-//            print("So far so good")
-//
-//            for book in value {
-//                print("\(book.keys)")
-//                //                print("\(message.lat)")
-//            }
-//
-//            let books: [Book] = value.compactMap({dictionary in
-//                guard let id = dictionary["id"] as? String,
-//                    let title = dictionary["title"] as? String,
-//                    let imageUrl = dictionary["imageUrl"] as? String,
-//                    let author = dictionary["author"] as? String,
-//                    let descripton = dictionary["description"] as? String,
-//                    let isbn = dictionary["isbn"] as? String,
-//                    let read = false as? Bool else {
-//                        return nil
-//                }
-//
-//                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read)
-//            })
-//            completion(.success(books))
-//            print("PLEASE FOR THE LOVE OF GOD")
+
+            completion(.success(value.count))
+            print("PLEASE FOR THE LOVE OF GOD")
+        })
+    }
+    
+    public func getUnreadBookCount(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
+        print("USER ID: \(email)")
+        database.child("\(email)/allBooks").observe(.value, with: { snapshot in
+            guard var value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedtoFetch))
+                return
+            }
+            value.removeAll { $0["read"] as! Int == 1 }
+            print("LIBRARY COUNT: \(value.count)")
+
+            completion(.success(value.count))
+            print("PLEASE FOR THE LOVE OF GOD")
         })
     }
 }

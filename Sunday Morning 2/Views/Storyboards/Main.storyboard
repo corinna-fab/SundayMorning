@@ -7,80 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Books-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="AllSavedBooksViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-Ug-oye">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bookListCell" rowHeight="139" id="un7-7R-0eC" customClass="CustomBookListTableViewCell" customModule="Sunday_Morning_2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="139"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="un7-7R-0eC" id="h9c-ng-j6N">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kK1-db-Wm6">
-                                                    <rect key="frame" x="132" y="11" width="88.5" height="50"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkX-Fe-zVg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="52.5" height="31.5"/>
-                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by The Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mef-ul-teF">
-                                                            <rect key="frame" x="0.0" y="31.5" width="88.5" height="18.5"/>
-                                                            <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5y-f8-gsc" userLabel="BookCover">
-                                                    <rect key="frame" x="20" y="19" width="92" height="101"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="kK1-db-Wm6" firstAttribute="leading" secondItem="O5y-f8-gsc" secondAttribute="trailing" constant="20" id="GKn-a0-UxS"/>
-                                                <constraint firstItem="O5y-f8-gsc" firstAttribute="leading" secondItem="h9c-ng-j6N" secondAttribute="leadingMargin" id="Q5r-o3-gDo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kK1-db-Wm6" secondAttribute="trailing" constant="173.5" id="Xqp-sb-g2M"/>
-                                                <constraint firstItem="O5y-f8-gsc" firstAttribute="top" secondItem="h9c-ng-j6N" secondAttribute="topMargin" constant="8" id="h4A-HX-OXE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="O5y-f8-gsc" secondAttribute="bottom" constant="8" id="xIN-Kl-Mjq"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="bookAuthor" destination="mef-ul-teF" id="VHy-R9-oVq"/>
-                                            <outlet property="bookImageView" destination="O5y-f8-gsc" id="xiB-cu-oxO"/>
-                                            <outlet property="bookTitle" destination="ZkX-Fe-zVg" id="qmx-Op-sg8"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="o5l-On-F0V"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fId-gH-5qE"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Books" id="nLw-8t-zqJ"/>
-                    <connections>
-                        <outlet property="mainTableView" destination="YhX-Ug-oye" id="5c4-ct-PML"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3439" y="115"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="HP6-x5-ZvZ">
             <objects>
@@ -110,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3F-gi-Be7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="871"/>
+            <point key="canvasLocation" x="2354" y="852"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wG8-3N-8p8">
@@ -128,6 +54,7 @@
                         <segue destination="56P-Ez-JEJ" kind="relationship" relationship="viewControllers" id="gvW-3d-Zrt"/>
                         <segue destination="VXI-ba-HBE" kind="relationship" relationship="viewControllers" id="fSm-el-Zm3"/>
                         <segue destination="p8f-EC-LWb" kind="relationship" relationship="viewControllers" id="4xm-dZ-laf"/>
+                        <segue destination="5Nw-QF-9Dp" kind="relationship" relationship="viewControllers" id="Lxf-Tq-BW4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1k8-y2-A7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -153,6 +80,23 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="Smf-OD-kJl">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="deC-FS-xDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="5Nw-QF-9Dp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rNB-Np-KSm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lQf-SA-tFp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="i1v-4V-Soj" kind="relationship" relationship="rootViewController" id="pg6-CZ-0EW"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1197" y="115"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="jAK-sP-G1r">
             <objects>
@@ -168,7 +112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIw-PV-XDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="111"/>
+            <point key="canvasLocation" x="2354" y="92"/>
         </scene>
         <!--Book Details Page View Controller-->
         <scene sceneID="b0g-ly-deX">
@@ -515,7 +459,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nW6-4C-o8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="110"/>
+            <point key="canvasLocation" x="3523" y="92"/>
         </scene>
         <!--Conversations-->
         <scene sceneID="VM0-aN-1KQ">
@@ -543,21 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUS-Ra-aiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="871"/>
-        </scene>
-        <!--AllBooksTEST-->
-        <scene sceneID="l5f-mS-M0u">
-            <objects>
-                <navigationController id="nmy-mI-3R7" userLabel="AllBooksTEST" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TEST" image="archivebox.fill" catalog="system" id="4AA-yT-Xjw"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Me1-uY-0DV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tWA-eh-9JD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2593" y="110"/>
+            <point key="canvasLocation" x="3523" y="848"/>
         </scene>
         <!--My Books-->
         <scene sceneID="2pY-iF-HiN">
@@ -581,14 +511,79 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gbc-3w-P4J"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Books" id="exA-Cd-P4w"/>
+                    <navigationItem key="navigationItem" title="My Books" id="exA-Cd-P4w">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="gjZ-ob-BDB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="84D-H8-Ifn" userLabel="Unread Titles Only">
+                                <rect key="frame" x="267" y="7" width="127" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="19"/>
+                                <state key="normal" title="Unread Titles Only">
+                                    <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="didSwitchtoUnreadOnly" destination="H1C-2m-WN8" eventType="touchUpInside" id="vie-Pw-xyr"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="readOrUnreadButton" destination="84D-H8-Ifn" id="02P-5c-X2U"/>
                         <outlet property="table" destination="rbE-Mf-Utu" id="VBA-R4-uys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFS-dc-Yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="871"/>
+        </scene>
+        <!--User Data-->
+        <scene sceneID="hC5-ch-HrQ">
+            <objects>
+                <viewController id="i1v-4V-Soj" customClass="UserDataViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="quG-dC-Kr9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Books in Library:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-hd-mr2">
+                                <rect key="frame" x="29" y="189" width="235" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he4-4Z-wyJ">
+                                <rect key="frame" x="271" y="186" width="47" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Books TBR:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImX-Bz-fqY">
+                                <rect key="frame" x="29" y="252" width="159" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46J-en-jPf">
+                                <rect key="frame" x="196" y="246" width="47" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="okb-Ev-Z4w"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="User Data" id="ttv-hF-8eg"/>
+                    <connections>
+                        <outlet property="totalLibraryCount" destination="he4-4Z-wyJ" id="NOZ-2A-NQI"/>
+                        <outlet property="totalTBRCount" destination="46J-en-jPf" id="Qe8-lK-QqN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uIv-iW-SgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205.7971014492755" y="864.50892857142856"/>
         </scene>
         <!--Unread Books-->
         <scene sceneID="RW1-U0-TEK">
@@ -642,7 +637,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="archivebox.fill" catalog="system" width="128" height="106"/>
         <image name="book.circle" catalog="system" width="128" height="121"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="ellipses.bubble.fill" catalog="system" width="128" height="110"/>

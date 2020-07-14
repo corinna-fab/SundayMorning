@@ -15,6 +15,9 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet var table: UITableView!
     @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var readOrUnreadButton: UIButton!
+    
+    var unreadOnly: Bool = false
     
     private let refreshControl = UIRefreshControl()
 //    private var bookData = [BookItem]()
@@ -22,6 +25,31 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
 //    public var completionHandler: (() -> Void)?
     
     private var conversations = [Book]()
+    
+    @IBAction func didSwitchtoUnreadOnly() {
+        print("ADD!")
+        
+        if unreadOnly == false {
+            unreadOnly = true
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.readOrUnreadButton.titleLabel?.text = "All Titles"
+            }
+        } else {
+            unreadOnly = false
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.readOrUnreadButton.titleLabel?.text = "Unread Titles Only"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +87,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
-        DatabaseManager.shared.getAllBooks(with: safeEmail, completion: { [weak self] result in
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")
@@ -68,7 +96,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                     print("nothing to see here")
                     return
                 }
-                
+                print("LIBRARY COUNT: \(conversations.count)")
                 self?.conversations = conversations
                 print("this is where the collection would go")
                 DispatchQueue.main.async {
