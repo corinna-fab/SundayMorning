@@ -94,7 +94,7 @@ class BookDetailsPageViewController: UIViewController {
 //    */
 
     func fetchReview(isbn: String) {
-        let bookURL = "http://idreambooks.com/api/books/reviews.json?key=60a5d80efa3e745eb4191bd16dcaac6cf5cacdd8"
+        let bookURL = "http://idreambooks.com/api/books/reviews.json?key=\(K.DREAM_API)"
         let urlString = "\(bookURL)&isbn=\(isbn)"
         performRequest(with: urlString)
     }

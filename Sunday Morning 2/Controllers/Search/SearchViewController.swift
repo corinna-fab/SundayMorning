@@ -26,7 +26,7 @@
 //    }
 //
 //    func retrieveBooksByTitle(searchTerm: String){
-//        let bookURL = "https://www.googleapis.com/books/v1/volumes?&key=AIzaSyAgTZF2g0DfyJC5mCBg9v_tD2cp3oyXx5w"
+//        let bookURL = "https://www.googleapis.com/books/v1/volumes?&key="
 //        let urlString = "\(bookURL)&q=\(searchTerm)"
 //        HTTPHandler.getJSON(urlString: urlString, completionHandler: parseDataToBooks)
 //    }
@@ -252,8 +252,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func retrieveMoviesByTerm(searchTerm: String) {
-//        let url = "https://www.omdbapi.com/?apikey=PlzBanMe&s=\(searchTerm)&type=movie&r=json"
-        let bookURL = "https://www.googleapis.com/books/v1/volumes?&key=AIzaSyAgTZF2g0DfyJC5mCBg9v_tD2cp3oyXx5w"
+        let bookURL = "https://www.googleapis.com/books/v1/volumes?&key=\(K.GOOGLE_API_KEY)"
         let url = "\(bookURL)&q=\(searchTerm)"
         HTTPHandler.getJSON(urlString: url, completionHandler: parseDataIntoMovies)
     }

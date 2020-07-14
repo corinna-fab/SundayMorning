@@ -13,7 +13,7 @@ protocol BookDelegate {
 }
 
 struct BookManager {
-    let bookURL = "https://www.googleapis.com/books/v1/volumes?&key=AIzaSyAgTZF2g0DfyJC5mCBg9v_tD2cp3oyXx5w"
+    let bookURL = "https://www.googleapis.com/books/v1/volumes?&key=\(K.GOOGLE_API_KEY)"
     
 //    var searchResults:
     var delegate: BookDelegate?
