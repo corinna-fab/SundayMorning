@@ -70,18 +70,38 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         let txt = alertView.addTextField("List   name")
         alertView.addButton("Done", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1)) {
 //            print("\(txt.text)")
+            DatabaseManager.shared.addNewList(unreadOnly: self.unreadOnly, pickLength: self.picklength, title: (txt.text ?? "Saved User List") as String, completion: { success in
+                if success {
+                    print("Message sent. WOO")
+                    let timer = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2.0, timeoutAction: {})
+                    SCLAlertView(appearance: appearance).showTitle(
+                        "YAY!", // Title of view
+                        subTitle: "List successfully saved.", // String of view
+                        timeout: timer, // Duration to show before closing automatically, default: 0.0
+                        completeText: "Done", // Optional button value, default: ""
+                        style: .success, // Styles - see below.
+                        colorStyle: 1,
+                        colorTextButton: 1
+                    )
+//                    let appearance = SCLAlertView.SCLAppearance(
+//                        kTitleFont: UIFont(name: "Farah", size: 20)!,
+//                        kTextFont: UIFont(name: "Farah", size: 14)!,
+//                        kButtonFont: UIFont(name: "Farah", size: 14)!,
+//                        showCloseButton: true,
+//                        showCircularIcon: false,
+//                        contentViewColor: #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1),
+//                        contentViewBorderColor: #colorLiteral(red: 0.247261852, green: 0.2675772011, blue: 0.2539684772, alpha: 1)
+//                    )
+//                    let alertView = SCLAlertView(appearance: appearance)
+//                    alertView.showCustom("YAY", subTitle: "Your custom list has successfully been saved", color: #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1), icon: UIImage(systemName: "plus.square.fill"), closeButtonTitle: "Done.", timeout: <#T##SCLAlertView.SCLTimeoutConfiguration?#>, colorStyle: UInt, colorTextButton: <#T##UInt#>, circleIconImage: <#T##UIImage?#>, animationStyle: <#T##SCLAnimationStyle#>)
+//                    alertView.showSuccess("YAY!", subTitle: "Your custom list has successfully been saved")
+                } else {
+                    print("Failed to send")
+                    
+                }
+            })
         }
         alertView.showEdit("Save  List", subTitle: "What   would   you  like  to  call  this  list?")
-
-        
-        DatabaseManager.shared.addNewList(unreadOnly: unreadOnly, pickLength: picklength, title: (txt.text ?? "Saved User List") as String, completion: { success in
-            if success {
-                print("Message sent. WOO")
-            } else {
-                print("Failed to send")
-                
-            }
-        })
     }
     
 //    func showAlert() {
