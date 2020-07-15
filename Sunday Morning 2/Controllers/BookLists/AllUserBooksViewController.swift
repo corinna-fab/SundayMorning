@@ -10,30 +10,114 @@ import UIKit
 import WebKit
 import RealmSwift
 import FirebaseAuth
+import SCLAlertView
 
 class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var table: UITableView!
-    @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var readOrUnreadButton: UIButton!
     
-    @IBOutlet var lengthButtons: [UIButton]!
     var unreadOnly: Bool = false
     var picklength: String = ""
     
-    //For dropdown: https://www.youtube.com/watch?v=dIKK-SCkh_c
-    @IBAction func selectLength(_ sender: UIButton) {
-        lengthButtons.forEach { (button) in
+    @IBAction func handleSelection(_ sender: UIButton) {
+        choiceCollection.forEach { (button) in
             UIView.animate(withDuration: 0.3, animations: {
                 button.isHidden = !button.isHidden
                 self.view.layoutIfNeeded()
             })
         }
     }
+    @IBAction func handleLengthSelection(_ sender: Any) {
+        lengthCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBAction func handleStatusSelection(_ sender: Any) {
+        readStatusCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBOutlet var lengthCollection: [UIButton]!
+    @IBOutlet var readStatusCollection: [UIButton]!
+    @IBOutlet var choiceCollection: [UIButton]!
+    @IBOutlet weak var saveListButton: UIButton!
+    
+    @IBAction func saveList(_ sender: UIButton) {
+        //Send to database here
+        print("Click")
+        
+        //ALERTVIEW RESOURCE: https://github.com/vikmeup/SCLAlertView-Swift
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Farah", size: 20)!,
+            kTextFont: UIFont(name: "Farah", size: 14)!,
+            kButtonFont: UIFont(name: "Farah", size: 14)!,
+            showCloseButton: false,
+            showCircularIcon: false,
+            contentViewColor: #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1),
+            contentViewBorderColor: #colorLiteral(red: 0.247261852, green: 0.2675772011, blue: 0.2539684772, alpha: 1)
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        let txt = alertView.addTextField("List   name")
+        alertView.addButton("Done", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1)) {
+//            print("\(txt.text)")
+        }
+        alertView.showEdit("Save  List", subTitle: "What   would   you  like  to  call  this  list?")
+
+        
+        DatabaseManager.shared.addNewList(unreadOnly: unreadOnly, pickLength: picklength, title: (txt.text ?? "Saved User List") as String, completion: { success in
+            if success {
+                print("Message sent. WOO")
+            } else {
+                print("Failed to send")
+                
+            }
+        })
+    }
+    
+//    func showAlert() {
+//        let alert = UIAlertController(title: "Title", message: "Hello World", preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { action in
+//            print("Tapped dismiss.")
+//        }))
+//
+//        present(alert, animated: true)
+//    }
+//
+//    func showActionSheet() {
+//        let actionsheet = UIAlertController(title: "Title", message: "Hello World", preferredStyle: .actionSheet)
+//
+//        actionsheet.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { action in
+//            print("Tapped dismiss.")
+//        }))
+//
+//        present(actionsheet, animated: true)
+//    }
+    
+    
+    //For dropdown: https://www.youtube.com/watch?v=dIKK-SCkh_c
+    //    @IBAction func selectLength(_ sender: UIButton) {
+    //        lengthButtons.forEach { (button) in
+    //            UIView.animate(withDuration: 0.3, animations: {
+    //                button.isHidden = !button.isHidden
+    //                self.view.layoutIfNeeded()
+    //            })
+    //        }
+    //    }
     private let refreshControl = UIRefreshControl()
-//    private var bookData = [BookItem]()
-//    private let realm = try! Realm()
-//    public var completionHandler: (() -> Void)?
+    //    private var bookData = [BookItem]()
+    //    private let realm = try! Realm()
+    //    public var completionHandler: (() -> Void)?
     
     private var conversations = [Book]()
     
@@ -111,12 +195,12 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         refreshControl.addTarget(self, action: #selector(refreshBookData(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Book List ...")
         refreshControl.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         
-//        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         let nib = UINib(nibName: "SavedBooksTableViewCell", bundle: nil)
         table.register(nib, forCellReuseIdentifier: "SavedBooksTableViewCell")
         table.refreshControl = refreshControl
@@ -129,7 +213,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     ///Tells the table to refresh upon pull down
     //https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view
     @objc private func refreshBookData(_ sender: Any) {
-
+        
         table.reloadData()
         
         DispatchQueue.main.async {
@@ -142,7 +226,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         print("Starting to fetch books")
-
+        
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
         DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, completion: { [weak self] result in
@@ -162,8 +246,8 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 
             case .failure(let error):
-//                self?.tableView.isHidden = true
-//                self?.noConversationsLabel.isHidden = false
+                //                self?.tableView.isHidden = true
+                //                self?.noConversationsLabel.isHidden = false
                 print("failed to get books: \(error)")
             }
         })
@@ -179,8 +263,8 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         cell.bookAuthor.text = conversations[indexPath.row].author
         cell.bookTitle.text = conversations[indexPath.row].title
         displayMovieImage(indexPath.row, cell: cell)
-//        cell.textLabel?.numberOfLines = 0
-//        cell.textLabel!.text = conversations[indexPath.row].title
+        //        cell.textLabel?.numberOfLines = 0
+        //        cell.textLabel!.text = conversations[indexPath.row].title
         return cell
     }
     
@@ -209,9 +293,9 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         vc.book = model
-//        vc.bookTitle.text = model.title as! String
-//        vc.bookAuthor.text = model.author as! String
-//        vc.bookDescription.text = model.description as! String
+        //        vc.bookTitle.text = model.title as! String
+        //        vc.bookAuthor.text = model.author as! String
+        //        vc.bookDescription.text = model.description as! String
         
         navigationController?.pushViewController(vc, animated: true)
         print("You hit me")
@@ -227,23 +311,23 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//     if (editingStyle == .delete){
-//            let item = conversations[indexPath.row]
-//            try! self.realm.write({
-//                self.realm.delete(item)
-//            })
-//            bookData.remove(at: indexPath.row)
-//            tableView.deleteRows(at:[indexPath], with: .automatic)
-//        }
+        //     if (editingStyle == .delete){
+        //            let item = conversations[indexPath.row]
+        //            try! self.realm.write({
+        //                self.realm.delete(item)
+        //            })
+        //            bookData.remove(at: indexPath.row)
+        //            tableView.deleteRows(at:[indexPath], with: .automatic)
+        //        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      if indexPath.row !=  nil {
-          return 125
-       }
-
-       // Use the default size for all other rows.
-       return UITableView.automaticDimension
+        if indexPath.row !=  nil {
+            return 125
+        }
+        
+        // Use the default size for all other rows.
+        return UITableView.automaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

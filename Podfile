@@ -15,5 +15,6 @@ pod 'MessageKit'
 pod 'JGProgressHUD'
 pod 'RealmSwift'
 pod 'SDWebImage'
+pod 'SCLAlertView'
 
 end

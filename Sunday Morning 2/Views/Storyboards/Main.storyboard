@@ -499,96 +499,140 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="FMM-ro-bfc">
-                                <rect key="frame" x="0.0" y="140" width="414" height="30"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-Mf-Utu">
+                                <rect key="frame" x="0.0" y="172" width="414" height="641"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J1K-IF-Wi7">
+                                <rect key="frame" x="0.0" y="140" width="414" height="32"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSc-m2-SWy" userLabel="Select Length">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                        <color key="backgroundColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
-                                        <state key="normal" title="Select Length">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYn-hs-yc3" userLabel="Filter">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                                        <color key="backgroundColor" red="0.3805835843" green="0.43209573629999998" blue="0.39607450370000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Filter">
                                             <color key="titleColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="RAA-tU-nCL"/>
+                                            <action selector="handleSelection:" destination="H1C-2m-WN8" eventType="touchUpInside" id="38E-wH-0cU"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2c-TR-iAN" userLabel="Short">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03M-ol-Qho" userLabel="Select Length">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Select  Length">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleLengthSelection:" destination="H1C-2m-WN8" eventType="touchUpInside" id="Zre-Pd-EQq"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-ob-3ur">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
                                         <state key="normal" title="Short">
-                                            <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="RIo-8X-RKo"/>
-                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="VyS-2e-gBG"/>
+                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="D41-KK-Van"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qK-B4-McL" userLabel="Long">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzs-gz-Yub">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
                                         <state key="normal" title="Medium">
-                                            <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="HZt-z5-p8K"/>
-                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="suX-uz-LD0"/>
+                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="H6G-Ub-n9K"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MW-lP-52a" userLabel="Medium">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XN-0b-esb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
                                         <state key="normal" title="Long">
-                                            <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="ckw-lH-O4o"/>
-                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="Rhg-ak-LIn"/>
+                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="w3j-Fi-zPu"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-PD-IrZ" userLabel="Select Status">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Select  Status">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleStatusSelection:" destination="H1C-2m-WN8" eventType="touchUpInside" id="DxE-c8-aPq"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEp-EG-5P6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Read">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSwitchtoUnreadOnly" destination="H1C-2m-WN8" eventType="touchUpInside" id="zI5-X2-mfl"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Els-Dp-xcM">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Unread">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSwitchtoUnreadOnly" destination="H1C-2m-WN8" eventType="touchUpInside" id="u2M-wU-7Hb"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-Mf-Utu">
-                                <rect key="frame" x="0.0" y="170" width="414" height="643"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gbc-3w-P4J" firstAttribute="trailing" secondItem="J1K-IF-Wi7" secondAttribute="trailing" id="5ng-GP-2ih"/>
                             <constraint firstItem="rbE-Mf-Utu" firstAttribute="leading" secondItem="gbc-3w-P4J" secondAttribute="leading" id="Bkc-AE-eyK"/>
                             <constraint firstItem="gbc-3w-P4J" firstAttribute="bottom" secondItem="rbE-Mf-Utu" secondAttribute="bottom" id="MfC-iK-4iD"/>
-                            <constraint firstItem="FMM-ro-bfc" firstAttribute="leading" secondItem="gbc-3w-P4J" secondAttribute="leading" id="Rg9-ig-t9C"/>
-                            <constraint firstItem="rbE-Mf-Utu" firstAttribute="top" secondItem="FMM-ro-bfc" secondAttribute="bottom" id="faa-zV-7xH"/>
-                            <constraint firstItem="gbc-3w-P4J" firstAttribute="trailing" secondItem="FMM-ro-bfc" secondAttribute="trailing" id="iHN-nH-3Wa"/>
+                            <constraint firstItem="J1K-IF-Wi7" firstAttribute="leading" secondItem="gbc-3w-P4J" secondAttribute="leading" id="eWr-oV-kTt"/>
                             <constraint firstItem="gbc-3w-P4J" firstAttribute="trailing" secondItem="rbE-Mf-Utu" secondAttribute="trailing" id="l77-eb-ksV"/>
-                            <constraint firstItem="FMM-ro-bfc" firstAttribute="top" secondItem="gbc-3w-P4J" secondAttribute="top" id="ldJ-39-RrR"/>
+                            <constraint firstItem="J1K-IF-Wi7" firstAttribute="top" secondItem="gbc-3w-P4J" secondAttribute="top" id="vTS-os-YxX"/>
+                            <constraint firstItem="rbE-Mf-Utu" firstAttribute="top" secondItem="J1K-IF-Wi7" secondAttribute="bottom" id="zj7-K3-uH9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gbc-3w-P4J"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Books" id="exA-Cd-P4w">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="gjZ-ob-BDB">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="84D-H8-Ifn" userLabel="Unread Titles Only">
-                                <rect key="frame" x="244" y="6.5" width="150" height="31"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save List" style="plain" id="1AX-J0-iCT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a3n-tp-1va">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="19"/>
-                                <state key="normal" title="Unread Titles Only">
-                                    <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
+                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="17"/>
+                                <color key="tintColor" red="0.3805835843" green="0.43209573629999998" blue="0.39607450370000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Save   List"/>
                                 <connections>
-                                    <action selector="didSwitchtoUnreadOnly" destination="H1C-2m-WN8" eventType="touchUpInside" id="vie-Pw-xyr"/>
+                                    <action selector="saveList:" destination="H1C-2m-WN8" eventType="touchUpInside" id="iSd-wx-HrX"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="readOrUnreadButton" destination="84D-H8-Ifn" id="02P-5c-X2U"/>
+                        <outlet property="saveListButton" destination="a3n-tp-1va" id="J9H-8T-Df2"/>
                         <outlet property="table" destination="rbE-Mf-Utu" id="VBA-R4-uys"/>
-                        <outletCollection property="lengthButtons" destination="9MW-lP-52a" collectionClass="NSMutableArray" id="IfR-M4-fKc"/>
-                        <outletCollection property="lengthButtons" destination="0qK-B4-McL" collectionClass="NSMutableArray" id="mPv-pi-YL5"/>
-                        <outletCollection property="lengthButtons" destination="G2c-TR-iAN" collectionClass="NSMutableArray" id="Bto-fl-Yu6"/>
+                        <outletCollection property="choiceCollection" destination="03M-ol-Qho" collectionClass="NSMutableArray" id="VKt-tY-njT"/>
+                        <outletCollection property="readStatusCollection" destination="tEp-EG-5P6" collectionClass="NSMutableArray" id="xky-W4-F1O"/>
+                        <outletCollection property="lengthCollection" destination="MzF-ob-3ur" collectionClass="NSMutableArray" id="bLt-eq-ajq"/>
+                        <outletCollection property="lengthCollection" destination="Bzs-gz-Yub" collectionClass="NSMutableArray" id="Tkc-U0-UKD"/>
+                        <outletCollection property="lengthCollection" destination="1XN-0b-esb" collectionClass="NSMutableArray" id="0c0-Ba-Ghj"/>
+                        <outletCollection property="choiceCollection" destination="1ti-PD-IrZ" collectionClass="NSMutableArray" id="5Rg-CY-IcP"/>
+                        <outletCollection property="readStatusCollection" destination="Els-Dp-xcM" collectionClass="NSMutableArray" id="6VN-Cu-an8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFS-dc-Yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -654,15 +698,111 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4w0-hM-zJj">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ljU-hB-jXt">
+                                <rect key="frame" x="0.0" y="140" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPF-Db-opl" userLabel="Filter">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <color key="backgroundColor" red="0.3805835843" green="0.43209573629999998" blue="0.39607450370000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Filter">
+                                            <color key="titleColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleSelection:" destination="J51-Ue-Qdi" eventType="touchUpInside" id="ufZ-XV-zTG"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6l2-OU-tdR" userLabel="Select Length">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Select  Length">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleLengthSelection:" destination="J51-Ue-Qdi" eventType="touchUpInside" id="n8O-3m-FnI"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-nG-oT6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Short">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lengthTapped:" destination="J51-Ue-Qdi" eventType="touchUpInside" id="viG-zi-rcq"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR1-Ho-3SV">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Medium">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lengthTapped:" destination="J51-Ue-Qdi" eventType="touchUpInside" id="KJb-Xx-QgR"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqh-j0-cOg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Long">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lengthTapped:" destination="J51-Ue-Qdi" eventType="touchUpInside" id="LDJ-A0-A1e"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbS-1L-yr4" userLabel="Select Status">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Select  Status">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleStatusSelection:" destination="J51-Ue-Qdi" eventType="touchUpInside" id="iXh-aG-Luq"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxW-oR-ODg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Read">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSwitchtoUnreadOnly" destination="J51-Ue-Qdi" eventType="touchUpInside" id="hws-xB-mIc"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBb-dZ-zig">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Unread">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSwitchtoUnreadOnly" destination="J51-Ue-Qdi" eventType="touchUpInside" id="Din-94-8tU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dZ4-EC-0gg" firstAttribute="trailing" secondItem="ljU-hB-jXt" secondAttribute="trailing" id="4Rf-lb-xZE"/>
                             <constraint firstItem="dZ4-EC-0gg" firstAttribute="bottom" secondItem="4w0-hM-zJj" secondAttribute="bottom" id="DiT-LD-DMT"/>
+                            <constraint firstItem="4w0-hM-zJj" firstAttribute="top" secondItem="ljU-hB-jXt" secondAttribute="bottom" id="HBw-eH-grE"/>
                             <constraint firstItem="dZ4-EC-0gg" firstAttribute="trailing" secondItem="4w0-hM-zJj" secondAttribute="trailing" id="RcA-aX-An2"/>
-                            <constraint firstItem="4w0-hM-zJj" firstAttribute="top" secondItem="dZ4-EC-0gg" secondAttribute="top" id="Wpx-yy-4vM"/>
+                            <constraint firstItem="ljU-hB-jXt" firstAttribute="leading" secondItem="dZ4-EC-0gg" secondAttribute="leading" id="ZRG-0b-Svr"/>
+                            <constraint firstItem="ljU-hB-jXt" firstAttribute="top" secondItem="dZ4-EC-0gg" secondAttribute="top" id="pCl-JJ-yAb"/>
                             <constraint firstItem="4w0-hM-zJj" firstAttribute="leading" secondItem="dZ4-EC-0gg" secondAttribute="leading" id="qaT-A8-c68"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dZ4-EC-0gg"/>
@@ -670,11 +810,18 @@
                     <navigationItem key="navigationItem" title="TBR" id="OWN-1t-s56"/>
                     <connections>
                         <outlet property="table" destination="4w0-hM-zJj" id="yey-IU-cUo"/>
+                        <outletCollection property="lengthCollection" destination="TI1-nG-oT6" collectionClass="NSMutableArray" id="EWd-Xm-cdg"/>
+                        <outletCollection property="lengthCollection" destination="jR1-Ho-3SV" collectionClass="NSMutableArray" id="ynZ-7I-drB"/>
+                        <outletCollection property="lengthCollection" destination="Oqh-j0-cOg" collectionClass="NSMutableArray" id="TZA-CG-brJ"/>
+                        <outletCollection property="readStatusCollection" destination="DxW-oR-ODg" collectionClass="NSMutableArray" id="rMN-4W-rv0"/>
+                        <outletCollection property="readStatusCollection" destination="bBb-dZ-zig" collectionClass="NSMutableArray" id="Q3B-ji-giA"/>
+                        <outletCollection property="choiceCollection" destination="6l2-OU-tdR" collectionClass="NSMutableArray" id="Dqw-bs-7zh"/>
+                        <outletCollection property="choiceCollection" destination="QbS-1L-yr4" collectionClass="NSMutableArray" id="Koz-sQ-9Ua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuO-PZ-uhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678" y="875"/>
+            <point key="canvasLocation" x="-678.26086956521749" y="874.55357142857144"/>
         </scene>
         <!--TBR-->
         <scene sceneID="qzX-H4-rIA">

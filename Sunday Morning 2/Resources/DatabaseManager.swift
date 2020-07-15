@@ -772,6 +772,33 @@ extension DatabaseManager {
         })
     }
 }
+
+//Handles lists
+extension DatabaseManager {
+    ///Adds a book to the user's "allBooks" folder
+    public func addNewList(unreadOnly: Bool, pickLength: String, title: String, completion: @escaping (Bool) -> Void){
+            //add new message to messages
+            guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+                completion(false)
+                return
+            }
+            
+            let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+            print("CURRENT EMAIL: \(currentEmail)")
+    
+            database.child("\(currentEmail)/customLists").setValue([unreadOnly, pickLength, title], withCompletionBlock: { error, _ in
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                //Update latest message for recipient user
+                //GO BACK TO THE END OF LESSON 13 FOR THIS
+                
+                completion(true)
+            })
+    }
+}
+
     
     struct BookAppUser {
         let firstName: String

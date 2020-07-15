@@ -14,7 +14,39 @@ import FirebaseAuth
 class UnreadBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var table: UITableView!
-    @IBOutlet weak var bookTitle: UILabel!
+    var unreadOnly: Bool = false
+    var picklength: String = ""
+    
+    @IBAction func handleSelection(_ sender: UIButton) {
+        choiceCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    @IBAction func handleLengthSelection(_ sender: Any) {
+        lengthCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBAction func handleStatusSelection(_ sender: Any) {
+        readStatusCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBOutlet var lengthCollection: [UIButton]!
+    @IBOutlet var readStatusCollection: [UIButton]!
+    @IBOutlet var choiceCollection: [UIButton]!
+    
     
     private let refreshControl = UIRefreshControl()
 //    private var bookData = [BookItem]()
@@ -51,6 +83,77 @@ class UnreadBooksViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    enum Lengths: String {
+        case short = "Short"
+        case medium = "Medium"
+        case long = "Long"
+    }
+    
+    @IBAction func lengthTapped(_ sender: UIButton) {
+        guard let title = sender.currentTitle, let length = Lengths(rawValue: title) else {
+            return
+        }
+        
+        switch length {
+        case .short:
+            print("I'm short")
+            picklength = "Short"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        case .medium:
+            print("I'm medium")
+            picklength = "Medium"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        case .long:
+            print("I'm long")
+            picklength = "Long"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        default:
+            print("Default.")
+        }
+    }
+    
+    //Change this to fiction/non-fiction
+    @IBAction func didSwitchtoUnreadOnly() {
+        print("ADD!")
+        
+        if unreadOnly == false {
+            unreadOnly = true
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        } else {
+            unreadOnly = false
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
     private func startListeningForBooks() {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
@@ -59,7 +162,7 @@ class UnreadBooksViewController: UIViewController, UITableViewDelegate, UITableV
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
-        DatabaseManager.shared.getUnreadBooks(with: safeEmail, completion: { [weak self] result in
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")

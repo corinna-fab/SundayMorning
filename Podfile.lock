@@ -111,6 +111,7 @@ PODS:
   - Realm/Headers (5.2.0)
   - RealmSwift (5.2.0):
     - Realm (= 5.2.0)
+  - SCLAlertView (0.8)
   - SDWebImage (5.8.3):
     - SDWebImage/Core (= 5.8.3)
   - SDWebImage/Core (5.8.3)
@@ -124,6 +125,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - MessageKit
   - RealmSwift
+  - SCLAlertView
   - SDWebImage
 
 SPEC REPOS:
@@ -152,6 +154,7 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
+    - SCLAlertView
     - SDWebImage
 
 SPEC CHECKSUMS:
@@ -179,8 +182,9 @@ SPEC CHECKSUMS:
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Realm: f749c723e272f08fdf1939af5e61d2bd09b203e8
   RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
 
-PODFILE CHECKSUM: 850ab193607a5687bd3862a0e0f78138a95d4706
+PODFILE CHECKSUM: 166a6d68a0f2167e58baaa58f7ab00b6c6bffc1a
 
 COCOAPODS: 1.9.3
