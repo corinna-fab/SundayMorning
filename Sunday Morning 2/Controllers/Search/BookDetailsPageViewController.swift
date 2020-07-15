@@ -30,8 +30,7 @@ class BookDetailsPageViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var bookCoverImage: UIImageView!
     @IBOutlet weak var bookDescription: UILabel!
-    @IBOutlet weak var isbn: UILabel!
-    @IBOutlet weak var review: UILabel!
+    @IBOutlet weak var pageCount: UILabel!
     
     var book:Book?
     
@@ -54,8 +53,23 @@ class BookDetailsPageViewController: UIViewController {
         //Set title
         titleLabel.text = book?.title
         authorLabel.text = book?.author
-//        bookDescription.text = "No description"
-//        print(book?.description)
+        
+        if book?.pageCount != nil {
+            pageCount.text = "\((book?.pageCount)!) p"
+            
+            
+            
+            if (book?.pageCount)! < 300 {
+                pageCount.backgroundColor = #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1)
+            } else if (book?.pageCount)! < 600 {
+                pageCount.backgroundColor = #colorLiteral(red: 0.9953779578, green: 0.9648614526, blue: 0.7624365687, alpha: 1)
+            } else {
+                pageCount.backgroundColor = #colorLiteral(red: 0.8597211838, green: 0.7501529455, blue: 0.6944079995, alpha: 1)
+            }
+            
+        } else {
+            pageCount.isHidden = true
+        }
         
         if book?.description != "" {
             bookDescription.text = book?.description
@@ -108,7 +122,7 @@ class BookDetailsPageViewController: UIViewController {
                     return
                 }
                 if let safeData = data {
-//                    print("This is data: \(data!)")
+print("This is data: \(data!)")
 //                    if let movieReviewInfo = self.parse(data: safeData) {
 //                        print("We did it.")
 //                    }
@@ -128,9 +142,11 @@ class BookDetailsPageViewController: UIViewController {
                     //            print("Object: \(object!["totalItems"])")
                                 
                                 if let object = object {
-//                                    print("This is an object")
-                                    print(object)
-//                                    BookDataProcessor.mapJsonToReview(object: object)
+                                    print("This is an object")
+                                    print(object.keys)
+//                                    print("Object: \(object["total_results"])")
+//                                    print("Object: \(object["book"])")
+                                    BookDataProcessor.mapJsonToReview(object: object)
                                 }
                 }
             }

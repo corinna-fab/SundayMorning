@@ -11,12 +11,14 @@ import Foundation
 class BookDataProcessor {
     
     static func mapJsonToMovies(object: [String: AnyObject]) -> [Book] {
+        print(object)
         var mappedMovies: [Book] = []
         
         guard let movies = object["items"]! as? [[String: AnyObject]] else { return mappedMovies }
-        
+        print("KEYS: \(movies[0]["volumeInfo"])")
         for movie in movies {
-//            print("THIS IS A MOVIE")
+            print("THIS IS A MOVIE")
+            
 //            print(movie)
             guard let id = movie["id"] as? String,
                 let name = movie["volumeInfo"]!["title"] as? String,
@@ -27,9 +29,12 @@ class BookDataProcessor {
                 let description = movie["volumeInfo"]!["description"] as? String,
                 let isbnArray = movie["volumeInfo"]!["industryIdentifiers"] as? [AnyObject],
                 let isbn = isbnArray[0]["identifier"] as? String,
+                let pageCount = movie["volumeInfo"]?["pageCount"] as? Int,
+                //volumeInfo has categories
                 let dateRead = "" as? String else { continue }
 
-            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false, dateRead: dateRead)
+            
+            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false, dateRead: dateRead, pageCount: pageCount)
             mappedMovies.append(movieClass)
             print(isbnArray)
         }

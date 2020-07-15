@@ -53,7 +53,6 @@
                         <segue destination="HxS-bI-nea" kind="relationship" relationship="viewControllers" id="FE3-lM-EAd"/>
                         <segue destination="56P-Ez-JEJ" kind="relationship" relationship="viewControllers" id="gvW-3d-Zrt"/>
                         <segue destination="VXI-ba-HBE" kind="relationship" relationship="viewControllers" id="fSm-el-Zm3"/>
-                        <segue destination="p8f-EC-LWb" kind="relationship" relationship="viewControllers" id="4xm-dZ-laf"/>
                         <segue destination="5Nw-QF-9Dp" kind="relationship" relationship="viewControllers" id="Lxf-Tq-BW4"/>
                     </connections>
                 </tabBarController>
@@ -174,10 +173,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ykr-dW-aCO">
                                 <rect key="frame" x="87" y="125" width="240" height="259"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-Zb-7gF">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="666" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-Zb-7gF">
+                                <rect key="frame" x="170" y="407" width="74" height="30"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -186,9 +184,13 @@
                         <constraints>
                             <constraint firstItem="U4f-7f-zwc" firstAttribute="leading" secondItem="4eR-Dh-8Gf" secondAttribute="leading" constant="20" id="0Rv-YQ-Q1W"/>
                             <constraint firstItem="4eR-Dh-8Gf" firstAttribute="trailing" secondItem="Ykr-dW-aCO" secondAttribute="trailing" constant="87" id="AnF-g0-myq"/>
+                            <constraint firstItem="4eR-Dh-8Gf" firstAttribute="trailing" secondItem="cpD-Zb-7gF" secondAttribute="trailing" constant="170" id="ReH-8c-R4v"/>
                             <constraint firstItem="Ykr-dW-aCO" firstAttribute="leading" secondItem="4eR-Dh-8Gf" secondAttribute="leading" constant="87" id="TWV-Tl-4Sw"/>
+                            <constraint firstItem="cpD-Zb-7gF" firstAttribute="top" secondItem="Ykr-dW-aCO" secondAttribute="bottom" constant="23" id="V4Z-XY-8ax"/>
+                            <constraint firstItem="U4f-7f-zwc" firstAttribute="top" secondItem="cpD-Zb-7gF" secondAttribute="bottom" constant="8" id="ka0-Jt-GlC"/>
                             <constraint firstItem="U4f-7f-zwc" firstAttribute="top" secondItem="Ykr-dW-aCO" secondAttribute="bottom" constant="60" id="non-vj-PiQ"/>
                             <constraint firstItem="Ykr-dW-aCO" firstAttribute="top" secondItem="sEt-pj-cYQ" secondAttribute="top" constant="125" id="pnH-pZ-WcD"/>
+                            <constraint firstItem="cpD-Zb-7gF" firstAttribute="leading" secondItem="4eR-Dh-8Gf" secondAttribute="leading" constant="170" id="vtt-lS-5ko"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4eR-Dh-8Gf"/>
                     </view>
@@ -197,13 +199,13 @@
                         <outlet property="authorLabel" destination="vZ6-Dr-GKS" id="CHM-qS-87i"/>
                         <outlet property="bookCoverImage" destination="Ykr-dW-aCO" id="siH-1s-iqk"/>
                         <outlet property="bookDescription" destination="jZD-Py-6lW" id="qQx-C6-C3H"/>
-                        <outlet property="fromReview" destination="cpD-Zb-7gF" id="AgJ-FA-XFp"/>
+                        <outlet property="pageCount" destination="cpD-Zb-7gF" id="HKd-Di-Mzq"/>
                         <outlet property="titleLabel" destination="RLg-0v-GSs" id="Wf8-a8-hmA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uM-eT-iJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1493" y="1672"/>
+            <point key="canvasLocation" x="-1494.2028985507247" y="1671.4285714285713"/>
         </scene>
         <!--Saved Book Details View Controller-->
         <scene sceneID="W5F-pG-cd4">
@@ -470,7 +472,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-jr-9Yi">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -497,24 +499,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="FMM-ro-bfc">
+                                <rect key="frame" x="0.0" y="140" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSc-m2-SWy" userLabel="Select Length">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <color key="backgroundColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Select Length">
+                                            <color key="titleColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="RAA-tU-nCL"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2c-TR-iAN" userLabel="Short">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Short">
+                                            <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="RIo-8X-RKo"/>
+                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="VyS-2e-gBG"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qK-B4-McL" userLabel="Long">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Medium">
+                                            <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="HZt-z5-p8K"/>
+                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="suX-uz-LD0"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MW-lP-52a" userLabel="Medium">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                                        <state key="normal" title="Long">
+                                            <color key="titleColor" red="0.14617219570000001" green="0.28402799369999998" blue="0.36864012480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lengthTapped:" destination="H1C-2m-WN8" eventType="touchUpInside" id="ckw-lH-O4o"/>
+                                            <action selector="selectLength:" destination="H1C-2m-WN8" eventType="touchUpInside" id="Rhg-ak-LIn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-Mf-Utu">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rbE-Mf-Utu" firstAttribute="leading" secondItem="gbc-3w-P4J" secondAttribute="leading" id="Bkc-AE-eyK"/>
-                            <constraint firstItem="rbE-Mf-Utu" firstAttribute="top" secondItem="gbc-3w-P4J" secondAttribute="top" id="GJj-Ig-dvF"/>
                             <constraint firstItem="gbc-3w-P4J" firstAttribute="bottom" secondItem="rbE-Mf-Utu" secondAttribute="bottom" id="MfC-iK-4iD"/>
+                            <constraint firstItem="FMM-ro-bfc" firstAttribute="leading" secondItem="gbc-3w-P4J" secondAttribute="leading" id="Rg9-ig-t9C"/>
+                            <constraint firstItem="rbE-Mf-Utu" firstAttribute="top" secondItem="FMM-ro-bfc" secondAttribute="bottom" id="faa-zV-7xH"/>
+                            <constraint firstItem="gbc-3w-P4J" firstAttribute="trailing" secondItem="FMM-ro-bfc" secondAttribute="trailing" id="iHN-nH-3Wa"/>
                             <constraint firstItem="gbc-3w-P4J" firstAttribute="trailing" secondItem="rbE-Mf-Utu" secondAttribute="trailing" id="l77-eb-ksV"/>
+                            <constraint firstItem="FMM-ro-bfc" firstAttribute="top" secondItem="gbc-3w-P4J" secondAttribute="top" id="ldJ-39-RrR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gbc-3w-P4J"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Books" id="exA-Cd-P4w">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="gjZ-ob-BDB">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="84D-H8-Ifn" userLabel="Unread Titles Only">
-                                <rect key="frame" x="267" y="7" width="127" height="30"/>
+                                <rect key="frame" x="244" y="6.5" width="150" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="19"/>
                                 <state key="normal" title="Unread Titles Only">
@@ -529,11 +586,14 @@
                     <connections>
                         <outlet property="readOrUnreadButton" destination="84D-H8-Ifn" id="02P-5c-X2U"/>
                         <outlet property="table" destination="rbE-Mf-Utu" id="VBA-R4-uys"/>
+                        <outletCollection property="lengthButtons" destination="9MW-lP-52a" collectionClass="NSMutableArray" id="IfR-M4-fKc"/>
+                        <outletCollection property="lengthButtons" destination="0qK-B4-McL" collectionClass="NSMutableArray" id="mPv-pi-YL5"/>
+                        <outletCollection property="lengthButtons" destination="G2c-TR-iAN" collectionClass="NSMutableArray" id="Bto-fl-Yu6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFS-dc-Yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="871"/>
+            <point key="canvasLocation" x="137.68115942028987" y="870.53571428571422"/>
         </scene>
         <!--User Data-->
         <scene sceneID="hC5-ch-HrQ">

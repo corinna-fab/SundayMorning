@@ -526,7 +526,8 @@ extension DatabaseManager {
                 "isbn": newBook.isbn as! String,
                 "imageUrl": newBook.imageUrl as! String,
                 "read": false,
-                "dateRead": newBook.dateRead as! String
+                "dateRead": newBook.dateRead as! String,
+                "pageCount": newBook.pageCount as! Int
             ]
             print("BOOK TO ADD: \(bookToAdd)")
             currentBooks.append(bookToAdd)
@@ -545,7 +546,7 @@ extension DatabaseManager {
     }
     
     ///Get all books for a given user
-    public func getAllBooks(with email: String, unreadOnly: Bool, completion: @escaping (Result<[Book], Error>) -> Void){
+    public func getAllBooks(with email: String, unreadOnly: Bool, length: String, completion: @escaping (Result<[Book], Error>) -> Void){
         print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
             guard var value = snapshot.value as? [[String: Any]] else {
@@ -566,6 +567,16 @@ extension DatabaseManager {
                 value.removeAll { $0["read"] as! Int == 1 }
             }
             
+            value.removeAll { $0["pageCount"] == nil }
+            
+            if length == "Short" {
+                value.removeAll { ($0["pageCount"] as! Int) > 300 }
+            } else if length == "Medium" {
+                value.removeAll { 300 < ($0["pageCount"] as! Int) || ($0["pageCount"] as! Int)  < 600 }
+            } else if length == "Long" {
+                value.removeAll { ($0["pageCount"] as! Int) < 900 }
+            }
+            
             let books: [Book] = value.compactMap({dictionary in
                 guard let id = dictionary["id"] as? String,
                     let title = dictionary["title"] as? String,
@@ -574,11 +585,12 @@ extension DatabaseManager {
                     let descripton = dictionary["description"] as? String,
                     let isbn = dictionary["isbn"] as? String,
                     let read = false as? Bool,
-                    let dateRead = dictionary["dateRead"] as? String else {
+                    let dateRead = dictionary["dateRead"] as? String,
+                    let pageCount = dictionary["pageCount"] as? Int else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount)
             })
             completion(.success(books))
             print("PLEASE FOR THE LOVE OF GOD")
@@ -606,11 +618,12 @@ extension DatabaseManager {
                     let descripton = dictionary["description"] as? String,
                     let isbn = dictionary["isbn"] as? String,
                     let read = dictionary["read"] as? Bool,
-                    let dateRead = dictionary["dateRead"] as? String else {
+                    let dateRead = dictionary["dateRead"] as? String,
+                    let pageCount = dictionary["pageCount"] as? Int else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount)
             })
         
             
@@ -676,6 +689,52 @@ extension DatabaseManager {
                 }
                 
             })
+        })
+    }
+    
+    ///Get books by length
+    public func getBooksByLength(with email: String, length: String, completion: @escaping (Result<[Book], Error>) -> Void){
+        print("USER ID: \(email)")
+        
+        
+        
+        database.child("\(email)/allBooks").observe(.value, with: { snapshot in
+            guard var value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedtoFetch))
+                return
+            }
+            
+            //RESOURCE: https://www.hackingwithswift.com/example-code/language/remove-all-instances-of-an-object-from-an-array
+            
+            
+            if length == "short" {
+                value.removeAll { ($0["pageCount"] as! Int) > 300 }
+            } else if length == "medium" {
+                value.removeAll { 300 < ($0["pageCount"] as! Int) && ($0["pageCount"] as! Int)  < 600 }
+            } else if length == "long" {
+                value.removeAll { ($0["pageCount"] as! Int) < 900 }
+            }
+            
+            let books: [Book] = value.compactMap({dictionary in
+                guard let id = dictionary["id"] as? String,
+                    let title = dictionary["title"] as? String,
+                    let imageUrl = dictionary["imageUrl"] as? String,
+                    let author = dictionary["author"] as? String,
+                    let descripton = dictionary["description"] as? String,
+                    let isbn = dictionary["isbn"] as? String,
+                    let read = dictionary["read"] as? Bool,
+                    let dateRead = dictionary["dateRead"] as? String,
+                    let pageCount = dictionary["pageCount"] as? Int else {
+                        return nil
+                }
+                
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount)
+            })
+            
+            
+            completion(.success(books))
+            //            print("PLEASE FOR THE LOVE OF GOD")
+            //            print("THESE ARE BOOKS: \(books)")
         })
     }
 }

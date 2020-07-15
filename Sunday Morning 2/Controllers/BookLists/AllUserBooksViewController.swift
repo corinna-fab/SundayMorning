@@ -17,14 +17,72 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var readOrUnreadButton: UIButton!
     
+    @IBOutlet var lengthButtons: [UIButton]!
     var unreadOnly: Bool = false
+    var picklength: String = ""
     
+    //For dropdown: https://www.youtube.com/watch?v=dIKK-SCkh_c
+    @IBAction func selectLength(_ sender: UIButton) {
+        lengthButtons.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
     private let refreshControl = UIRefreshControl()
 //    private var bookData = [BookItem]()
 //    private let realm = try! Realm()
 //    public var completionHandler: (() -> Void)?
     
     private var conversations = [Book]()
+    
+    enum Lengths: String {
+        case short = "Short"
+        case medium = "Medium"
+        case long = "Long"
+    }
+    
+    @IBAction func lengthTapped(_ sender: UIButton) {
+        guard let title = sender.currentTitle, let length = Lengths(rawValue: title) else {
+            return
+        }
+        
+        switch length {
+        case .short:
+            print("I'm short")
+            picklength = "Short"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        case .medium:
+            print("I'm medium")
+            picklength = "Medium"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        case .long:
+            print("I'm long")
+            picklength = "Long"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        default:
+            print("Default.")
+        }
+    }
     
     @IBAction func didSwitchtoUnreadOnly() {
         print("ADD!")
@@ -87,7 +145,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
-        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, completion: { [weak self] result in
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")
