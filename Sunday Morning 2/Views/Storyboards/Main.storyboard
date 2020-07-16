@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3F-gi-Be7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="852"/>
+            <point key="canvasLocation" x="2716" y="875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wG8-3N-8p8">
@@ -54,6 +54,7 @@
                         <segue destination="56P-Ez-JEJ" kind="relationship" relationship="viewControllers" id="gvW-3d-Zrt"/>
                         <segue destination="VXI-ba-HBE" kind="relationship" relationship="viewControllers" id="fSm-el-Zm3"/>
                         <segue destination="5Nw-QF-9Dp" kind="relationship" relationship="viewControllers" id="Lxf-Tq-BW4"/>
+                        <segue destination="6xN-ea-Xrr" kind="relationship" relationship="viewControllers" id="wnL-mt-PER"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1k8-y2-A7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,12 +80,12 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
-        <!--Item-->
+        <!--Stats-->
         <scene sceneID="Smf-OD-kJl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deC-FS-xDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="5Nw-QF-9Dp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rNB-Np-KSm"/>
+                    <tabBarItem key="tabBarItem" title="Stats" selectedImage="chart.pie.fill" catalog="system" id="rNB-Np-KSm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lQf-SA-tFp">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,7 +95,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1197" y="115"/>
+            <point key="canvasLocation" x="1857" y="115"/>
         </scene>
         <!--Profile-->
         <scene sceneID="jAK-sP-G1r">
@@ -111,7 +112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIw-PV-XDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="92"/>
+            <point key="canvasLocation" x="2717" y="115"/>
         </scene>
         <!--Book Details Page View Controller-->
         <scene sceneID="b0g-ly-deX">
@@ -205,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uM-eT-iJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1494.2028985507247" y="1671.4285714285713"/>
+            <point key="canvasLocation" x="-1494" y="1623"/>
         </scene>
         <!--Saved Book Details View Controller-->
         <scene sceneID="W5F-pG-cd4">
@@ -335,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dje-1m-du0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="1666.7410714285713"/>
+            <point key="canvasLocation" x="138" y="1623"/>
         </scene>
         <!--Search-->
         <scene sceneID="RHT-4t-2x8">
@@ -444,7 +445,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bu-HW-OfC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1493" y="875"/>
+            <point key="canvasLocation" x="-1494" y="877"/>
+        </scene>
+        <!--Lists-->
+        <scene sceneID="qBQ-L7-l33">
+            <objects>
+                <navigationController id="6xN-ea-Xrr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Lists" selectedImage="list.dash" catalog="system" id="BeQ-Cr-idW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xY2-Zn-6iO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mhA-KA-Fz4" kind="relationship" relationship="rootViewController" id="8UB-iO-2un"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ave-4O-LQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="115"/>
         </scene>
         <!--Chats-->
         <scene sceneID="fOM-Qr-DwO">
@@ -489,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUS-Ra-aiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3523" y="848"/>
+            <point key="canvasLocation" x="3522" y="877"/>
         </scene>
         <!--My Books-->
         <scene sceneID="2pY-iF-HiN">
@@ -637,7 +655,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFS-dc-Yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="870.53571428571422"/>
+            <point key="canvasLocation" x="138" y="877"/>
+        </scene>
+        <!--My Lists-->
+        <scene sceneID="ELp-rF-lV4">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHA-qS-piO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="mhA-KA-Fz4" customClass="CustomListsViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ux-wk-yAw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hqw-kD-942">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="LnF-Ou-qls">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LnF-Ou-qls" id="3Cm-K0-TV7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="grs-zz-4YH" firstAttribute="trailing" secondItem="hqw-kD-942" secondAttribute="trailing" id="FZB-J3-Y38"/>
+                            <constraint firstItem="grs-zz-4YH" firstAttribute="bottom" secondItem="hqw-kD-942" secondAttribute="bottom" id="V8X-wf-IRG"/>
+                            <constraint firstItem="hqw-kD-942" firstAttribute="leading" secondItem="grs-zz-4YH" secondAttribute="leading" id="iM6-mo-vym"/>
+                            <constraint firstItem="hqw-kD-942" firstAttribute="top" secondItem="grs-zz-4YH" secondAttribute="top" id="ygU-SN-yBO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="grs-zz-4YH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Lists" largeTitleDisplayMode="always" id="CWk-KI-rFC"/>
+                    <connections>
+                        <outlet property="table" destination="hqw-kD-942" id="A8R-D7-WbY"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="986.95652173913049" y="876.5625"/>
         </scene>
         <!--User Data-->
         <scene sceneID="hC5-ch-HrQ">
@@ -687,7 +746,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIv-iW-SgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205.7971014492755" y="864.50892857142856"/>
+            <point key="canvasLocation" x="1857" y="877"/>
         </scene>
         <!--Unread Books-->
         <scene sceneID="RW1-U0-TEK">
@@ -821,7 +880,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuO-PZ-uhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678.26086956521749" y="874.55357142857144"/>
+            <point key="canvasLocation" x="-678" y="877"/>
         </scene>
         <!--TBR-->
         <scene sceneID="qzX-H4-rIA">
@@ -846,7 +905,9 @@
     <resources>
         <image name="book.circle" catalog="system" width="128" height="121"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="chart.pie.fill" catalog="system" width="128" height="124"/>
         <image name="ellipses.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>

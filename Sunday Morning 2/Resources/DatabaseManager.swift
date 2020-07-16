@@ -776,73 +776,91 @@ extension DatabaseManager {
 //Handles lists
 extension DatabaseManager {
     ///Adds a book to the user's "allBooks" folder
-//    public func addNewList(unreadOnly: Bool, pickLength: String, title: String, completion: @escaping (Bool) -> Void){
-//            //add new message to messages
-//            guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
-//                completion(false)
-//                return
-//            }
-//
-//            let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
-//            print("CURRENT EMAIL: \(currentEmail)")
-//
-//            database.child("\(currentEmail)/customLists").setValue([unreadOnly, pickLength, title], withCompletionBlock: { error, _ in
-//                guard error == nil else {
-//                    completion(false)
-//                    return
-//                }
-//                completion(true)
-//            })
-//    }
-    
     public func addNewList(unreadOnly: Bool, pickLength: String, title: String, completion: @escaping (Bool) -> Void){
-            //add new message to messages
-            guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
-                completion(false)
-                return
-            }
-            
-            let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
-            print("CURRENT EMAIL: \(currentEmail)")
-            
-            database.child("\(currentEmail)/customLists").observeSingleEvent(of: .value, with: { [weak self] snapshot in
-                guard let strongSelf = self else {
-                    return
-                }
-                
-                var currentLists: [[String: Any]]
-    //            var currentBooks = [[String: Any]]()
-                // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
-                print("\(snapshot.value)")
-                if snapshot.value is NSNull {
-                    print("NULL")
-                    currentLists = [[String: Any]]()
-                } else {
-                    currentLists = snapshot.value as! [[String: Any]]
-                    print("Bad boys bad boys")
-                }
-//
-//    //            guard var currentBooks = snapshot.value as? [[String: Any]] else {
-//    //                print("Bad boys bad boys")
-//    //                return
-//    //            }
-//
-                let listToAdd: [String: Any] = [
-                    "\(title)": [unreadOnly, pickLength]
-                ]
-                print("\(listToAdd)")
-                print("LIST TO ADD: \(listToAdd)")
-                currentLists.append(listToAdd)
-                print("CURRENT LISTS: \(currentLists)")
-                strongSelf.database.child("\(currentEmail)/customLists").setValue(currentLists, withCompletionBlock: { error, _ in
-                    guard error == nil else {
+                    //add new message to messages
+                    guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
                         completion(false)
                         return
                     }
-                    completion(true)
-                })
+                    
+                    let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+                    print("CURRENT EMAIL: \(currentEmail)")
+                    
+                    database.child("\(currentEmail)/customLists").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+                        guard let strongSelf = self else {
+                            return
+                        }
+                        
+                        var currentLists: [[String: Any]]
+            //            var currentBooks = [[String: Any]]()
+                        // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
+                        print("\(snapshot.value)")
+                        if snapshot.value is NSNull {
+                            print("NULL")
+                            currentLists = [[String: Any]]()
+                        } else {
+                            currentLists = snapshot.value as! [[String : Any]]
+                            print("Bad boys bad boys")
+                        }
+                        
+            //            guard var currentBooks = snapshot.value as? [[String: Any]] else {
+            //                print("Bad boys bad boys")
+            //                return
+            //            }
+                        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+                            completion(false)
+                            return
+                        }
+                        
+                        let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+                        
+                        let listToAdd: [String: Any] = [
+                            "title": title as! String,
+                            "unreadOnly": unreadOnly as! Bool,
+                            "pickLength": pickLength as! String
+                        ]
+                        print("BOOK TO ADD: \(listToAdd)")
+                        currentLists.append(listToAdd)
+                        print("CURRENT BOOKS: \(currentLists)")
+                        strongSelf.database.child("\(currentEmail)/customLists").setValue(currentLists, withCompletionBlock: { error, _ in
+                            guard error == nil else {
+                                completion(false)
+                                return
+                            }
+                            //Update latest message for recipient user
+                            //GO BACK TO THE END OF LESSON 13 FOR THIS
+                            
+                            completion(true)
+                        })
+                    })
+                }
+    ///Gets all user's custom lists
+    public func getAllLists(with email: String, completion: @escaping (Result<[List], Error>) -> Void){
+        print("USER ID: \(email)")
+        database.child("\(email)/customLists").observe(.value, with: { snapshot in
+            guard var value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedtoFetch))
+                return
+            }
+            
+            print("PRINTING: \(value)")
+            
+            print("So far so good")
+            
+            
+            let lists: [List] = value.compactMap({dictionary in
+                guard let title = dictionary["title"] as? String,
+                    let unreadOnly = dictionary["unreadOnly"] as? Bool,
+                    let pickLength = dictionary["pickLength"] as? String else {
+                        return nil
+                }
+                
+                return List(title: title, unreadOnly: unreadOnly, pickLength: pickLength)
             })
-        }
+            completion(.success(lists))
+//            print("PLEASE FOR THE LOVE OF GOD")
+        })
+    }
 }
 
     
