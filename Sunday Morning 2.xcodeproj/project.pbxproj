@@ -31,6 +31,7 @@
 		079A687724BE326200C1D70C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687624BE326200C1D70C /* UserDataViewController.swift */; };
 		079A687924BFD95500C1D70C /* CustomListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687824BFD95500C1D70C /* CustomListsViewController.swift */; };
 		079A687B24BFE4EE00C1D70C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687A24BFE4EE00C1D70C /* List.swift */; };
+		079A687F24C1077000C1D70C /* OpenCustomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687E24C1077000C1D70C /* OpenCustomListViewController.swift */; };
 		07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */; };
 		07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */; };
 		07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */; };
@@ -76,6 +77,7 @@
 		079A687624BE326200C1D70C /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		079A687824BFD95500C1D70C /* CustomListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListsViewController.swift; sourceTree = "<group>"; };
 		079A687A24BFE4EE00C1D70C /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		079A687E24C1077000C1D70C /* OpenCustomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCustomListViewController.swift; sourceTree = "<group>"; };
 		07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataProcesser.swift; sourceTree = "<group>"; };
@@ -220,6 +222,26 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		079A687C24C1071400C1D70C /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				079A687824BFD95500C1D70C /* CustomListsViewController.swift */,
+				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
+				07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */,
+				079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */,
+				079A687E24C1077000C1D70C /* OpenCustomListViewController.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		079A687D24C1073A00C1D70C /* BookPages */ = {
+			isa = PBXGroup;
+			children = (
+				07D5AD0224BA61E80062DD1D /* SavedBookDetailsViewController.swift */,
+			);
+			path = BookPages;
+			sourceTree = "<group>";
+		};
 		07D5ACE524B4D6700062DD1D /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,11 +266,8 @@
 		07D5ACF524B7AFDE0062DD1D /* BookLists */ = {
 			isa = PBXGroup;
 			children = (
-				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
-				07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */,
-				07D5AD0224BA61E80062DD1D /* SavedBookDetailsViewController.swift */,
-				079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */,
-				079A687824BFD95500C1D70C /* CustomListsViewController.swift */,
+				079A687D24C1073A00C1D70C /* BookPages */,
+				079A687C24C1071400C1D70C /* Lists */,
 			);
 			path = BookLists;
 			sourceTree = "<group>";
@@ -414,6 +433,7 @@
 				07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */,
 				07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */,
 				079A687924BFD95500C1D70C /* CustomListsViewController.swift in Sources */,
+				079A687F24C1077000C1D70C /* OpenCustomListViewController.swift in Sources */,
 				07D5ACEB24B4FFF50062DD1D /* CacheManager.swift in Sources */,
 				07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */,
 				07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */,

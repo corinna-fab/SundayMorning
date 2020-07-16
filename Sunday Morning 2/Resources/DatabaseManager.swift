@@ -858,7 +858,6 @@ extension DatabaseManager {
                 return List(title: title, unreadOnly: unreadOnly, pickLength: pickLength)
             })
             completion(.success(lists))
-//            print("PLEASE FOR THE LOVE OF GOD")
         })
     }
 }

@@ -12,6 +12,7 @@ import RealmSwift
 import FirebaseAuth
 import SCLAlertView
 
+//TO DO: Make header update with list name, My Books as default
 class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var table: UITableView!
@@ -19,6 +20,9 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     var unreadOnly: Bool = false
     var picklength: String = ""
+    var listTitle: String? = ""
+    
+    var selectedList: List?
     
     @IBAction func handleSelection(_ sender: UIButton) {
         choiceCollection.forEach { (button) in
@@ -215,6 +219,22 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Unread: \(unreadOnly)")
+        print("Length: \(picklength)")
+        print("Title: \(title)")
+//        if selectedList != nil {
+//            self.unreadOnly = ((selectedList?.unreadOnly) != nil)
+//            self.picklength = selectedList?.pickLength as! String
+//            self.title = selectedList?.title
+//            print("Unread: \(unreadOnly)")
+//            print("Length: \(pickLength)")
+//            print("Title: \(title)")
+//            table.reloadData()
+//
+//            DispatchQueue.main.async {
+//                self.refreshControl.endRefreshing()
+//            }
+//        }
         
         refreshControl.addTarget(self, action: #selector(refreshBookData(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Book List ...")

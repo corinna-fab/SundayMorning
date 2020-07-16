@@ -79,10 +79,13 @@ class CustomListsViewController: UIViewController, UITableViewDelegate, UITableV
         let model = conversations[indexPath.row]
 //        print("\(model.title)")
         
-        guard let vc = storyboard?.instantiateViewController(identifier: "savedBook") as? SavedBookDetailsViewController else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "allBooks") as? AllUserBooksViewController else {
             return
         }
 //        vc.book = model
+        vc.picklength = model.pickLength
+        vc.unreadOnly = model.unreadOnly
+        vc.title = model.title
         //        vc.bookTitle.text = model.title as! String
         //        vc.bookAuthor.text = model.author as! String
         //        vc.bookDescription.text = model.description as! String
@@ -100,10 +103,13 @@ class CustomListsViewController: UIViewController, UITableViewDelegate, UITableV
             return
         }
         //Get a reference to the video tapped on
-        let selectedBook = conversations[table.indexPathForSelectedRow!.row]
+        let selectedList = conversations[table.indexPathForSelectedRow!.row]
         //get a reference to the detail view controller
-        let destinationVC = segue.destination as! BookDetailsPageViewController
+        let destinationVC = segue.destination as! AllUserBooksViewController
         //Set the property of the detail view controller
 //        destinationVC.book = selectedBook
+        destinationVC.selectedList?.pickLength = selectedList.pickLength
+        destinationVC.selectedList?.title = selectedList.title
+        destinationVC.selectedList?.unreadOnly = selectedList.unreadOnly
     }
 }
