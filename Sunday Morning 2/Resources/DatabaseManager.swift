@@ -294,7 +294,7 @@ extension DatabaseManager {
                 return
             }
             
-            print("PRINTING: \(value)")
+//            print("PRINTING: \(value)")
             
             print("So far so good")
             
@@ -332,7 +332,7 @@ extension DatabaseManager {
                 return
             }
             
-            print("PRINTING: \(value)")
+//            print("PRINTING: \(value)")
             
             print("So far so good")
             
@@ -527,7 +527,8 @@ extension DatabaseManager {
                 "imageUrl": newBook.imageUrl as! String,
                 "read": false,
                 "dateRead": newBook.dateRead as! String,
-                "pageCount": newBook.pageCount as! Int
+                "pageCount": newBook.pageCount as! Int,
+                "categories": newBook.categories as! [String]
             ]
             print("BOOK TO ADD: \(bookToAdd)")
             currentBooks.append(bookToAdd)
@@ -554,7 +555,7 @@ extension DatabaseManager {
                 return
             }
             
-            print("PRINTING: \(value)")
+//            print("PRINTING: \(value)")
             
             print("So far so good")
             
@@ -586,11 +587,12 @@ extension DatabaseManager {
                     let isbn = dictionary["isbn"] as? String,
                     let read = false as? Bool,
                     let dateRead = dictionary["dateRead"] as? String,
-                    let pageCount = dictionary["pageCount"] as? Int else {
+                    let pageCount = dictionary["pageCount"] as? Int,
+                    let categories = dictionary["categories"] as? [String] else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories)
             })
             completion(.success(books))
             print("PLEASE FOR THE LOVE OF GOD")
@@ -619,11 +621,12 @@ extension DatabaseManager {
                     let isbn = dictionary["isbn"] as? String,
                     let read = dictionary["read"] as? Bool,
                     let dateRead = dictionary["dateRead"] as? String,
-                    let pageCount = dictionary["pageCount"] as? Int else {
+                    let pageCount = dictionary["pageCount"] as? Int,
+                    let categories = dictionary["categories"] as? [String] else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories)
             })
         
             
@@ -724,13 +727,13 @@ extension DatabaseManager {
                     let isbn = dictionary["isbn"] as? String,
                     let read = dictionary["read"] as? Bool,
                     let dateRead = dictionary["dateRead"] as? String,
-                    let pageCount = dictionary["pageCount"] as? Int else {
+                    let pageCount = dictionary["pageCount"] as? Int,
+                    let categories = dictionary["categories"] as? [String] else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories)
             })
-            
             
             completion(.success(books))
             //            print("PLEASE FOR THE LOVE OF GOD")
@@ -843,7 +846,7 @@ extension DatabaseManager {
                 return
             }
             
-            print("PRINTING: \(value)")
+//            print("PRINTING: \(value)")
             
             print("So far so good")
             

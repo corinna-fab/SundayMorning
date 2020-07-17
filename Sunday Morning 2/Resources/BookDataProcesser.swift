@@ -31,12 +31,15 @@ class BookDataProcessor {
                 let isbn = isbnArray[0]["identifier"] as? String,
                 let pageCount = movie["volumeInfo"]?["pageCount"] as? Int,
                 //volumeInfo has categories
-                let dateRead = "" as? String else { continue }
+                let dateRead = "" as? String,
+                var categories = movie["volumeInfo"]?["categories"] as? [String] else { continue }
 
-            
-            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false, dateRead: dateRead, pageCount: pageCount)
+            print("Movie categories: \(categories)")
+            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false, dateRead: dateRead, pageCount: pageCount, categories: categories)
+            print("Movie categories after put in Book model: \(movieClass.categories)")
             mappedMovies.append(movieClass)
-            print(isbnArray)
+            print("Movies after new book is added: \(mappedMovies)")
+//            print(isbnArray)
         }
         print("This is all of them.")
         print(mappedMovies)
