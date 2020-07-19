@@ -496,14 +496,17 @@ extension DatabaseManager {
             }
             
             var currentBooks: [[String: Any]]
+            var userCategories: [String]
 //            var currentBooks = [[String: Any]]()
             // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
             print("\(snapshot.value)")
             if snapshot.value is NSNull {
                 print("NULL")
                 currentBooks = [[String: Any]]()
+                userCategories = [String]()
             } else {
                 currentBooks = snapshot.value as! [[String : Any]]
+                userCategories = [String]()
                 print("Bad boys bad boys")
             }
             
@@ -528,10 +531,12 @@ extension DatabaseManager {
                 "read": false,
                 "dateRead": newBook.dateRead as! String,
                 "pageCount": newBook.pageCount as! Int,
-                "categories": newBook.categories as! [String]
+                "categories": newBook.categories as! [String],
+                "fiction": newBook.fiction as! String,
             ]
             print("BOOK TO ADD: \(bookToAdd)")
             currentBooks.append(bookToAdd)
+            userCategories.append(contentsOf: newBook.categories)
             print("CURRENT BOOKS: \(currentBooks)")
             strongSelf.database.child("\(currentEmail)/allBooks").setValue(currentBooks, withCompletionBlock: { error, _ in
                 guard error == nil else {
@@ -542,6 +547,17 @@ extension DatabaseManager {
                 //GO BACK TO THE END OF LESSON 13 FOR THIS
                 
                 completion(true)
+                //THIS NEEDS TO APPEND CATEGORIES, IT'S ONLY REPLACING IT. 
+                strongSelf.database.child("\(currentEmail)/categories").setValue(userCategories, withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    //Update latest message for recipient user
+                    //GO BACK TO THE END OF LESSON 13 FOR THIS
+                    
+                    completion(true)
+                })
             })
         })
     }
@@ -588,11 +604,12 @@ extension DatabaseManager {
                     let read = false as? Bool,
                     let dateRead = dictionary["dateRead"] as? String,
                     let pageCount = dictionary["pageCount"] as? Int,
-                    let categories = dictionary["categories"] as? [String] else {
+                    let categories = dictionary["categories"] as? [String],
+                    let fiction = dictionary["fiction"] as? String else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories, fiction: fiction)
             })
             completion(.success(books))
             print("PLEASE FOR THE LOVE OF GOD")
@@ -622,11 +639,12 @@ extension DatabaseManager {
                     let read = dictionary["read"] as? Bool,
                     let dateRead = dictionary["dateRead"] as? String,
                     let pageCount = dictionary["pageCount"] as? Int,
-                    let categories = dictionary["categories"] as? [String] else {
+                    let categories = dictionary["categories"] as? [String],
+                    let fiction = dictionary["fiction"] as? String else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories, fiction: fiction)
             })
         
             
@@ -636,6 +654,20 @@ extension DatabaseManager {
         })
     }
     
+    ///Gets all categories of books the user has saved
+    public func getCategories(with email: String, completion: @escaping (Result<[String], Error>) -> Void){
+            print("USER ID: \(email)")
+
+            database.child("\(email)/categories").observe(.value, with: { snapshot in
+                guard let value = snapshot.value as? [String] else {
+                    completion(.failure(DatabaseError.failedtoFetch))
+                    return
+                }
+                    
+                completion(.success(value))
+            })
+        }
+        
     
     ///Marks a book in the user's folder as read
     public func markRead(with readBook: Book, completion: @escaping (Bool) -> Void){
@@ -728,11 +760,12 @@ extension DatabaseManager {
                     let read = dictionary["read"] as? Bool,
                     let dateRead = dictionary["dateRead"] as? String,
                     let pageCount = dictionary["pageCount"] as? Int,
-                    let categories = dictionary["categories"] as? [String] else {
+                    let categories = dictionary["categories"] as? [String],
+                    let fiction = dictionary["ficion"] as? String else {
                         return nil
                 }
                 
-                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories)
+                return Book(id: id, title: title, imageUrl: imageUrl, author: author, description: descripton, isbn: isbn, read: read, dateRead: dateRead, pageCount: pageCount, categories: categories, fiction: fiction)
             })
             
             completion(.success(books))
@@ -748,11 +781,12 @@ extension DatabaseManager {
     public func getBookCount(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
         print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
-            guard let value = snapshot.value as? [[String: Any]] else {
+            guard var value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(DatabaseError.failedtoFetch))
                 return
             }
             
+            value.removeAll { $0["read"] as! Int == 0 }
             print("LIBRARY COUNT: \(value.count)")
 
             completion(.success(value.count))

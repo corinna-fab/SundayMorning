@@ -10,40 +10,40 @@ import Foundation
 
 class BookDataProcessor {
     
-    static func mapJsonToMovies(object: [String: AnyObject]) -> [Book] {
+    static func mapJSONToBook(object: [String: AnyObject]) -> [Book] {
         print(object)
-        var mappedMovies: [Book] = []
+        var mappedBooks: [Book] = []
         
-        guard let movies = object["items"]! as? [[String: AnyObject]] else { return mappedMovies }
-        print("KEYS: \(movies[0]["volumeInfo"])")
-        for movie in movies {
+        guard let books = object["items"]! as? [[String: AnyObject]] else { return mappedBooks }
+        print("KEYS: \(books[0]["volumeInfo"])")
+        for book in books {
             print("THIS IS A MOVIE")
             
 //            print(movie)
-            guard let id = movie["id"] as? String,
-                let name = movie["volumeInfo"]!["title"] as? String,
-                let authorArray = movie["volumeInfo"]!["authors"] as? [String],
+            guard let id = book["id"] as? String,
+                let name = book["volumeInfo"]!["title"] as? String,
+                let authorArray = book["volumeInfo"]!["authors"] as? [String],
                 let author = authorArray[0] as? String,
-                let imageArray = movie["volumeInfo"]!["imageLinks"] as? AnyObject,
+                let imageArray = book["volumeInfo"]!["imageLinks"] as? AnyObject,
                 let imageUrl = imageArray["thumbnail"] as? String,
-                let description = movie["volumeInfo"]!["description"] as? String,
-                let isbnArray = movie["volumeInfo"]!["industryIdentifiers"] as? [AnyObject],
+                let description = book["volumeInfo"]!["description"] as? String,
+                let isbnArray = book["volumeInfo"]!["industryIdentifiers"] as? [AnyObject],
                 let isbn = isbnArray[0]["identifier"] as? String,
-                let pageCount = movie["volumeInfo"]?["pageCount"] as? Int,
+                let pageCount = book["volumeInfo"]?["pageCount"] as? Int,
                 //volumeInfo has categories
                 let dateRead = "" as? String,
-                var categories = movie["volumeInfo"]?["categories"] as? [String] else { continue }
+                var categories = book["volumeInfo"]?["categories"] as? [String] else { continue }
 
             print("Movie categories: \(categories)")
-            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false, dateRead: dateRead, pageCount: pageCount, categories: categories)
+            let movieClass = Book(id: id, title: name, imageUrl: imageUrl, author: author, description: description, isbn: isbn, read: false, dateRead: dateRead, pageCount: pageCount, categories: categories, fiction: "NOT SET")
             print("Movie categories after put in Book model: \(movieClass.categories)")
-            mappedMovies.append(movieClass)
-            print("Movies after new book is added: \(mappedMovies)")
+            mappedBooks.append(movieClass)
+            print("Movies after new book is added: \(mappedBooks)")
 //            print(isbnArray)
         }
         print("This is all of them.")
-        print(mappedMovies)
-        return mappedMovies
+        print(mappedBooks)
+        return mappedBooks
     }
     
         static func mapJsonToReview(object: [String: AnyObject]) {

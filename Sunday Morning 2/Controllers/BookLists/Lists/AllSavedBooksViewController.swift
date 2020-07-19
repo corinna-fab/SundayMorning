@@ -72,7 +72,8 @@ class AllSavedBooksViewController: UIViewController, UITableViewDelegate, UITabl
                                  read: false,
                                  dateRead: "July 15, 2020",
                                  pageCount: 275,
-                                 categories: ["Nonfiction"]))
+                                 categories: ["Nonfiction"],
+                                 fiction: "Nonfiction"))
         }
         
     }

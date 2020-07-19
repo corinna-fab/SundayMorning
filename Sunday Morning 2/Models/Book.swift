@@ -20,8 +20,9 @@ class Book {
     var dateRead: String?
     var pageCount: Int?
     var categories: [String] = [""]
+    var fiction: String = ""
     
-    init(id: String, title: String, imageUrl: String, author: String, description: String, isbn: String, read: Bool, dateRead: String, pageCount: Int, categories: [String]) {
+    init(id: String, title: String, imageUrl: String, author: String, description: String, isbn: String, read: Bool, dateRead: String, pageCount: Int, categories: [String], fiction: String) {
         self.id = id
         self.title = title
         self.imageUrl = imageUrl
@@ -32,5 +33,6 @@ class Book {
         self.dateRead = dateRead
         self.pageCount = pageCount
         self.categories = categories
+        self.fiction = fiction
     }
 }

@@ -203,7 +203,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
-                self.readOrUnreadButton.titleLabel?.text = "All Titles"
+//                self.readOrUnreadButton.titleLabel?.text = "All Titles"
             }
         } else {
             unreadOnly = false
@@ -212,7 +212,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
-                self.readOrUnreadButton.titleLabel?.text = "Unread Titles Only"
+//                self.readOrUnreadButton.titleLabel?.text = "Unread Titles Only"
             }
         }
     }

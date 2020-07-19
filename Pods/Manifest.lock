@@ -4,6 +4,11 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - CardSlider (0.1.0)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
+  - DBSphereTagCloudSwift (2.0.2)
   - Firebase/Auth (6.27.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.6.0)
@@ -115,8 +120,12 @@ PODS:
   - SDWebImage (5.8.3):
     - SDWebImage/Core (= 5.8.3)
   - SDWebImage/Core (5.8.3)
+  - TTGTagCollectionView (1.11.1)
 
 DEPENDENCIES:
+  - CardSlider
+  - Charts
+  - DBSphereTagCloudSwift
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -127,10 +136,14 @@ DEPENDENCIES:
   - RealmSwift
   - SCLAlertView
   - SDWebImage
+  - TTGTagCollectionView
 
 SPEC REPOS:
   trunk:
     - AppAuth
+    - CardSlider
+    - Charts
+    - DBSphereTagCloudSwift
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -156,9 +169,13 @@ SPEC REPOS:
     - RealmSwift
     - SCLAlertView
     - SDWebImage
+    - TTGTagCollectionView
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  CardSlider: 0a8f5f17f5a76701771794b07fdaeddc512358c8
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  DBSphereTagCloudSwift: 47d03bf7f0decec371a932630412b37938a9aaa5
   Firebase: fc4cbf6f1592636431821ef9a3c557e4dfd9f268
   FirebaseAnalytics: 0ea640473474f036cabbc2576e20c2d63671c92f
   FirebaseAuth: b85c064e0ac60f82486728d50a4803f235687302
@@ -184,7 +201,8 @@ SPEC CHECKSUMS:
   RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
+  TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 166a6d68a0f2167e58baaa58f7ab00b6c6bffc1a
+PODFILE CHECKSUM: 148e62a4524c9002eed03a5cd76368a46a994a85
 
 COCOAPODS: 1.9.3

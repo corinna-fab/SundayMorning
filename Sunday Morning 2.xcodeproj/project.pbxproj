@@ -27,6 +27,8 @@
 		07307EA224B378BD0033D645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA124B378BD0033D645 /* Constants.swift */; };
 		07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */; };
 		07307EA624B3B9D40033D645 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA524B3B9D40033D645 /* Book.swift */; };
+		078013A724C2572200926634 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078013A524C2572200926634 /* CategoryCollectionViewCell.swift */; };
+		078013A824C2572200926634 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 078013A624C2572200926634 /* CategoryCollectionViewCell.xib */; };
 		079A687324BCF41900C1D70C /* UnreadBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */; };
 		079A687724BE326200C1D70C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687624BE326200C1D70C /* UserDataViewController.swift */; };
 		079A687924BFD95500C1D70C /* CustomListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687824BFD95500C1D70C /* CustomListsViewController.swift */; };
@@ -73,6 +75,8 @@
 		07307EA124B378BD0033D645 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookListCellTableViewCell.swift; sourceTree = "<group>"; };
 		07307EA524B3B9D40033D645 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		078013A524C2572200926634 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		078013A624C2572200926634 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadBooksViewController.swift; sourceTree = "<group>"; };
 		079A687624BE326200C1D70C /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		079A687824BFD95500C1D70C /* CustomListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListsViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				07307E7324B0DD790033D645 /* LaunchScreen.storyboard */,
 				07D5ACFE24BA532F0062DD1D /* SavedBooksTableViewCell.swift */,
 				07D5ACFF24BA532F0062DD1D /* SavedBooksTableViewCell.xib */,
+				078013A524C2572200926634 /* CategoryCollectionViewCell.swift */,
+				078013A624C2572200926634 /* CategoryCollectionViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078013A824C2572200926634 /* CategoryCollectionViewCell.xib in Resources */,
 				07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */,
 				07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */,
 				07D5AD0124BA532F0062DD1D /* SavedBooksTableViewCell.xib in Resources */,
@@ -428,6 +435,7 @@
 				07D5ACF324B686F70062DD1D /* AllUserBooksViewController.swift in Sources */,
 				07307E9824B154D90033D645 /* BookManager.swift in Sources */,
 				07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */,
+				078013A724C2572200926634 /* CategoryCollectionViewCell.swift in Sources */,
 				07D5AD0324BA61E80062DD1D /* SavedBookDetailsViewController.swift in Sources */,
 				07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */,
 				07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */,

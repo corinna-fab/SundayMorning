@@ -16,5 +16,9 @@ pod 'JGProgressHUD'
 pod 'RealmSwift'
 pod 'SDWebImage'
 pod 'SCLAlertView'
+pod 'TTGTagCollectionView'
+pod 'CardSlider'
+pod 'Charts'
+pod 'DBSphereTagCloudSwift'
 
 end

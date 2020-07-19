@@ -11,6 +11,8 @@ import UIKit
 class SavedBookDetailsViewController: UIViewController {
     var scrollView: UIScrollView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
@@ -48,6 +50,11 @@ class SavedBookDetailsViewController: UIViewController {
         
         displayMovieImage(bookCover: book as! Book)
         checkBook(book: book as! Book)
+        
+        
+        collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func displayMovieImage(bookCover: Book) {
@@ -101,4 +108,28 @@ class SavedBookDetailsViewController: UIViewController {
             self.dateRead.text = "Date   Read: \(self.book?.dateRead as! String))"
         }
     }
+}
+
+extension SavedBookDetailsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        print("Something")
+    }
+}
+
+extension SavedBookDetailsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (self.book?.categories.count)! as Int
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+        cell.categoryLabel.text = self.book?.categories[indexPath.row]
+        cell.layer.cornerRadius = 10
+        return cell
+    }
+}
+
+extension SavedBookDetailsViewController: UICollectionViewDelegateFlowLayout {
+    
 }

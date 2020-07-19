@@ -266,7 +266,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let object = object {
                 print("This is an object")
 //                print(object["items"])
-                self.searchResults = BookDataProcessor.mapJsonToMovies(object: object)
+                self.searchResults = BookDataProcessor.mapJSONToBook(object: object)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.totalResults.text = "\(object["totalItems"] ?? "Zero" as AnyObject) total results)"
