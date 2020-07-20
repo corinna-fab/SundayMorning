@@ -20,5 +20,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A641644-D767-4801-AC09-27CE6A8D02D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sunday Morning 2/Controllers/BookLists/BookPages/SavedBookDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "displayMovieImage(bookCover:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A641644-D767-4801-AC09-27CE6A8D02D7 - bcf4deb0e7f56920"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sunday_Morning_2.SavedBookDetailsViewController.displayMovieImage(bookCover: Sunday_Morning_2.Book) -&gt; ()"
+                  moduleName = "Sunday Morning 2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corinnafabre/Developer/projects/capstone_practice/Sunday%20Morning%202/Sunday%20Morning%202/Controllers/BookLists/BookPages/SavedBookDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "490">
+               </Location>
+               <Location
+                  uuid = "7A641644-D767-4801-AC09-27CE6A8D02D7 - cac8ca39b9aa8a42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Sunday_Morning_2.SavedBookDetailsViewController.displayMovieImage(bookCover: Sunday_Morning_2.Book) -&gt; ()"
+                  moduleName = "Sunday Morning 2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corinnafabre/Developer/projects/capstone_practice/Sunday%20Morning%202/Sunday%20Morning%202/Controllers/BookLists/BookPages/SavedBookDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "254">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
