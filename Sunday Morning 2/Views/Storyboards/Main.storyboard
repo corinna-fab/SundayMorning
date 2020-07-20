@@ -760,6 +760,21 @@
                                             <action selector="switchGenres:" destination="H1C-2m-WN8" eventType="touchUpInside" id="WuQ-bh-k2T"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU8-aX-fLg" userLabel="Filter Categories">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Filter   by   Category">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleCategoryFilter:" destination="H1C-2m-WN8" eventType="touchUpInside" id="cjT-Lb-9bd"/>
+                                        </connections>
+                                    </button>
+                                    <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HD3-MQ-VrT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </pickerView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -790,6 +805,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryPicker" destination="HD3-MQ-VrT" id="GzS-LV-BJs"/>
                         <outlet property="saveListButton" destination="a3n-tp-1va" id="J9H-8T-Df2"/>
                         <outlet property="table" destination="rbE-Mf-Utu" id="VBA-R4-uys"/>
                         <outletCollection property="choiceCollection" destination="03M-ol-Qho" collectionClass="NSMutableArray" id="VKt-tY-njT"/>
@@ -802,6 +818,7 @@
                         <outletCollection property="choiceCollection" destination="scb-iY-tn1" collectionClass="NSMutableArray" id="8kO-0n-Hmu"/>
                         <outletCollection property="genreCollection" destination="1Nb-3A-qpe" collectionClass="NSMutableArray" id="GsC-Iw-zYR"/>
                         <outletCollection property="genreCollection" destination="HZe-kz-aId" collectionClass="NSMutableArray" id="dtk-da-3Sk"/>
+                        <outletCollection property="choiceCollection" destination="fU8-aX-fLg" collectionClass="NSMutableArray" id="lDM-4j-xTb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFS-dc-Yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -22,6 +22,8 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     var picklength: String = ""
     var listTitle: String? = ""
     var genreSelection: String? = ""
+    var categoryArray: [String] = []
+    var selectedCategories: [String] = []
     
     var selectedList: List?
     
@@ -60,11 +62,20 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    @IBAction func handleCategoryFilter(_ sender: Any) {
+        print("Works")
+        UIView.animate(withDuration: 0.3, animations: {
+            self.categoryPicker.isHidden = !self.categoryPicker.isHidden
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     @IBOutlet var lengthCollection: [UIButton]!
     @IBOutlet var readStatusCollection: [UIButton]!
     @IBOutlet var genreCollection: [UIButton]!
     @IBOutlet var choiceCollection: [UIButton]!
     @IBOutlet weak var saveListButton: UIButton!
+    @IBOutlet weak var categoryPicker: UIPickerView!
     
     @IBAction func saveList(_ sender: UIButton) {
         //Send to database here
@@ -222,7 +233,8 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
 //        print("Unread: \(unreadOnly)")
 //        print("Length: \(picklength)")
 //        print("Title: \(title)")
-
+        categoryPicker.dataSource = self
+        categoryPicker.delegate = self
         
         refreshControl.addTarget(self, action: #selector(refreshBookData(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Book List ...")
@@ -272,6 +284,24 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                 DispatchQueue.main.async {
                     self?.table.reloadData()
                 }
+                
+                DatabaseManager.shared.getCategories(with: safeEmail, completion: { [weak self] result in
+                            switch result {
+                            case .success(var categories):
+                                //To get unique values: https://stackoverflow.com/questions/25738817/removing-duplicate-elements-from-an-array-in-swift
+                                categories = Array(Set(categories))
+                                
+                                categories.removeAll { $0 == "Fiction" || $0 == "Nonficton" }
+                                self?.categoryArray = categories
+                                
+                                print("Catergories: \(categories)")
+//                                DispatchQueue.main.async {
+//
+//                                }
+                            case .failure(let error):
+                                print("failed to get unread book count: \(error)")
+                            }
+                        })
                 
             case .failure(let error):
                 //                self?.tableView.isHidden = true
@@ -392,3 +422,18 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
 //    @IBOutlet var title : UILabel?
 //    @IBOutlet var author : UILabel?
 //}
+
+extension AllUserBooksViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArray.count
+    }
+}
+
+extension AllUserBooksViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        categoryArray[row]
+    }
+}
