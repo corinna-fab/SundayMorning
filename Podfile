@@ -21,5 +21,6 @@ pod 'CardSlider'
 pod 'Charts'
 pod 'DBSphereTagCloudSwift'
 pod 'MBCircularProgressBar'
+pod 'MTBBarcodeScanner' 
 
 end

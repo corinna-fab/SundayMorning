@@ -106,6 +106,7 @@ PODS:
   - MBCircularProgressBar (0.3.5)
   - MessageKit (3.1.0):
     - InputBarAccessoryView (~> 4.3.0)
+  - MTBBarcodeScanner (5.0.11)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
     - nanopb/encode (= 1.30905.0)
@@ -135,6 +136,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - MBCircularProgressBar
   - MessageKit
+  - MTBBarcodeScanner
   - RealmSwift
   - SCLAlertView
   - SDWebImage
@@ -166,6 +168,7 @@ SPEC REPOS:
     - leveldb-library
     - MBCircularProgressBar
     - MessageKit
+    - MTBBarcodeScanner
     - nanopb
     - PromisesObjC
     - Realm
@@ -199,6 +202,7 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Realm: f749c723e272f08fdf1939af5e61d2bd09b203e8
@@ -207,6 +211,6 @@ SPEC CHECKSUMS:
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: a9b7ec502117c6dc948546c03a28db6dc2a2ba23
+PODFILE CHECKSUM: 733094a222d53f3148ac15ac906f7add4071005f
 
 COCOAPODS: 1.9.3
