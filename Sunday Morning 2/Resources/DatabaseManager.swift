@@ -537,7 +537,7 @@ extension DatabaseManager {
     }
     
     ///Get all books for a given user
-    public func getAllBooks(with email: String, unreadOnly: Bool, length: String, completion: @escaping (Result<[Book], Error>) -> Void){
+    public func getAllBooks(with email: String, unreadOnly: Bool, length: String, genre: String, completion: @escaping (Result<[Book], Error>) -> Void){
         print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
             guard var value = snapshot.value as? [[String: Any]] else {
@@ -566,6 +566,12 @@ extension DatabaseManager {
                 value.removeAll { 300 < ($0["pageCount"] as! Int) || ($0["pageCount"] as! Int)  < 600 }
             } else if length == "Long" {
                 value.removeAll { ($0["pageCount"] as! Int) < 900 }
+            }
+            
+            if genre == "Fiction" {
+                value.removeAll { ($0["fiction"] as! String == "Nonfiction") }
+            } else if genre == "Nonfiction" {
+                value.removeAll { ($0["fiction"] as! String == "Fiction") }
             }
             
             let books: [Book] = value.compactMap({dictionary in

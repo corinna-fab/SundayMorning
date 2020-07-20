@@ -16,11 +16,12 @@ import SCLAlertView
 class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var table: UITableView!
-    @IBOutlet weak var readOrUnreadButton: UIButton!
+//    @IBOutlet weak var readOrUnreadButton: UIButton!
     
     var unreadOnly: Bool = false
     var picklength: String = ""
     var listTitle: String? = ""
+    var genreSelection: String? = ""
     
     var selectedList: List?
     
@@ -50,8 +51,18 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    @IBAction func handleGenreSelection(_ sender: Any) {
+        genreCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
     @IBOutlet var lengthCollection: [UIButton]!
     @IBOutlet var readStatusCollection: [UIButton]!
+    @IBOutlet var genreCollection: [UIButton]!
     @IBOutlet var choiceCollection: [UIButton]!
     @IBOutlet weak var saveListButton: UIButton!
     
@@ -87,18 +98,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                         colorStyle: 1,
                         colorTextButton: 1
                     )
-//                    let appearance = SCLAlertView.SCLAppearance(
-//                        kTitleFont: UIFont(name: "Farah", size: 20)!,
-//                        kTextFont: UIFont(name: "Farah", size: 14)!,
-//                        kButtonFont: UIFont(name: "Farah", size: 14)!,
-//                        showCloseButton: true,
-//                        showCircularIcon: false,
-//                        contentViewColor: #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1),
-//                        contentViewBorderColor: #colorLiteral(red: 0.247261852, green: 0.2675772011, blue: 0.2539684772, alpha: 1)
-//                    )
-//                    let alertView = SCLAlertView(appearance: appearance)
-//                    alertView.showCustom("YAY", subTitle: "Your custom list has successfully been saved", color: #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1), icon: UIImage(systemName: "plus.square.fill"), closeButtonTitle: "Done.", timeout: <#T##SCLAlertView.SCLTimeoutConfiguration?#>, colorStyle: UInt, colorTextButton: <#T##UInt#>, circleIconImage: <#T##UIImage?#>, animationStyle: <#T##SCLAnimationStyle#>)
-//                    alertView.showSuccess("YAY!", subTitle: "Your custom list has successfully been saved")
                 } else {
                     print("Failed to send")
                     
@@ -108,40 +107,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         alertView.showEdit("Save  List", subTitle: "What   would   you  like  to  call  this  list?")
     }
     
-//    func showAlert() {
-//        let alert = UIAlertController(title: "Title", message: "Hello World", preferredStyle: .alert)
-//
-//        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { action in
-//            print("Tapped dismiss.")
-//        }))
-//
-//        present(alert, animated: true)
-//    }
-//
-//    func showActionSheet() {
-//        let actionsheet = UIAlertController(title: "Title", message: "Hello World", preferredStyle: .actionSheet)
-//
-//        actionsheet.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { action in
-//            print("Tapped dismiss.")
-//        }))
-//
-//        present(actionsheet, animated: true)
-//    }
-    
-    
-    //For dropdown: https://www.youtube.com/watch?v=dIKK-SCkh_c
-    //    @IBAction func selectLength(_ sender: UIButton) {
-    //        lengthButtons.forEach { (button) in
-    //            UIView.animate(withDuration: 0.3, animations: {
-    //                button.isHidden = !button.isHidden
-    //                self.view.layoutIfNeeded()
-    //            })
-    //        }
-    //    }
     private let refreshControl = UIRefreshControl()
-    //    private var bookData = [BookItem]()
-    //    private let realm = try! Realm()
-    //    public var completionHandler: (() -> Void)?
     
     private var conversations = [Book]()
     
@@ -149,6 +115,11 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         case short = "Short"
         case medium = "Medium"
         case long = "Long"
+    }
+    
+    enum Genres: String {
+        case nonfiction = "Nonfiction"
+        case fiction = "Fiction"
     }
     
     @IBAction func lengthTapped(_ sender: UIButton) {
@@ -203,7 +174,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
-//                self.readOrUnreadButton.titleLabel?.text = "All Titles"
             }
         } else {
             unreadOnly = false
@@ -212,29 +182,47 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
-//                self.readOrUnreadButton.titleLabel?.text = "Unread Titles Only"
             }
+        }
+    }
+    
+    @IBAction func switchGenres(_ sender: Any) {
+        guard let title = (sender as AnyObject).currentTitle, let genre = Genres(rawValue: title!) else {
+            return
+        }
+        
+        switch genre {
+        case .nonfiction:
+            print("I'm nonfiction")
+            genreSelection = "Nonfiction"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        case .fiction:
+            print("I'm fiction")
+            genreSelection = "Fiction"
+            
+            startListeningForBooks()
+            table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        default:
+            print("Default.")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Unread: \(unreadOnly)")
-        print("Length: \(picklength)")
-        print("Title: \(title)")
-//        if selectedList != nil {
-//            self.unreadOnly = ((selectedList?.unreadOnly) != nil)
-//            self.picklength = selectedList?.pickLength as! String
-//            self.title = selectedList?.title
-//            print("Unread: \(unreadOnly)")
-//            print("Length: \(pickLength)")
-//            print("Title: \(title)")
-//            table.reloadData()
-//
-//            DispatchQueue.main.async {
-//                self.refreshControl.endRefreshing()
-//            }
-//        }
+//        print("Unread: \(unreadOnly)")
+//        print("Length: \(picklength)")
+//        print("Title: \(title)")
+
         
         refreshControl.addTarget(self, action: #selector(refreshBookData(_:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Book List ...")
@@ -269,7 +257,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
-        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, completion: { [weak self] result in
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, genre: genreSelection!, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")
@@ -302,13 +290,13 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         cell.accessoryType = .disclosureIndicator
         cell.bookAuthor.text = conversations[indexPath.row].author
         cell.bookTitle.text = conversations[indexPath.row].title
-        displayMovieImage(indexPath.row, cell: cell)
+        displayCoverImage(indexPath.row, cell: cell)
         //        cell.textLabel?.numberOfLines = 0
         //        cell.textLabel!.text = conversations[indexPath.row].title
         return cell
     }
     
-    func displayMovieImage(_ row: Int, cell: SavedBooksTableViewCell) {
+    func displayCoverImage(_ row: Int, cell: SavedBooksTableViewCell) {
         let url: String = (URL(string: conversations[row].imageUrl)?.absoluteString)!
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
             if error != nil {
@@ -363,7 +351,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row !=  nil {
-            return 125
+            return 80
         }
         
         // Use the default size for all other rows.
