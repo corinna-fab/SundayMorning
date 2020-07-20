@@ -20,5 +20,6 @@ pod 'TTGTagCollectionView'
 pod 'CardSlider'
 pod 'Charts'
 pod 'DBSphereTagCloudSwift'
+pod 'MBCircularProgressBar'
 
 end

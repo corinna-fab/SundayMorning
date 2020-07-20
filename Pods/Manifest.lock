@@ -103,6 +103,7 @@ PODS:
   - InputBarAccessoryView/Core (4.3.2)
   - JGProgressHUD (2.1)
   - leveldb-library (1.22)
+  - MBCircularProgressBar (0.3.5)
   - MessageKit (3.1.0):
     - InputBarAccessoryView (~> 4.3.0)
   - nanopb (1.30905.0):
@@ -132,6 +133,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - JGProgressHUD
+  - MBCircularProgressBar
   - MessageKit
   - RealmSwift
   - SCLAlertView
@@ -162,6 +164,7 @@ SPEC REPOS:
     - InputBarAccessoryView
     - JGProgressHUD
     - leveldb-library
+    - MBCircularProgressBar
     - MessageKit
     - nanopb
     - PromisesObjC
@@ -194,6 +197,7 @@ SPEC CHECKSUMS:
   InputBarAccessoryView: 7985d418040a05fe894bd4b8328dd43ab35517c3
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
@@ -203,6 +207,6 @@ SPEC CHECKSUMS:
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 148e62a4524c9002eed03a5cd76368a46a994a85
+PODFILE CHECKSUM: a9b7ec502117c6dc948546c03a28db6dc2a2ba23
 
 COCOAPODS: 1.9.3

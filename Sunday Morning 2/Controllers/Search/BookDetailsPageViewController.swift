@@ -214,9 +214,18 @@ class BookDetailsPageViewController: UIViewController {
                 
             })
             
-            alertView.addButton("This book is Fiction", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1), action: {
-                self.book?.fiction = "Nonfiction"
-                print("\(self.book?.fiction)")
+            
+            alertView.addButton("Update genre", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1), action: {
+                let alertViewPopUp = SCLAlertView(appearance: appearance)
+                alertViewPopUp.addButton("Nonfiction", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1), action: {
+                    self.book?.fiction = "Nonfiction"
+                    alertViewPopUp.hideView()
+                })
+                alertViewPopUp.addButton("Fiction", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1), action: {
+                    self.book?.fiction = "Fiction"
+                    alertViewPopUp.hideView()
+                })
+                alertViewPopUp.showSuccess("Select Genre", subTitle: "Please select the appropriate genre")
             })
             
             alertView.addButton("Done", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1)){

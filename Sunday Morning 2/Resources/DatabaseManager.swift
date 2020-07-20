@@ -481,14 +481,12 @@ extension DatabaseManager {
     }
     ///Adds a book to the user's "allBooks" folder
     public func addNewBook(with newBook: Book, completion: @escaping (Bool) -> Void){
-        //add new message to messages
         guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
             completion(false)
             return
         }
         
         let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
-        print("CURRENT EMAIL: \(currentEmail)")
         
         database.child("\(currentEmail)/allBooks").observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard let strongSelf = self else {
@@ -496,69 +494,45 @@ extension DatabaseManager {
             }
             
             var currentBooks: [[String: Any]]
-            var userCategories: [String]
-//            var currentBooks = [[String: Any]]()
             // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
-            print("\(snapshot.value)")
             if snapshot.value is NSNull {
                 print("NULL")
                 currentBooks = [[String: Any]]()
-                userCategories = [String]()
             } else {
                 currentBooks = snapshot.value as! [[String : Any]]
-                userCategories = [String]()
-                print("Bad boys bad boys")
             }
-            
-//            guard var currentBooks = snapshot.value as? [[String: Any]] else {
-//                print("Bad boys bad boys")
-//                return
-//            }
-            guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
-                completion(false)
-                return
-            }
-            
-            let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
             
             let bookToAdd: [String: Any] = [
-                "id": newBook.id as! String,
-                "author": newBook.author as! String,
-                "title": newBook.title as! String,
-                "description": newBook.description as! String,
-                "isbn": newBook.isbn as! String,
-                "imageUrl": newBook.imageUrl as! String,
+                "id": newBook.id as String,
+                "author": newBook.author as String,
+                "title": newBook.title as String,
+                "description": newBook.description as String,
+                "isbn": newBook.isbn as String,
+                "imageUrl": newBook.imageUrl as String,
                 "read": false,
-                "dateRead": newBook.dateRead as! String,
-                "pageCount": newBook.pageCount as! Int,
-                "categories": newBook.categories as! [String],
-                "fiction": newBook.fiction as! String,
+                "dateRead": newBook.dateRead!,
+                "pageCount": newBook.pageCount!,
+                "categories": newBook.categories as [String],
+                "fiction": newBook.fiction as String,
             ]
-            print("BOOK TO ADD: \(bookToAdd)")
+
             currentBooks.append(bookToAdd)
-            userCategories.append(contentsOf: newBook.categories)
-            print("CURRENT BOOKS: \(currentBooks)")
+            
+            self?.addCategories(updatedCategories: newBook.categories, completion: { result in
+                guard result == nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            })
+
             strongSelf.database.child("\(currentEmail)/allBooks").setValue(currentBooks, withCompletionBlock: { error, _ in
                 guard error == nil else {
                     completion(false)
                     return
                 }
-                //Update latest message for recipient user
-                //GO BACK TO THE END OF LESSON 13 FOR THIS
-                
                 completion(true)
-                //THIS NEEDS TO APPEND CATEGORIES, IT'S ONLY REPLACING IT. 
-                strongSelf.database.child("\(currentEmail)/categories").setValue(userCategories, withCompletionBlock: { error, _ in
-                    guard error == nil else {
-                        completion(false)
-                        return
-                    }
-                    //Update latest message for recipient user
-                    //GO BACK TO THE END OF LESSON 13 FOR THIS
-                    
-                    completion(true)
                 })
-            })
         })
     }
     
@@ -654,20 +628,6 @@ extension DatabaseManager {
         })
     }
     
-    ///Gets all categories of books the user has saved
-    public func getCategories(with email: String, completion: @escaping (Result<[String], Error>) -> Void){
-            print("USER ID: \(email)")
-
-            database.child("\(email)/categories").observe(.value, with: { snapshot in
-                guard let value = snapshot.value as? [String] else {
-                    completion(.failure(DatabaseError.failedtoFetch))
-                    return
-                }
-                    
-                completion(.success(value))
-            })
-        }
-        
     
     ///Marks a book in the user's folder as read
     public func markRead(with readBook: Book, completion: @escaping (Bool) -> Void){
@@ -779,7 +739,7 @@ extension DatabaseManager {
 extension DatabaseManager {
     ///Get all books for a given user
     public func getBookCount(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
-        print("USER ID: \(email)")
+//        print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
             guard var value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(DatabaseError.failedtoFetch))
@@ -787,26 +747,86 @@ extension DatabaseManager {
             }
             
             value.removeAll { $0["read"] as! Int == 0 }
-            print("LIBRARY COUNT: \(value.count)")
+//            print("LIBRARY COUNT: \(value.count)")
 
             completion(.success(value.count))
-            print("PLEASE FOR THE LOVE OF GOD")
+//            print("PLEASE FOR THE LOVE OF GOD")
         })
     }
     
     public func getUnreadBookCount(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
-        print("USER ID: \(email)")
+//        print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
             guard var value = snapshot.value as? [[String: Any]] else {
                 completion(.failure(DatabaseError.failedtoFetch))
                 return
             }
             value.removeAll { $0["read"] as! Int == 1 }
-            print("LIBRARY COUNT: \(value.count)")
+//            print("LIBRARY COUNT: \(value.count)")
 
             completion(.success(value.count))
-            print("PLEASE FOR THE LOVE OF GOD")
+//            print("PLEASE FOR THE LOVE OF GOD")
         })
+    }
+    
+    public func getGoalCount(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
+//        print("USER ID: \(email)")
+        database.child("\(email)/goal2020").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? Int else {
+                completion(.failure(DatabaseError.failedtoFetch))
+                return
+            }
+            completion(.success(value))
+//            print("PLEASE FOR THE LOVE OF GOD")
+        })
+    }
+    
+    public func getOnTrackStatus(with email: String, completion: @escaping (Result<Int, Error>) -> Void){
+//        print("USER ID: \(email)")
+        
+        var goalCount: Int = 0
+        var readCount: Int = 0
+            
+        getGoalCount(with: email, completion: { result in
+            switch result {
+            case .success(let goal):
+                goalCount = goal
+                print("Goal Count: \(goalCount)")
+            case .failure(let error):
+                print("failed to get book count: \(error)")
+            }
+        })
+        
+        getBookCount(with: email, completion: { result in
+            switch result {
+            case .success(let goal):
+                readCount = goal
+                print("Read Count: \(readCount)")
+            case .failure(let error):
+                print("failed to get book count: \(error)")
+            }
+        })
+    
+        print("Check goal outside: \(goalCount)")
+        let perMonthGoal = (goalCount / 12)
+        print("You should be reading this many books per month: \(perMonthGoal)")
+        let date = Date() // get a current date instance
+        let dateFormatter = DateFormatter() // get a date formatter instance
+        let calendar = dateFormatter.calendar // get a calendar instance
+        let month = calendar?.component(.month, from: date) // Result: 4
+        print("Month: \(month)")
+        
+        print("You should be at: \(month! * perMonthGoal)")
+        
+        if (month! * perMonthGoal) < readCount {
+            print("You are behind schedule by: \((month! * perMonthGoal) - readCount) books")
+        } else {
+            print("You are on track")
+        }
+        
+        let margin = (month! * perMonthGoal) - readCount
+        
+        completion(.success(margin))
     }
 }
 
@@ -917,44 +937,57 @@ extension DatabaseManager {
         
 }
 
-//extension DatabaseManager {
-
-//public func sendBook(newBook: Book, completion: @escaping (Bool) -> Void){
-//        //add new message to messages
-//        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
-//            completion(false)
-//            return
-//        }
-//
-//    //returns safe email address of user, which is the key to their "folder"
-//        let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
-//
-//        database.child("\(currentEmail)/toBeRead").observeSingleEvent(of: .value, with: { [weak self] snapshot in
-//            guard let strongSelf = self else {
-//                return
-//            }
-//
-//            guard var currentBooks = snapshot.value as? [[String: Any]] else {
-//                completion(false)
-//                return
-//            }
-//
-//            let newBookEntry: [String: Any] = [
-//                "id": newBook.id,
-//                "title": newBook.title,
-//                "imageUrl": newBook.imageUrl,
-//                "author": newBook.author,
-//                "description": newBook.description,
-//                "isbn": newBook.isbn]
-//
-//            currentBooks.append(newBookEntry)
-//            strongSelf.database.child("\(currentEmail)/toBeRead").setValue(currentBooks, withCompletionBlock: { error, _ in
-//                guard error == nil else {
-//                    completion(false)
-//                    return
-//                }
-//                completion(true)
-//            })
-//        })
-//    }
-//}
+extension DatabaseManager {
+///Adds books categories to user's category folder
+    //It would make more sense to go back and write the Firebase folder as its own hash map, which would take up a lot less room
+    public func addCategories(updatedCategories: [String], completion: @escaping (Bool) -> Void){
+        //add new message to messages
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        
+        let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+        
+        database.child("\(currentEmail)/categories").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            var currentCategories: [String]
+            // HELP FROM HERE: https://stackoverflow.com/questions/35682683/checking-if-firebase-snapshot-is-equal-to-nil-in-swift
+            print("\(snapshot.value)")
+            if snapshot.value is NSNull {
+                print("NULL")
+                currentCategories = [String]()
+            } else {
+                currentCategories = snapshot.value as! [String]
+                print("Bad boys bad boys")
+            }
+            
+            currentCategories.append(contentsOf: updatedCategories)
+            
+            strongSelf.database.child("\(currentEmail)/categories").setValue(currentCategories, withCompletionBlock: { error, _ in
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            })
+        })
+    }
+    
+    ///Gets all categories of books the user has saved
+    public func getCategories(with email: String, completion: @escaping (Result<[String], Error>) -> Void){
+        print("USER ID: \(email)")
+        
+        database.child("\(email)/categories").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [String] else {
+                completion(.failure(DatabaseError.failedtoFetch))
+                return
+            }
+            
+            completion(.success(value))
+        })
+    }
+}

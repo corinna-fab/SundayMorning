@@ -94,19 +94,19 @@ class SavedBookDetailsViewController: UIViewController {
     
     @IBAction func markRead(_ sender: UIButton) {
         DatabaseManager.shared.markRead(with: book!, completion: { success in
-        if success {
+            if success {
                 print("Yay! You read this book.")
+                
+                DispatchQueue.main.async {
+                    self.readStatus.text = "Read!"
+                    self.markReadButton.isHidden = true
+                    self.dateRead.isHidden = false
+                    self.dateRead.text = ""
+                }
             } else {
                 print("Failed to mark book as read.")
             }
         })
-        
-        DispatchQueue.main.async {
-            self.readStatus.text = "Read!"
-            self.markReadButton.isHidden = true
-            self.dateRead.isHidden = false
-            self.dateRead.text = "Date   Read: \(self.book?.dateRead as! String))"
-        }
     }
 }
 
