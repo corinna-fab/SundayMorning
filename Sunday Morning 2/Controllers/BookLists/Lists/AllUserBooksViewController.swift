@@ -34,7 +34,10 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                 self.view.layoutIfNeeded()
             })
         }
+        
+        resetButton.isHidden = !resetButton.isHidden
     }
+    
     @IBAction func handleLengthSelection(_ sender: Any) {
         lengthCollection.forEach { (button) in
             UIView.animate(withDuration: 0.3, animations: {
@@ -64,8 +67,37 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func handleCategoryFilter(_ sender: Any) {
         print("Works")
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.categoryPicker.isHidden = !self.categoryPicker.isHidden
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func resetList(_ sender: UIButton) {
+        lengthCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = true
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+        readStatusCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = true
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+        genreCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = true
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.categoryPicker.isHidden = true
             self.view.layoutIfNeeded()
         })
     }
@@ -76,6 +108,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var choiceCollection: [UIButton]!
     @IBOutlet weak var saveListButton: UIButton!
     @IBOutlet weak var categoryPicker: UIPickerView!
+    @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func saveList(_ sender: UIButton) {
         //Send to database here
@@ -227,6 +260,22 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             print("Default.")
         }
     }
+    
+    @IBAction func resetBookList(_ sender: Any) {
+        unreadOnly = false
+        picklength = ""
+        listTitle = ""
+        genreSelection = ""
+        selectedCategories = ""
+        
+        startListeningForBooks()
+        table.reloadData()
+        
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

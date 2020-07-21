@@ -775,6 +775,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </pickerView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBD-Vr-l2v">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" red="0.60872027980481458" green="0.55084782887388883" blue="0.70485009517766495" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBookList:" destination="H1C-2m-WN8" eventType="touchUpInside" id="p8E-HG-lw5"/>
+                                            <action selector="resetList:" destination="H1C-2m-WN8" eventType="touchUpInside" id="tMm-G1-MOa"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -806,6 +818,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryPicker" destination="HD3-MQ-VrT" id="GzS-LV-BJs"/>
+                        <outlet property="resetButton" destination="gBD-Vr-l2v" id="gtj-pi-phD"/>
                         <outlet property="saveListButton" destination="a3n-tp-1va" id="J9H-8T-Df2"/>
                         <outlet property="table" destination="rbE-Mf-Utu" id="VBA-R4-uys"/>
                         <outletCollection property="choiceCollection" destination="03M-ol-Qho" collectionClass="NSMutableArray" id="VKt-tY-njT"/>
@@ -822,6 +835,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFS-dc-Yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5eV-bQ-Hap" userLabel="Filter Categories">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="20"/>
+                    <state key="normal" title="Filter   by   Category">
+                        <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="handleCategoryFilter:" destination="H1C-2m-WN8" eventType="touchUpInside" id="WDt-FD-xlZ"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="876.5625"/>
         </scene>

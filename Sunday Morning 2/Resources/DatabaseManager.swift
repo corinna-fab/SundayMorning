@@ -578,17 +578,6 @@ extension DatabaseManager {
                 print("This is where the categories would be filtered: \(category)")
                 
                 value.removeAll { ($0["categories"] as! Array<String>).contains(category) == false }
-                
-//                for book in value {
-//                    let categories = book["categories"] as! Array<String>
-//
-//                    print("Categories: \(categories)")
-//
-//                    if categories.contains(category) {
-//                        print("")
-//                    }
-//
-//                }
             }
             
             let books: [Book] = value.compactMap({dictionary in
