@@ -42,7 +42,6 @@ class BookDetailsPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("This is the book categories: \(book?.categories)")
     }
     
@@ -73,6 +72,8 @@ class BookDetailsPageViewController: UIViewController {
         } else {
             pageCount.isHidden = true
         }
+        
+        
         
         if book?.description != "" {
             bookDescription.text = book?.description

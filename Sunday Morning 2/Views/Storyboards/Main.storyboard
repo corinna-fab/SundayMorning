@@ -122,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-sq-D6o">
-                                <rect key="frame" x="0.0" y="140" width="414" height="777"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="829"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kje-QZ-VXv">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -174,17 +174,18 @@
                                                             <action selector="didTapAddToCollection" destination="6OD-Kd-8IA" eventType="touchUpInside" id="Xxi-wv-tZ3"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6i-yY-X00">
-                                                        <rect key="frame" x="186" y="560" width="42" height="25"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6i-yY-X00">
+                                                        <rect key="frame" x="177" y="560" width="60" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="lYl-lK-9XE"/>
+                                                            <constraint firstAttribute="height" constant="40" id="lYl-lK-9XE"/>
+                                                            <constraint firstAttribute="width" constant="60" id="vWJ-e5-5wB"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42u-37-Znp">
-                                                        <rect key="frame" x="20" y="625" width="374" height="335"/>
+                                                        <rect key="frame" x="20" y="640" width="374" height="320"/>
                                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -194,6 +195,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="tlk-M9-RcU" secondAttribute="trailing" id="0Mk-KI-1K8"/>
                                                     <constraint firstItem="42u-37-Znp" firstAttribute="leading" secondItem="ude-tl-hX2" secondAttribute="leading" constant="20" id="5FP-hh-AUF"/>
                                                     <constraint firstItem="TtW-La-z0H" firstAttribute="leading" secondItem="ude-tl-hX2" secondAttribute="leading" id="ALc-yE-G0K"/>
+                                                    <constraint firstItem="ETL-4Y-Cqc" firstAttribute="top" secondItem="ude-tl-hX2" secondAttribute="top" id="E0A-pC-p5b"/>
                                                     <constraint firstItem="tlk-M9-RcU" firstAttribute="leading" secondItem="ude-tl-hX2" secondAttribute="leading" id="NwG-Eb-ngZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="TtW-La-z0H" secondAttribute="trailing" id="Xvn-KP-x3N"/>
                                                     <constraint firstAttribute="bottom" secondItem="42u-37-Znp" secondAttribute="bottom" id="sci-3q-buy"/>
@@ -497,8 +499,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by The Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-Xf-JQP">
-                                                    <rect key="frame" x="134" y="41" width="89" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by The Author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-Xf-JQP">
+                                                    <rect key="frame" x="134" y="41" width="204" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="15"/>
                                                     <nil key="textColor"/>

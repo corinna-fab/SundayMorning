@@ -22,5 +22,6 @@ pod 'Charts'
 pod 'DBSphereTagCloudSwift'
 pod 'MBCircularProgressBar'
 pod 'MTBBarcodeScanner' 
+pod 'lottie-ios' 
 
 end

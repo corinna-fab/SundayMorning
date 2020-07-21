@@ -103,6 +103,7 @@ PODS:
   - InputBarAccessoryView/Core (4.3.2)
   - JGProgressHUD (2.1)
   - leveldb-library (1.22)
+  - lottie-ios (3.1.8)
   - MBCircularProgressBar (0.3.5)
   - MessageKit (3.1.0):
     - InputBarAccessoryView (~> 4.3.0)
@@ -134,6 +135,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - JGProgressHUD
+  - lottie-ios
   - MBCircularProgressBar
   - MessageKit
   - MTBBarcodeScanner
@@ -166,6 +168,7 @@ SPEC REPOS:
     - InputBarAccessoryView
     - JGProgressHUD
     - leveldb-library
+    - lottie-ios
     - MBCircularProgressBar
     - MessageKit
     - MTBBarcodeScanner
@@ -200,6 +203,7 @@ SPEC CHECKSUMS:
   InputBarAccessoryView: 7985d418040a05fe894bd4b8328dd43ab35517c3
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
@@ -211,6 +215,6 @@ SPEC CHECKSUMS:
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 733094a222d53f3148ac15ac906f7add4071005f
+PODFILE CHECKSUM: 17fd36e82e0ff9b1c79e8d8157ccc5bb8617d673
 
 COCOAPODS: 1.9.3
