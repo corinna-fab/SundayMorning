@@ -10,8 +10,9 @@ import UIKit
 import WebKit
 import RealmSwift
 import FirebaseAuth
-import DBSphereTagCloudSwift
+//import DBSphereTagCloudSwift
 import MBCircularProgressBar
+import SCLAlertView
 
 class UserDataViewController: UIViewController {
     
@@ -27,6 +28,7 @@ class UserDataViewController: UIViewController {
     @IBOutlet weak var category_five: UILabel!
     
     @IBOutlet weak var readingProgress: MBCircularProgressBarView!
+    @IBOutlet weak var readingProgressCount: UILabel!
     var goalCount: Int = 1
     
     @IBOutlet weak var progressResults: UILabel!
@@ -37,6 +39,8 @@ class UserDataViewController: UIViewController {
     var categoryArray = [String]()
     var categoryCount = [String: Int]()
     var categoryTotal: Int = 0
+    var suggestedBooks: [Book] = []
+    var suggestedBook: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +53,92 @@ class UserDataViewController: UIViewController {
     
     @IBAction func suggestionButtonPressed(_ sender: Any) {
         print("Too bad.")
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Farah", size: 20)!,
+            kTextFont: UIFont(name: "Farah", size: 14)!,
+            kButtonFont: UIFont(name: "Farah", size: 14)!,
+            showCloseButton: false,
+            showCircularIcon: false,
+            shouldAutoDismiss: false,
+            contentViewColor: #colorLiteral(red: 0.5667160749, green: 0.6758385897, blue: 0.56330055, alpha: 1),
+            contentViewBorderColor: #colorLiteral(red: 0.247261852, green: 0.2675772011, blue: 0.2539684772, alpha: 1)
+        )
+        
+        //        let timer = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2.0, timeoutAction: {})
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        let subview = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 20, height: 200))
+        let x = (subview.frame.width - 180) / 2
+        
+        let bookCover = UIImageView(frame: CGRect(x: 0, y: 0, width: 216, height: 200))
+        bookCover.contentMode = .scaleAspectFit
+        
+        self.suggestedBook = self.suggestedBooks.randomElement()
+        let url: String = (URL(string: self.suggestedBook?.imageUrl ?? "")?.absoluteString)!
+        
+        if url == "" {
+            bookCover.image = #imageLiteral(resourceName: "Coming soon!")
+        } else {
+            URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                
+                DispatchQueue.main.async(execute: {
+                    let image = UIImage(data: data!)
+                    bookCover.image = image
+                })
+            }).resume()
+        }
+
+        subview.addSubview(bookCover)
+        
+        alertView.customSubview = subview
+        
+        alertView.addButton("Generate   Another   Suggestion", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1), action: {
+            self.suggestedBook = self.suggestedBooks.randomElement()
+            let url: String = (URL(string: self.suggestedBook?.imageUrl ?? "")?.absoluteString)!
+            
+            if url == "" {
+                bookCover.image = #imageLiteral(resourceName: "Coming soon!")
+            } else {
+                URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async(execute: {
+                        let image = UIImage(data: data!)
+                        bookCover.image = image
+                    })
+                }).resume()
+            }
+            
+            subview.addSubview(bookCover)
+        })
+        
+        alertView.addButton("Select   Book", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1), action: {
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "savedBook") as? SavedBookDetailsViewController else {
+                return
+            }
+            vc.book = self.suggestedBook
+            alertView.hideView()
+            self.navigationController?.pushViewController(vc, animated: true)
+            print("You hit me")
+    
+        })
+        
+        alertView.addButton("Cancel", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1)){
+            alertView.hideView()
+        }
+        
+        alertView.showEdit("", subTitle: "")
     }
     
+
     
     override func viewDidAppear(_ animated: Bool) {
         print("Total READ: \(readCount)")
@@ -100,6 +188,8 @@ class UserDataViewController: UIViewController {
                 print("Averaging per month: \(averagingPerMonth)")
                 self?.averagePerMonth.text = "\(averagingPerMonth)"
                 
+                self?.readingProgressCount.text = "\(self!.readCount) / \(goal) books"
+                
             case .failure(let error):
                 print("failed to get book count: \(error)")
             }
@@ -113,6 +203,23 @@ class UserDataViewController: UIViewController {
         print("Starting to fetch books")
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: false, length: "", genre: "", category: "", completion: { [weak self] result in
+            switch result {
+            case .success(let conversations):
+                print("successfully got book models")
+                print("\(conversations)")
+                guard !conversations.isEmpty else {
+                    print("nothing to see here")
+                    return
+                }
+                print("LIBRARY COUNT: \(conversations.count)")
+                self?.suggestedBooks = conversations
+                
+            case .failure(let error):
+                print("failed to get the books for the reader insights page: \(error)")
+            }
+        })
         
         DatabaseManager.shared.getBookCount(with: safeEmail, completion: { [weak self] result in
             switch result {
@@ -174,9 +281,7 @@ class UserDataViewController: UIViewController {
                 self?.categoryArray = categories
                 
                 var sortedArray = self?.categoryCount.sorted { $0.1 > $1.1 }
-                
-//                print("Catergory count: \(sortedArray)")
-//                self?.unreadCount = count
+
                 DispatchQueue.main.async {
                     self?.category_one.text = "\(sortedArray![0].key) (\(sortedArray![0].value) books)"
                     self?.category_two.text = "\(sortedArray![1].key) (\(sortedArray![1].value) books)"
@@ -188,9 +293,5 @@ class UserDataViewController: UIViewController {
                 print("failed to get unread book count: \(error)")
             }
         })
-    }
-    
-    private func checkForOnTrack(){
-
     }
 }

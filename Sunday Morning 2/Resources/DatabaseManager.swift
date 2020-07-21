@@ -479,6 +479,7 @@ extension DatabaseManager {
         //update sender latest message
         //update recipient latest message
     }
+    
     ///Adds a book to the user's "allBooks" folder
     public func addNewBook(with newBook: Book, completion: @escaping (Bool) -> Void){
         guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {

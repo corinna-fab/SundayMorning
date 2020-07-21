@@ -83,11 +83,11 @@ class BookDetailsPageViewController: UIViewController {
         
 //        isbn.text = book?.isbn
         print("\(book?.read)")
-        displayMovieImage(bookCover: book as! Book)
+        displayBookCover(bookCover: book as! Book)
         fetchReview(isbn: book!.isbn)
     }
 
-    func displayMovieImage(bookCover: Book) {
+    func displayBookCover(bookCover: Book) {
         let url: String = (URL(string: bookCover.imageUrl)?.absoluteString)!
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { (data, response, error) -> Void in
             if error != nil {
@@ -137,8 +137,6 @@ class BookDetailsPageViewController: UIViewController {
 
     @IBAction func didTapAddToCollection() {
         print("ADD!")
-        
-        
         
         if isNewBook {
             //create convo in database
