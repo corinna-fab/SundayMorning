@@ -23,7 +23,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     var listTitle: String? = ""
     var genreSelection: String? = ""
     var categoryArray: [String] = []
-    var selectedCategories: [String] = []
+    var selectedCategories: String? = ""
     
     var selectedList: List?
     
@@ -269,7 +269,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
-        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, genre: genreSelection!, completion: { [weak self] result in
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, genre: genreSelection!, category: selectedCategories!, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")
@@ -436,4 +436,27 @@ extension AllUserBooksViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         categoryArray[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        print("Selected")
+//        categoryPicker.isHidden = true
+        
+        UIView.animate(withDuration: 0.8, animations: {
+            self.categoryPicker.isHidden = true
+            print("Selected Category: \(self.categoryArray[row])")
+            self.view.layoutIfNeeded()
+            
+            
+            self.selectedCategories = self.categoryArray[row]
+            
+            self.startListeningForBooks()
+            self.table.reloadData()
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        })
+    }
+    
 }

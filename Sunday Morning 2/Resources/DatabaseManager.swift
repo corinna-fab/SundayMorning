@@ -537,7 +537,7 @@ extension DatabaseManager {
     }
     
     ///Get all books for a given user
-    public func getAllBooks(with email: String, unreadOnly: Bool, length: String, genre: String, completion: @escaping (Result<[Book], Error>) -> Void){
+    public func getAllBooks(with email: String, unreadOnly: Bool, length: String, genre: String, category: String, completion: @escaping (Result<[Book], Error>) -> Void){
         print("USER ID: \(email)")
         database.child("\(email)/allBooks").observe(.value, with: { snapshot in
             guard var value = snapshot.value as? [[String: Any]] else {
@@ -572,6 +572,23 @@ extension DatabaseManager {
                 value.removeAll { ($0["fiction"] as! String == "Nonfiction") }
             } else if genre == "Nonfiction" {
                 value.removeAll { ($0["fiction"] as! String == "Fiction") }
+            }
+            
+            if category != "" {
+                print("This is where the categories would be filtered: \(category)")
+                
+                value.removeAll { ($0["categories"] as! Array<String>).contains(category) == false }
+                
+//                for book in value {
+//                    let categories = book["categories"] as! Array<String>
+//
+//                    print("Categories: \(categories)")
+//
+//                    if categories.contains(category) {
+//                        print("")
+//                    }
+//
+//                }
             }
             
             let books: [Book] = value.compactMap({dictionary in

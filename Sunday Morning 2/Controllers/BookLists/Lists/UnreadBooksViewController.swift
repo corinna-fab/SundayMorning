@@ -163,7 +163,7 @@ class UnreadBooksViewController: UIViewController, UITableViewDelegate, UITableV
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
-        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, genre: genre, completion: { [weak self] result in
+        DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, genre: genre, category: "", completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")
