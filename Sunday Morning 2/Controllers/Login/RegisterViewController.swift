@@ -94,7 +94,7 @@ class RegisterViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "student")
+        imageView.image = #imageLiteral(resourceName: "profile_default")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -107,7 +107,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.2304866314, blue: 0, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.7323133349, green: 0.4764636159, blue: 0.4055522084, alpha: 1)
         title = "Log In"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
@@ -200,7 +200,6 @@ class RegisterViewController: UIViewController {
             }
             
             guard !exists else {
-                //User already exists
                 strongSelf.alertUserLoginError(message: "Looks like a user has already been created with that email address")
                 return
             }
@@ -210,11 +209,9 @@ class RegisterViewController: UIViewController {
                     print("Error creating user")
                     return
                 }
-                //This is the database entry
                 let chatUser = BookAppUser(firstName: firstName, lastName: lastName, emailAddress: email)
                 DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
                     if success {
-                        //upload image
                         guard let image = strongSelf.imageView.image, let data = image.pngData() else {
                             return
                         }
@@ -230,8 +227,8 @@ class RegisterViewController: UIViewController {
                         })
                     }
                 })
-                
-                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FinishRegisterViewController") as? FinishRegisterViewController
+                self?.navigationController?.pushViewController(vc!, animated: true)
             })
         })
     }

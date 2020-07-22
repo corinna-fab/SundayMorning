@@ -9,13 +9,9 @@
 /* Begin PBXBuildFile section */
 		07307E6924B0DD770033D645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6824B0DD770033D645 /* AppDelegate.swift */; };
 		07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6A24B0DD770033D645 /* SceneDelegate.swift */; };
-		07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */; };
 		07307E7524B0DD790033D645 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07307E7324B0DD790033D645 /* LaunchScreen.storyboard */; };
 		07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8224B0DF6D0033D645 /* LoginViewController.swift */; };
 		07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8424B0DF790033D645 /* RegisterViewController.swift */; };
-		07307E8724B0DF9B0033D645 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8624B0DF9B0033D645 /* PhotoViewerViewController.swift */; };
-		07307E8924B0DFA40033D645 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8824B0DFA40033D645 /* VideoPlayerViewController.swift */; };
-		07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */; };
 		07307E8D24B0DFD00033D645 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8C24B0DFD00033D645 /* ProfileViewController.swift */; };
 		07307E9024B0E5C20033D645 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307E8F24B0E5C20033D645 /* Extensions.swift */; };
 		07307E9224B106500033D645 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07307E9124B106500033D645 /* GoogleService-Info.plist */; };
@@ -27,25 +23,20 @@
 		07307EA224B378BD0033D645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA124B378BD0033D645 /* Constants.swift */; };
 		07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */; };
 		07307EA624B3B9D40033D645 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07307EA524B3B9D40033D645 /* Book.swift */; };
-		0742878324C5F1D300F45261 /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0742878224C5F1D300F45261 /* BarcodeViewController.swift */; };
+		0742878524C8967A00F45261 /* FinishRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0742878424C8967A00F45261 /* FinishRegisterViewController.swift */; };
 		078013A724C2572200926634 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078013A524C2572200926634 /* CategoryCollectionViewCell.swift */; };
 		078013A824C2572200926634 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 078013A624C2572200926634 /* CategoryCollectionViewCell.xib */; };
-		079A687324BCF41900C1D70C /* UnreadBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */; };
 		079A687724BE326200C1D70C /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687624BE326200C1D70C /* UserDataViewController.swift */; };
 		079A687924BFD95500C1D70C /* CustomListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687824BFD95500C1D70C /* CustomListsViewController.swift */; };
 		079A687B24BFE4EE00C1D70C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687A24BFE4EE00C1D70C /* List.swift */; };
-		079A687F24C1077000C1D70C /* OpenCustomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A687E24C1077000C1D70C /* OpenCustomListViewController.swift */; };
 		07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */; };
 		07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */; };
 		07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */; };
 		07D5ACE724B4D91C0062DD1D /* BookDetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */; };
 		07D5ACE924B4FD6A0062DD1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACE824B4FD6A0062DD1D /* Main.storyboard */; };
 		07D5ACEB24B4FFF50062DD1D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEA24B4FFF50062DD1D /* CacheManager.swift */; };
-		07D5ACED24B646C50062DD1D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */; };
-		07D5ACEF24B64D4E0062DD1D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */; };
 		07D5ACF124B65EAB0062DD1D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF024B65EAB0062DD1D /* StorageManager.swift */; };
 		07D5ACF324B686F70062DD1D /* AllUserBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */; };
-		07D5ACF724B7E88E0062DD1D /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */; };
 		07D5ACF924B8BB540062DD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACF824B8BB540062DD1D /* Assets.xcassets */; };
 		07D5AD0024BA532F0062DD1D /* SavedBooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5ACFE24BA532F0062DD1D /* SavedBooksTableViewCell.swift */; };
 		07D5AD0124BA532F0062DD1D /* SavedBooksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D5ACFF24BA532F0062DD1D /* SavedBooksTableViewCell.xib */; };
@@ -57,14 +48,10 @@
 		07307E6524B0DD770033D645 /* Sunday Morning 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunday Morning 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07307E6824B0DD770033D645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07307E6A24B0DD770033D645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSavedBooksViewController.swift; sourceTree = "<group>"; };
 		07307E7424B0DD790033D645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07307E7624B0DD790033D645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07307E8224B0DF6D0033D645 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07307E8424B0DF790033D645 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		07307E8624B0DF9B0033D645 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
-		07307E8824B0DFA40033D645 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
-		07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		07307E8C24B0DFD00033D645 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		07307E8F24B0E5C20033D645 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		07307E9124B106500033D645 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -76,25 +63,20 @@
 		07307EA124B378BD0033D645 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07307EA324B3B5600033D645 /* CustomBookListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookListCellTableViewCell.swift; sourceTree = "<group>"; };
 		07307EA524B3B9D40033D645 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		0742878224C5F1D300F45261 /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		0742878424C8967A00F45261 /* FinishRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegisterViewController.swift; sourceTree = "<group>"; };
 		078013A524C2572200926634 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		078013A624C2572200926634 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadBooksViewController.swift; sourceTree = "<group>"; };
 		079A687624BE326200C1D70C /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		079A687824BFD95500C1D70C /* CustomListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListsViewController.swift; sourceTree = "<group>"; };
 		079A687A24BFE4EE00C1D70C /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
-		079A687E24C1077000C1D70C /* OpenCustomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCustomListViewController.swift; sourceTree = "<group>"; };
 		07D5ACDF24B3D1360062DD1D /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		07D5ACE124B3D3CB0062DD1D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		07D5ACE324B3D8740062DD1D /* BookDataProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataProcesser.swift; sourceTree = "<group>"; };
 		07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsPageViewController.swift; sourceTree = "<group>"; };
 		07D5ACE824B4FD6A0062DD1D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		07D5ACEA24B4FFF50062DD1D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
-		07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
-		07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		07D5ACF024B65EAB0062DD1D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserBooksViewController.swift; sourceTree = "<group>"; };
-		07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		07D5ACF824B8BB540062DD1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07D5ACFE24BA532F0062DD1D /* SavedBooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBooksTableViewCell.swift; sourceTree = "<group>"; };
 		07D5ACFF24BA532F0062DD1D /* SavedBooksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedBooksTableViewCell.xib; sourceTree = "<group>"; };
@@ -138,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				07307E9124B106500033D645 /* GoogleService-Info.plist */,
-				07307E8024B0DE830033D645 /* ViewModels */,
 				07307E7F24B0DE6B0033D645 /* Resources */,
 				07307E7E24B0DE600033D645 /* Models */,
 				07307E7D24B0DE580033D645 /* Views */,
@@ -152,11 +133,11 @@
 		07307E7C24B0DE4B0033D645 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				07D5ACF524B7AFDE0062DD1D /* BookLists */,
+				0742878624C8D7E800F45261 /* Reader Insights */,
+				079A687D24C1073A00C1D70C /* Saved Books */,
+				079A687C24C1071400C1D70C /* Lists */,
 				07D5ACF424B7AFC90062DD1D /* Search */,
-				07D5ACE524B4D6700062DD1D /* Conversations */,
 				07307E8E24B0E0910033D645 /* Login */,
-				079A687624BE326200C1D70C /* UserDataViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				07307E8124B0DE980033D645 /* Storyboards */,
-				07D5ACF624B7E88E0062DD1D /* ConversationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,13 +179,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		07307E8024B0DE830033D645 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		07307E8124B0DE980033D645 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,40 +199,34 @@
 				07307E8224B0DF6D0033D645 /* LoginViewController.swift */,
 				07307E8C24B0DFD00033D645 /* ProfileViewController.swift */,
 				07307E8424B0DF790033D645 /* RegisterViewController.swift */,
+				0742878424C8967A00F45261 /* FinishRegisterViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		0742878624C8D7E800F45261 /* Reader Insights */ = {
+			isa = PBXGroup;
+			children = (
+				079A687624BE326200C1D70C /* UserDataViewController.swift */,
+			);
+			path = "Reader Insights";
 			sourceTree = "<group>";
 		};
 		079A687C24C1071400C1D70C /* Lists */ = {
 			isa = PBXGroup;
 			children = (
 				079A687824BFD95500C1D70C /* CustomListsViewController.swift */,
-				07307E6C24B0DD770033D645 /* AllSavedBooksViewController.swift */,
 				07D5ACF224B686F70062DD1D /* AllUserBooksViewController.swift */,
-				079A687224BCF41900C1D70C /* UnreadBooksViewController.swift */,
-				079A687E24C1077000C1D70C /* OpenCustomListViewController.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
 		};
-		079A687D24C1073A00C1D70C /* BookPages */ = {
+		079A687D24C1073A00C1D70C /* Saved Books */ = {
 			isa = PBXGroup;
 			children = (
 				07D5AD0224BA61E80062DD1D /* SavedBookDetailsViewController.swift */,
 			);
-			path = BookPages;
-			sourceTree = "<group>";
-		};
-		07D5ACE524B4D6700062DD1D /* Conversations */ = {
-			isa = PBXGroup;
-			children = (
-				07D5ACEE24B64D4E0062DD1D /* ChatViewController.swift */,
-				07D5ACEC24B646C50062DD1D /* ConversationsViewController.swift */,
-				07307E8624B0DF9B0033D645 /* PhotoViewerViewController.swift */,
-				07307E8A24B0DFC20033D645 /* NewConversationViewController.swift */,
-				07307E8824B0DFA40033D645 /* VideoPlayerViewController.swift */,
-			);
-			path = Conversations;
+			path = "Saved Books";
 			sourceTree = "<group>";
 		};
 		07D5ACF424B7AFC90062DD1D /* Search */ = {
@@ -267,18 +234,8 @@
 			children = (
 				07307E9524B153C20033D645 /* SearchViewController.swift */,
 				07D5ACE624B4D91C0062DD1D /* BookDetailsPageViewController.swift */,
-				0742878224C5F1D300F45261 /* BarcodeViewController.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		07D5ACF524B7AFDE0062DD1D /* BookLists */ = {
-			isa = PBXGroup;
-			children = (
-				079A687D24C1073A00C1D70C /* BookPages */,
-				079A687C24C1071400C1D70C /* Lists */,
-			);
-			path = BookLists;
 			sourceTree = "<group>";
 		};
 		57A7272DD3E5CC8EE084041C /* Frameworks */ = {
@@ -435,7 +392,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07307E9C24B155130033D645 /* BookModel.swift in Sources */,
-				0742878324C5F1D300F45261 /* BarcodeViewController.swift in Sources */,
 				07D5ACF324B686F70062DD1D /* AllUserBooksViewController.swift in Sources */,
 				07307E9824B154D90033D645 /* BookManager.swift in Sources */,
 				07307E8324B0DF6D0033D645 /* LoginViewController.swift in Sources */,
@@ -443,16 +399,12 @@
 				07D5AD0324BA61E80062DD1D /* SavedBookDetailsViewController.swift in Sources */,
 				07307E9424B1183E0033D645 /* DatabaseManager.swift in Sources */,
 				07307E8524B0DF790033D645 /* RegisterViewController.swift in Sources */,
-				07307E8B24B0DFC20033D645 /* NewConversationViewController.swift in Sources */,
 				079A687924BFD95500C1D70C /* CustomListsViewController.swift in Sources */,
-				079A687F24C1077000C1D70C /* OpenCustomListViewController.swift in Sources */,
 				07D5ACEB24B4FFF50062DD1D /* CacheManager.swift in Sources */,
 				07D5ACE224B3D3CB0062DD1D /* JSONParser.swift in Sources */,
-				07307E6D24B0DD770033D645 /* AllSavedBooksViewController.swift in Sources */,
 				07D5ACE024B3D1360062DD1D /* HTTPHandler.swift in Sources */,
-				07D5ACED24B646C50062DD1D /* ConversationsViewController.swift in Sources */,
+				0742878524C8967A00F45261 /* FinishRegisterViewController.swift in Sources */,
 				07307EA224B378BD0033D645 /* Constants.swift in Sources */,
-				07307E8924B0DFA40033D645 /* VideoPlayerViewController.swift in Sources */,
 				079A687724BE326200C1D70C /* UserDataViewController.swift in Sources */,
 				07307E9624B153C20033D645 /* SearchViewController.swift in Sources */,
 				07307E9A24B154F40033D645 /* BookData.swift in Sources */,
@@ -460,15 +412,11 @@
 				07307EA424B3B5600033D645 /* CustomBookListCellTableViewCell.swift in Sources */,
 				079A687B24BFE4EE00C1D70C /* List.swift in Sources */,
 				07D5ACE724B4D91C0062DD1D /* BookDetailsPageViewController.swift in Sources */,
-				07D5ACEF24B64D4E0062DD1D /* ChatViewController.swift in Sources */,
 				07307E6924B0DD770033D645 /* AppDelegate.swift in Sources */,
 				07307EA624B3B9D40033D645 /* Book.swift in Sources */,
 				07D5ACE424B3D8740062DD1D /* BookDataProcesser.swift in Sources */,
 				07307E8D24B0DFD00033D645 /* ProfileViewController.swift in Sources */,
-				079A687324BCF41900C1D70C /* UnreadBooksViewController.swift in Sources */,
-				07D5ACF724B7E88E0062DD1D /* ConversationTableViewCell.swift in Sources */,
 				07307E6B24B0DD770033D645 /* SceneDelegate.swift in Sources */,
-				07307E8724B0DF9B0033D645 /* PhotoViewerViewController.swift in Sources */,
 				07D5AD0024BA532F0062DD1D /* SavedBooksTableViewCell.swift in Sources */,
 				07D5ACF124B65EAB0062DD1D /* StorageManager.swift in Sources */,
 			);

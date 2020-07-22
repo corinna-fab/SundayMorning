@@ -500,21 +500,6 @@
             </objects>
             <point key="canvasLocation" x="-745" y="115"/>
         </scene>
-        <!--Barcode View Controller-->
-        <scene sceneID="dKx-dC-hKH">
-            <objects>
-                <viewController id="nTm-QC-rhf" customClass="BarcodeViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dPv-p8-tp7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Sow-Uj-kJT"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0TL-J0-pFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1577" y="1588"/>
-        </scene>
         <!--Search-->
         <scene sceneID="tUe-P7-Ti0">
             <objects>
@@ -597,9 +582,6 @@
                                 <state key="normal" image="barcode.viewfinder" catalog="system"/>
                                 <connections>
                                     <action selector="pressedScanBarcode:" destination="IdR-d8-Ngi" eventType="touchUpInside" id="3W1-AG-6W4"/>
-                                    <segue destination="nTm-QC-rhf" kind="popoverPresentation" popoverAnchorView="crG-vT-q7E" id="LdL-nb-2Cp">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -1332,6 +1314,160 @@
             </objects>
             <point key="canvasLocation" x="1856.521739130435" y="1076.1160714285713"/>
         </scene>
+        <!--Finish Register View Controller-->
+        <scene sceneID="4aa-y6-HkB">
+            <objects>
+                <viewController storyboardIdentifier="FinishRegisterViewController" id="F71-LX-nbQ" customClass="FinishRegisterViewController" customModule="Sunday_Morning_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DHq-sc-Ohy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just a few more things" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONu-Y3-exS">
+                                <rect key="frame" x="0.0" y="144" width="414" height="33"/>
+                                <color key="backgroundColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bN0-fV-PLA">
+                                <rect key="frame" x="32" y="237" width="351" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to set a reading goal?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3E-wZ-ZB3">
+                                        <rect key="frame" x="47" y="8" width="258" height="53"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="76x-f5-BVx" userLabel="Goal Slider">
+                                        <rect key="frame" x="23" y="140" width="305" height="31"/>
+                                        <color key="tintColor" red="0.3805835843" green="0.43209573629999998" blue="0.39607450370000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="minimumTrackTintColor" red="0.3805835843" green="0.43209573629999998" blue="0.39607450370000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="maximumTrackTintColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="goalSliderSlide:" destination="F71-LX-nbQ" eventType="valueChanged" id="cz7-rU-xwR"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjr-6y-x9g">
+                                        <rect key="frame" x="130" y="81" width="91" height="31.5"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.29714255140000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="193" id="HEc-cT-VhO"/>
+                                    <constraint firstItem="76x-f5-BVx" firstAttribute="leading" secondItem="bN0-fV-PLA" secondAttribute="leading" constant="25" id="O2j-AS-btb"/>
+                                    <constraint firstAttribute="trailing" secondItem="V3E-wZ-ZB3" secondAttribute="trailing" constant="46" id="Pan-tc-pEl"/>
+                                    <constraint firstItem="V3E-wZ-ZB3" firstAttribute="leading" secondItem="bN0-fV-PLA" secondAttribute="leading" constant="47" id="Qgz-cn-Iow"/>
+                                    <constraint firstAttribute="trailing" secondItem="cjr-6y-x9g" secondAttribute="trailing" constant="130" id="RgN-43-Elt"/>
+                                    <constraint firstItem="cjr-6y-x9g" firstAttribute="leading" secondItem="bN0-fV-PLA" secondAttribute="leading" constant="130" id="Ucb-8D-GyL"/>
+                                    <constraint firstItem="V3E-wZ-ZB3" firstAttribute="top" secondItem="bN0-fV-PLA" secondAttribute="top" constant="8" id="WXR-yV-Xvl"/>
+                                    <constraint firstAttribute="bottom" secondItem="76x-f5-BVx" secondAttribute="bottom" constant="23" id="hbp-au-MYs"/>
+                                    <constraint firstItem="cjr-6y-x9g" firstAttribute="top" secondItem="V3E-wZ-ZB3" secondAttribute="bottom" constant="20" id="iVX-QA-Jbw"/>
+                                    <constraint firstItem="76x-f5-BVx" firstAttribute="top" secondItem="cjr-6y-x9g" secondAttribute="bottom" constant="27.5" id="imW-k5-8gS"/>
+                                    <constraint firstAttribute="trailing" secondItem="76x-f5-BVx" secondAttribute="trailing" constant="25" id="luR-DU-IM1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" id="1eb-lQ-GMr">
+                                <rect key="frame" x="32" y="460" width="351" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are your favorite genres?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnU-Si-9ga">
+                                        <rect key="frame" x="45" y="8" width="261" height="53"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nonfiction, Essays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNl-di-FQf">
+                                        <rect key="frame" x="45" y="81" width="261" height="31.5"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMo-wi-Lt5">
+                                        <rect key="frame" x="35" y="145" width="261" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="oSQ-4G-J9c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLz-Po-uFD">
+                                        <rect key="frame" x="306" y="154" width="20" height="22"/>
+                                        <color key="tintColor" red="0.6955909133" green="0.48778367039999998" blue="0.41958934069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" image="plus.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="addCategoryPressed:" destination="F71-LX-nbQ" eventType="touchUpInside" id="0EF-wa-M78"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.29714255140000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="v40-lX-XVf" firstAttribute="bottom" secondItem="aLz-Po-uFD" secondAttribute="bottom" constant="19" id="2ZK-SO-6RW"/>
+                                    <constraint firstItem="v40-lX-XVf" firstAttribute="trailing" secondItem="NNl-di-FQf" secondAttribute="trailing" constant="45" id="BJn-ph-Zll"/>
+                                    <constraint firstItem="aLz-Po-uFD" firstAttribute="leading" secondItem="gMo-wi-Lt5" secondAttribute="trailing" constant="10" id="RvR-yw-PRn"/>
+                                    <constraint firstItem="qnU-Si-9ga" firstAttribute="leading" secondItem="v40-lX-XVf" secondAttribute="leading" constant="45" id="SzL-U5-Y5c"/>
+                                    <constraint firstItem="qnU-Si-9ga" firstAttribute="top" secondItem="v40-lX-XVf" secondAttribute="top" constant="8" id="ZUk-4B-Iee"/>
+                                    <constraint firstItem="gMo-wi-Lt5" firstAttribute="top" secondItem="NNl-di-FQf" secondAttribute="bottom" constant="32.5" id="kaO-yS-Ham"/>
+                                    <constraint firstItem="v40-lX-XVf" firstAttribute="trailing" secondItem="gMo-wi-Lt5" secondAttribute="trailing" constant="55" id="mxc-IQ-0BG"/>
+                                    <constraint firstItem="v40-lX-XVf" firstAttribute="bottom" secondItem="gMo-wi-Lt5" secondAttribute="bottom" constant="16" id="u6d-2M-HLM"/>
+                                    <constraint firstItem="v40-lX-XVf" firstAttribute="trailing" secondItem="qnU-Si-9ga" secondAttribute="trailing" constant="45" id="wT4-9x-o9K"/>
+                                    <constraint firstItem="NNl-di-FQf" firstAttribute="leading" secondItem="v40-lX-XVf" secondAttribute="leading" constant="45" id="yng-aL-y05"/>
+                                    <constraint firstItem="gMo-wi-Lt5" firstAttribute="leading" secondItem="v40-lX-XVf" secondAttribute="leading" constant="35" id="z51-1k-mj2"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="v40-lX-XVf"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-qg-Foe">
+                                <rect key="frame" x="172.5" y="718" width="70" height="36"/>
+                                <color key="backgroundColor" red="0.84167468550000002" green="0.75407999749999999" blue="0.70195084809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="sBC-gl-XAM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.25102886559999998" green="0.26691290740000001" blue="0.2549007237" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitPressed:" destination="F71-LX-nbQ" eventType="touchUpInside" id="5Ow-SM-gVh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bN0-fV-PLA" firstAttribute="leading" secondItem="1eb-lQ-GMr" secondAttribute="leading" id="1Je-7V-pQf"/>
+                            <constraint firstItem="ONu-Y3-exS" firstAttribute="leading" secondItem="Bca-nQ-oSb" secondAttribute="leading" id="1yj-Fc-xzp"/>
+                            <constraint firstItem="Bca-nQ-oSb" firstAttribute="trailing" secondItem="ONu-Y3-exS" secondAttribute="trailing" id="4e7-M0-Kar"/>
+                            <constraint firstItem="ONu-Y3-exS" firstAttribute="top" secondItem="Bca-nQ-oSb" secondAttribute="top" constant="100" id="NiX-yM-4li"/>
+                            <constraint firstItem="aCr-qg-Foe" firstAttribute="top" secondItem="1eb-lQ-GMr" secondAttribute="bottom" constant="63" id="OMu-bJ-bZa"/>
+                            <constraint firstItem="bN0-fV-PLA" firstAttribute="top" secondItem="ONu-Y3-exS" secondAttribute="bottom" constant="60" id="TlI-V1-Mcg"/>
+                            <constraint firstItem="bN0-fV-PLA" firstAttribute="centerX" secondItem="aCr-qg-Foe" secondAttribute="centerX" id="ZHT-sv-ZbV"/>
+                            <constraint firstItem="1eb-lQ-GMr" firstAttribute="top" secondItem="bN0-fV-PLA" secondAttribute="bottom" constant="30" id="eSb-3p-CUl"/>
+                            <constraint firstItem="bN0-fV-PLA" firstAttribute="trailing" secondItem="1eb-lQ-GMr" secondAttribute="trailing" id="xQB-gd-JQ1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bca-nQ-oSb"/>
+                    </view>
+                    <connections>
+                        <outlet property="categoryCollection" destination="NNl-di-FQf" id="v3H-Ln-zfn"/>
+                        <outlet property="categoryTextField" destination="gMo-wi-Lt5" id="Uke-2L-UiM"/>
+                        <outlet property="goalNumber" destination="cjr-6y-x9g" id="yVF-df-8w3"/>
+                        <outlet property="goalSlider" destination="76x-f5-BVx" id="d8K-kB-ULY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coD-H0-T5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2724.6376811594205" y="1593.75"/>
+        </scene>
     </scenes>
     <resources>
         <image name="barcode.viewfinder" catalog="system" width="128" height="114"/>
@@ -1340,5 +1476,6 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

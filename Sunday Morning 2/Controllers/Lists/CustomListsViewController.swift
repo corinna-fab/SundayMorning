@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import RealmSwift
 import FirebaseAuth
 import SCLAlertView
 
@@ -16,7 +15,7 @@ class CustomListsViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet var table: UITableView!
     
-    private var conversations = [List]()
+    private var customListCollection = [List]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,50 +32,43 @@ class CustomListsViewController: UIViewController, UITableViewDelegate, UITableV
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
-        print("Starting to fetch books")
         
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
         DatabaseManager.shared.getAllLists(with: safeEmail, completion: { [weak self] result in
             switch result {
-            case .success(let conversations):
-                print("successfully got book models")
-                print("\(conversations)")
-                guard !conversations.isEmpty else {
+            case .success(let lists):
+                guard !lists.isEmpty else {
                     print("nothing to see here")
                     return
                 }
-                print("LIST COUNT: \(conversations.count)")
-                self?.conversations = conversations
+                self?.customListCollection = lists
                 print("this is where the collection would go")
                 DispatchQueue.main.async {
                     self?.table.reloadData()
                 }
                 
             case .failure(let error):
-                //                self?.tableView.isHidden = true
-                //                self?.noConversationsLabel.isHidden = false
                 print("failed to get books: \(error)")
             }
         })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return conversations.count
+        return customListCollection.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UITableViewCell
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = "\(conversations[indexPath.row].title)"
-//        cell.bookAuthor.text = conversations[indexPath.row].author
+        cell.textLabel?.text = "\(customListCollection[indexPath.row].title)"
         return cell
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let model = conversations[indexPath.row]
+        let model = customListCollection[indexPath.row]
         
         guard let vc = storyboard?.instantiateViewController(identifier: "allBooks") as? AllUserBooksViewController else {
             return
@@ -95,7 +87,7 @@ class CustomListsViewController: UIViewController, UITableViewDelegate, UITableV
         guard table.indexPathForSelectedRow != nil else {
             return
         }
-        let selectedList = conversations[table.indexPathForSelectedRow!.row]
+        let selectedList = customListCollection[table.indexPathForSelectedRow!.row]
         let destinationVC = segue.destination as! AllUserBooksViewController
         destinationVC.selectedList?.pickLength = selectedList.pickLength
         destinationVC.selectedList?.title = selectedList.title

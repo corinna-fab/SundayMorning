@@ -27,7 +27,7 @@ class BookDetailsPageViewController: UIViewController {
     var bookTitle: String = ""
     var imageUrl: String = ""
     var id: String = ""
-    var bookData: AnyObject = "" as! AnyObject
+//    var bookData: AnyObject = "" as! AnyObject
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -36,17 +36,14 @@ class BookDetailsPageViewController: UIViewController {
     @IBOutlet weak var pageCount: UILabel!
     
     var book:Book?
-    
-//    private let realm = try! Realm()
-    public var completionHandler: (() -> Void)?
+
+//    public var completionHandler: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("This is the book categories: \(book?.categories)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            //Clear the fields
         titleLabel.text = ""
         authorLabel.text = ""
         bookDescription.text = ""
@@ -54,7 +51,6 @@ class BookDetailsPageViewController: UIViewController {
         guard book != nil else {
             return
         }
-        //Set title
         titleLabel.text = book?.title
         authorLabel.text = book?.author
         
@@ -73,18 +69,13 @@ class BookDetailsPageViewController: UIViewController {
             pageCount.isHidden = true
         }
         
-        
-        
         if book?.description != "" {
             bookDescription.text = book?.description
         } else {
             bookDescription.text = "No description available."
         }
-        
-//        isbn.text = book?.isbn
-        print("\(book?.read)")
+
         displayBookCover(bookCover: book as! Book)
-        fetchReview(isbn: book!.isbn)
     }
 
     func displayBookCover(bookCover: Book) {
@@ -102,45 +93,9 @@ class BookDetailsPageViewController: UIViewController {
         }).resume()
     }
 
-    func fetchReview(isbn: String) {
-        let bookURL = "http://idreambooks.com/api/books/reviews.json?key=\(K.DREAM_API)"
-        let urlString = "\(bookURL)&isbn=\(isbn)"
-        performRequest(with: urlString)
-    }
-    
-    func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-                if let safeData = data {
-                    print("This is data: \(data!)")
-
-                    let object = JSONParser.parse(data: data!)
-                    //            print("Object: \(object!["totalItems"])")
-                                
-                                if let object = object {
-                                    print("This is an object")
-                                    print(object.keys)
-//                                    print("Object: \(object["total_results"])")
-//                                    print("Object: \(object["book"])")
-                                    BookDataProcessor.mapJsonToReview(object: object)
-                                }
-                }
-            }
-            task.resume()
-        }
-    }
-
     @IBAction func didTapAddToCollection() {
-        print("ADD!")
         
         if isNewBook {
-            //create convo in database
-            print("I'm creating")
             DatabaseManager.shared.addNewBook(with: book!, completion: { success in
             if success {
                 print("Message sent")
@@ -172,8 +127,6 @@ class BookDetailsPageViewController: UIViewController {
             })
         } else {
             
-            //append to existing data
-            print("I'm DUMB")
             let appearance = SCLAlertView.SCLAppearance(
                 kTitleFont: UIFont(name: "Farah", size: 20)!,
                 kTextFont: UIFont(name: "Farah", size: 14)!,
@@ -266,12 +219,5 @@ class BookDetailsPageViewController: UIViewController {
             
             alertView.showEdit("Add Categories", subTitle: "What   categories    would    you    like    to    add?")
         }
-    }
-}
-//Mark: - Check if book is already in collection
-extension BookDetailsPageViewController {
-    //Custom alert (iOS Academy video)
-    private func checkList() {
-        
     }
 }

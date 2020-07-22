@@ -8,9 +8,7 @@
 
 import UIKit
 import WebKit
-import RealmSwift
 import FirebaseAuth
-//import DBSphereTagCloudSwift
 import MBCircularProgressBar
 import SCLAlertView
 
@@ -65,7 +63,6 @@ class UserDataViewController: UIViewController {
             contentViewBorderColor: #colorLiteral(red: 0.247261852, green: 0.2675772011, blue: 0.2539684772, alpha: 1)
         )
         
-        //        let timer = SCLAlertView.SCLTimeoutConfiguration.init(timeoutValue: 2.0, timeoutAction: {})
         let alertView = SCLAlertView(appearance: appearance)
         
         let subview = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 20, height: 200))
@@ -138,8 +135,6 @@ class UserDataViewController: UIViewController {
         alertView.showEdit("", subTitle: "")
     }
     
-
-    
     override func viewDidAppear(_ animated: Bool) {
         print("Total READ: \(readCount)")
         print("Total UNREAD: \(unreadCount)")
@@ -167,11 +162,8 @@ class UserDataViewController: UIViewController {
                 let month = calendar?.component(.month, from: date) // Result: 4
                 
                 let perMonth = self!.goalCount / 12
-//                print("Per Month: \(perMonth)")
                 let shouldBeAt = perMonth * month!
-//                print("Should Be At: \(shouldBeAt)")
                 let difference = self!.readCount - shouldBeAt
-//                print("Difference: \(difference)")
                 
                 if difference < 0 {
                     self?.progressResults.text = "You are \(abs(difference)) books behind"
@@ -200,7 +192,6 @@ class UserDataViewController: UIViewController {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
-        print("Starting to fetch books")
 
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
@@ -213,7 +204,6 @@ class UserDataViewController: UIViewController {
                     print("nothing to see here")
                     return
                 }
-                print("LIBRARY COUNT: \(conversations.count)")
                 self?.suggestedBooks = conversations
                 
             case .failure(let error):
@@ -224,7 +214,6 @@ class UserDataViewController: UIViewController {
         DatabaseManager.shared.getBookCount(with: safeEmail, completion: { [weak self] result in
             switch result {
             case .success(let count):
-//                print("LIBRARY COUNT: \(count)")
                 self?.readCount = count
                 
                 DispatchQueue.main.async {
@@ -238,7 +227,6 @@ class UserDataViewController: UIViewController {
         DatabaseManager.shared.getUnreadBookCount(with: safeEmail, completion: { [weak self] result in
             switch result {
             case .success(let count):
-//                print("LIBRARY COUNT: \(count)")
                 self?.unreadCount = count
                 
                 DispatchQueue.main.async {

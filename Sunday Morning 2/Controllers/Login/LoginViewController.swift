@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
     private let loginButton: UIButton = {
        var button = UIButton()
         button.setTitle("Login", for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.418171227, green: 0.5918633938, blue: 0.431758821, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.8597211838, green: 0.7501529455, blue: 0.6944079995, alpha: 1)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
 
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Do any additional setup after loading the view.
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.2304866314, blue: 0, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.7323133349, green: 0.4764636159, blue: 0.4055522084, alpha: 1)
         title = "Log In"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))

@@ -11,8 +11,6 @@ import UIKit
 class SavedBookDetailsViewController: UIViewController {
     var scrollView: UIScrollView!
     
-//    @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
@@ -40,13 +38,8 @@ class SavedBookDetailsViewController: UIViewController {
         
         readStatus.layer.masksToBounds = true
         
-        displayMovieImage(bookCover: book as! Book)
-        checkBook(book: book as! Book)
-        
-        print("\(book?.categories)")
-        
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        displayMovieImage(bookCover: book!)
+        checkBook(book: book!)
     }
     
     func displayMovieImage(bookCover: Book) {
@@ -75,10 +68,7 @@ class SavedBookDetailsViewController: UIViewController {
                     self.dateRead.text = "Date Read: \(self.book?.dateRead as! String)"
                 }
             } else {
-                print("Failed to mark book as read.")
-//
-//                self.dateRead.isHidden = true
-//                self.readStatus.text = "Unread"
+                print("Failed to check status of book.")
             }
         })
         self.readStatus.text = "Unread"
@@ -122,7 +112,3 @@ extension SavedBookDetailsViewController: UITableViewDataSource {
         return cell
     }
 }
-
-//extension SavedBookDetailsViewController: UICollectionViewDelegateFlowLayout {
-//
-//}

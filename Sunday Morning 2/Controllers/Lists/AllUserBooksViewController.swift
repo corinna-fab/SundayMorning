@@ -8,15 +8,12 @@
 
 import UIKit
 import WebKit
-import RealmSwift
 import FirebaseAuth
 import SCLAlertView
 
-//TO DO: Make header update with list name, My Books as default
 class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var table: UITableView!
-//    @IBOutlet weak var readOrUnreadButton: UIButton!
     
     var unreadOnly: Bool = false
     var picklength: String = ""
@@ -111,8 +108,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func saveList(_ sender: UIButton) {
-        //Send to database here
-        print("Click")
         
         //ALERTVIEW RESOURCE: https://github.com/vikmeup/SCLAlertView-Swift
         let appearance = SCLAlertView.SCLAppearance(
@@ -128,7 +123,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         let alertView = SCLAlertView(appearance: appearance)
         let txt = alertView.addTextField("List   name")
         alertView.addButton("Done", backgroundColor: #colorLiteral(red: 0.367708087, green: 0.4341275096, blue: 0.3933157027, alpha: 1)) {
-//            print("\(txt.text)")
             DatabaseManager.shared.addNewList(unreadOnly: self.unreadOnly, pickLength: self.picklength, title: (txt.text ?? "Saved User List") as String, completion: { success in
                 if success {
                     print("Message sent. WOO")
@@ -173,7 +167,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         
         switch length {
         case .short:
-            print("I'm short")
             picklength = "Short"
             
             startListeningForBooks()
@@ -183,7 +176,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                 self.refreshControl.endRefreshing()
             }
         case .medium:
-            print("I'm medium")
             picklength = "Medium"
             
             startListeningForBooks()
@@ -193,7 +185,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                 self.refreshControl.endRefreshing()
             }
         case .long:
-            print("I'm long")
             picklength = "Long"
             
             startListeningForBooks()
@@ -202,13 +193,10 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
             }
-        default:
-            print("Default.")
         }
     }
     
     @IBAction func didSwitchtoUnreadOnly() {
-        print("ADD!")
         
         if unreadOnly == false {
             unreadOnly = true
@@ -237,7 +225,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         
         switch genre {
         case .nonfiction:
-            print("I'm nonfiction")
             genreSelection = "Nonfiction"
             
             startListeningForBooks()
@@ -247,7 +234,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                 self.refreshControl.endRefreshing()
             }
         case .fiction:
-            print("I'm fiction")
             genreSelection = "Fiction"
             
             startListeningForBooks()
@@ -256,8 +242,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
             }
-        default:
-            print("Default.")
         }
     }
     
@@ -279,9 +263,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("Unread: \(unreadOnly)")
-//        print("Length: \(picklength)")
-//        print("Title: \(title)")
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
         
@@ -289,7 +270,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Book List ...")
         refreshControl.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         
-        //        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         let nib = UINib(nibName: "SavedBooksTableViewCell", bundle: nil)
         table.register(nib, forCellReuseIdentifier: "SavedBooksTableViewCell")
         table.refreshControl = refreshControl
@@ -299,7 +279,7 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         startListeningForBooks()
     }
     
-    ///Tells the table to refresh upon pull down
+    //Tells the table to refresh upon pull down
     //https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view
     @objc private func refreshBookData(_ sender: Any) {
         
@@ -314,22 +294,17 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
-        print("Starting to fetch books")
-        
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
         DatabaseManager.shared.getAllBooks(with: safeEmail, unreadOnly: unreadOnly, length: picklength, genre: genreSelection!, category: selectedCategories!, completion: { [weak self] result in
             switch result {
             case .success(let conversations):
                 print("successfully got book models")
-                print("\(conversations)")
                 guard !conversations.isEmpty else {
                     print("nothing to see here")
                     return
                 }
-                print("LIBRARY COUNT: \(conversations.count)")
                 self?.conversations = conversations
-                print("this is where the collection would go")
                 DispatchQueue.main.async {
                     self?.table.reloadData()
                 }
@@ -343,18 +318,12 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
                                 categories.removeAll { $0 == "Fiction" || $0 == "Nonficton" }
                                 self?.categoryArray = categories
                                 
-                                print("Catergories: \(categories)")
-//                                DispatchQueue.main.async {
-//
-//                                }
                             case .failure(let error):
                                 print("failed to get unread book count: \(error)")
                             }
                         })
                 
             case .failure(let error):
-                //                self?.tableView.isHidden = true
-                //                self?.noConversationsLabel.isHidden = false
                 print("failed to get books: \(error)")
             }
         })
@@ -370,8 +339,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
         cell.bookAuthor.text = conversations[indexPath.row].author
         cell.bookTitle.text = conversations[indexPath.row].title
         displayCoverImage(indexPath.row, cell: cell)
-        //        cell.textLabel?.numberOfLines = 0
-        //        cell.textLabel!.text = conversations[indexPath.row].title
         return cell
     }
     
@@ -400,32 +367,8 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         vc.book = model
-        //        vc.bookTitle.text = model.title as! String
-        //        vc.bookAuthor.text = model.author as! String
-        //        vc.bookDescription.text = model.description as! String
         
         navigationController?.pushViewController(vc, animated: true)
-        print("You hit me")
-        //Open to screen where we can see additional info
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //     if (editingStyle == .delete){
-        //            let item = conversations[indexPath.row]
-        //            try! self.realm.write({
-        //                self.realm.delete(item)
-        //            })
-        //            bookData.remove(at: indexPath.row)
-        //            tableView.deleteRows(at:[indexPath], with: .automatic)
-        //        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -455,22 +398,6 @@ class AllUserBooksViewController: UIViewController, UITableViewDelegate, UITable
     }
     
 }
-//
-//class BookItem: Object {
-//    @objc dynamic var id: String = ""
-//    @objc dynamic var title: String = ""
-//    @objc dynamic var imageUrl: String = ""
-//    @objc dynamic var author: String = ""
-//    @objc dynamic var bookDescription: String = ""
-//    @objc dynamic var isbn: String = ""
-//    @objc dynamic var dateAdded: Date = Date()
-////    @objc dynamic var email: String = (FirebaseAuth.Auth.auth().currentUser?.email!)!
-//}
-//
-//class BookCell: UITableViewCell {
-//    @IBOutlet var title : UILabel?
-//    @IBOutlet var author : UILabel?
-//}
 
 extension AllUserBooksViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -487,9 +414,6 @@ extension AllUserBooksViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        print("Selected")
-//        categoryPicker.isHidden = true
         
         UIView.animate(withDuration: 0.8, animations: {
             self.categoryPicker.isHidden = true
