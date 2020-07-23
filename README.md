@@ -6,8 +6,6 @@ Sunday Morning is a vendor agnostic book tracking platform which puts the power 
 who operate within the scope of their catalog, and archives/rare books whose material is often out of reach - Sunday Morning is focused on creating a smoother reading
 experience by creating a single source of information that can be customized through categories and lists to make for easier hunting for the next read. 
 
-![Sunday Morning My Books](https://drive.google.com/file/d/1eHGr8anBs3BoRiJM4yuHvh4UNtZbS75I/view?usp=sharing)
-
 ## Getting Started
 To install this project, download Xcode:
 1. Go to: https://developer.apple.com/xcode/
